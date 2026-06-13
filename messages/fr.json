@@ -1,0 +1,378 @@
+{
+  "metadata": {
+    "title": "AIm",
+    "description": "Des cours d'IA gratuits pour comprendre et utiliser l'intelligence artificielle, du débutant à l'avancé, plus une newsletter quotidienne sur l'actualité."
+  },
+  "common": {
+    "appName": "AIm",
+    "nav": {
+      "how": "Comment ça marche",
+      "courses": "Cours",
+      "newsletter": "La Quotidienne",
+      "faq": "FAQ"
+    },
+    "actions": {
+      "login": "Se connecter",
+      "toggleTheme": "Changer de thème"
+    },
+    "levels": {
+      "BEGINNER": "Débutant",
+      "INTERMEDIATE": "Intermédiaire",
+      "ADVANCED": "Avancé"
+    }
+  },
+  "landing": {
+    "meta": {
+      "title": "AIm — Apprendre l'IA, à ton rythme",
+      "description": "Des cours d'IA gratuits pour comprendre et utiliser l'IA au quotidien, du grand débutant à l'avancé. Plus une newsletter quotidienne qui décode l'actualité."
+    },
+    "hero": {
+      "eyebrow": "Cours gratuits · newsletter quotidienne",
+      "titleLead": "Apprendre l'IA, ",
+      "titleEm": "à ton rythme.",
+      "lede": "Des cours gratuits qui partent de zéro, sans jargon ni prérequis technique. De la première notion aux usages avancés, tu comprends vraiment comment ça marche.",
+      "ctaPrimary": "Commencer gratuitement",
+      "ctaSecondary": "Voir les cours",
+      "checks": [
+        "Gratuit, sans carte bancaire",
+        "Pensé pour les débutants, jamais simpliste",
+        "Un quiz et un badge à la fin de chaque cours"
+      ]
+    },
+    "how": {
+      "kicker": "Comment ça marche",
+      "title": "Trois étapes, rien de plus.",
+      "subtitle": "Aucun ordre imposé, aucun chrono. Tu choisis quand commencer et jusqu'où aller.",
+      "steps": [
+        {
+          "num": "01",
+          "title": "Crée ton compte",
+          "body": "Une adresse e-mail suffit. Une minute, gratuit, sans carte bancaire ni engagement."
+        },
+        {
+          "num": "02",
+          "title": "Suis un parcours",
+          "body": "Trois niveaux, du grand débutant au plus avancé. Tu avances quand tu veux et reprends exactement où tu t'étais arrêté."
+        },
+        {
+          "num": "03",
+          "title": "Valide avec un badge",
+          "body": "Un court quiz en fin de cours débloque un badge d'achèvement, à garder ou à partager."
+        }
+      ]
+    },
+    "newsletter": {
+      "kicker": "La Quotidienne AIm",
+      "title": "Suivre l'IA sans y passer tes journées.",
+      "lede": "Un seul article par édition : la nouveauté qui compte, résumée clairement, remise dans son contexte, avec ce qu'elle change concrètement.",
+      "price": "2,99 €",
+      "per": "par mois, sans engagement",
+      "bullets": [
+        "Un seul article par jour, choisi pour son importance",
+        "Toujours la source d'origine, citée et liée",
+        "Désabonnement immédiat, sans justification"
+      ],
+      "cta": "S'abonner à La Quotidienne",
+      "preview": {
+        "label": "Aperçu d'un e-mail de La Quotidienne AIm",
+        "from": "La Quotidienne AIm",
+        "email": "quotidienne@aim.fr",
+        "date": "jeu. 21 mai",
+        "kicker": "Édition n° 412 · Modèles ouverts",
+        "title": "Mistral publie un petit modèle pensé pour tourner sur un ordinateur portable",
+        "summary": "L'éditeur français a mis en ligne hier un modèle de 3 milliards de paramètres, librement réutilisable, qui peut fonctionner hors-ligne sur un Mac récent ou un PC équipé d'une carte graphique modeste. Les premiers tests indépendants le placent au niveau de modèles deux fois plus gros sur la rédaction et la traduction.",
+        "whyLabel": "Pourquoi c'est important",
+        "why": "Faire tourner un modèle sur sa propre machine, c'est ne plus dépendre d'un service en ligne pour des tâches sensibles : courriers, comptes-rendus, données personnelles. Pour beaucoup d'utilisateurs et de petites entreprises, c'est la première fois que ce scénario devient réaliste sans matériel spécialisé.",
+        "source": "Lire la source originale",
+        "footReason": "Reçu parce que tu es abonné à AIm",
+        "footUnsub": "Se désabonner"
+      }
+    },
+    "faq": {
+      "kicker": "Questions fréquentes",
+      "title": "Les réponses honnêtes, sans détour.",
+      "items": [
+        {
+          "q": "Faut-il déjà savoir coder pour s'inscrire ?",
+          "a": "Non, et c'est même la raison d'être d'AIm. Les cours partent du principe que tu n'as jamais ouvert de terminal. Si tu veux ensuite aller vers la programmation, un parcours optionnel est prévu pour ça, mais rien ne t'y oblige."
+        },
+        {
+          "q": "Les cours gratuits le sont-ils vraiment ?",
+          "a": "Oui. Tous les cours, quiz et badges restent accessibles sans payer. Seule la newsletter quotidienne est payante, à 2,99 € par mois. C'est elle qui finance le travail éditorial des cours."
+        },
+        {
+          "q": "Puis-je annuler la newsletter à tout moment ?",
+          "a": "À tout moment, depuis ton espace personnel ou via le lien présent en bas de chaque e-mail. Aucune relance, pas de questionnaire de sortie. Tu gardes l'accès jusqu'à la fin de la période déjà payée."
+        },
+        {
+          "q": "Mes données servent-elles à entraîner une IA ?",
+          "a": "Non. Tes réponses aux quiz, ta progression et ton e-mail restent sur nos serveurs en France et ne sont jamais utilisés pour entraîner un modèle, ni revendus. La politique complète est détaillée dans la page Confidentialité."
+        },
+        {
+          "q": "Les badges sont-ils reconnus par les employeurs ?",
+          "a": "AIm n'est pas un organisme certifié, donc nous restons honnêtes : ce ne sont pas des diplômes. Les badges servent à structurer ton apprentissage et à montrer ce que tu as réellement étudié. Beaucoup d'utilisateurs les ajoutent à leur CV ou à LinkedIn ; à toi de voir."
+        }
+      ]
+    },
+    "footer": {
+      "tagline": "L'intelligence artificielle, expliquée sans détour.",
+      "links": [
+        "Mentions légales",
+        "CGV",
+        "Confidentialité",
+        "Contact"
+      ],
+      "copyright": "© 2026 AIm.",
+      "hosting": "Données hébergées en France."
+    }
+  },
+  "dashboard": {
+    "meta": {
+      "title": "Tableau de bord",
+      "description": "Tes cours en cours, tes badges et l'état de ton abonnement."
+    },
+    "nav": {
+      "dashboard": "Tableau de bord",
+      "courses": "Cours",
+      "badges": "Mes badges",
+      "newsletter": "La Quotidienne"
+    },
+    "account": {
+      "open": "Mon compte"
+    },
+    "greeting": {
+      "hello": "Bonjour <em>{name}</em>.",
+      "orientation": "Tu as une leçon en cours. Reprends quand tu veux, rien ne se perd."
+    },
+    "resume": {
+      "title": "À reprendre",
+      "seeAll": "Voir tous les cours",
+      "next": "Prochaine : <b>Leçon {num} · {title}</b>",
+      "progress": "{pct} %",
+      "cta": "Reprendre"
+    },
+    "badges": {
+      "title": "Mes badges",
+      "count": "{count, plural, =0 {Aucun badge obtenu} one {# badge obtenu} other {# badges obtenus}}"
+    },
+    "newsletter": {
+      "title": "La Quotidienne",
+      "status": "Non abonné",
+      "headline": "Reçois l'essentiel de l'IA chaque jour.",
+      "body": "Un seul article par jour, celui qui compte vraiment. La newsletter finance les cours gratuits.",
+      "price": "2,99 € / mois",
+      "detail": "Sans engagement",
+      "subscribe": "S'abonner",
+      "preview": "Voir un aperçu"
+    },
+    "actions": {
+      "title": "Prochaines actions",
+      "subtitle": "Suggestions, pas d'obligations",
+      "items": {
+        "resume": {
+          "title": "Reprendre « {course} »",
+          "hint": "Leçon {num}, il te reste environ {min} minutes"
+        },
+        "quiz": {
+          "title": "Passer le quiz de fin de module",
+          "hint": "Cinq questions, environ cinq minutes, pour débloquer ton prochain badge"
+        },
+        "newsletter": {
+          "title": "Essayer La Quotidienne pendant un mois",
+          "hint": "Sans engagement, 2,99 €, résiliable à tout moment"
+        }
+      }
+    },
+    "footer": {
+      "signedInAs": "Connecté en tant que {name}",
+      "account": "Mon compte",
+      "help": "Aide",
+      "logout": "Se déconnecter",
+      "copyright": "© 2026 AIm"
+    }
+  },
+  "auth": {
+    "meta": {
+      "register": {
+        "title": "Créer un compte",
+        "description": "Crée ton compte AIm pour suivre les cours et garder ta progression."
+      },
+      "login": {
+        "title": "Se connecter",
+        "description": "Connecte-toi à ton compte AIm pour reprendre tes cours."
+      },
+      "forgot": {
+        "title": "Mot de passe oublié",
+        "description": "Reçois un lien pour réinitialiser le mot de passe de ton compte AIm."
+      },
+      "reset": {
+        "title": "Nouveau mot de passe",
+        "description": "Choisis un nouveau mot de passe pour ton compte AIm."
+      }
+    },
+    "footer": "© 2026 AIm",
+    "common": {
+      "email": "E-mail",
+      "emailPlaceholder": "lea@exemple.fr",
+      "emailInvalid": "Cet e-mail ne semble pas valide.",
+      "or": "ou",
+      "google": "Continuer avec Google",
+      "googleLoading": "Redirection vers Google…",
+      "show": "Afficher le mot de passe",
+      "hide": "Masquer le mot de passe"
+    },
+    "strength": {
+      "hint": "8 caractères minimum, mélange conseillé",
+      "levels": ["", "Faible", "Moyen", "Bien", "Solide"]
+    },
+    "register": {
+      "title": "Créer un compte AIm.",
+      "subtitle": "Apprends à ton rythme, repars avec des attestations.",
+      "firstName": "Prénom",
+      "firstNamePlaceholder": "Léa",
+      "lastName": "Nom",
+      "lastNamePlaceholder": "Moreau",
+      "namesHint": "Tels qu'ils apparaîtront sur tes attestations.",
+      "firstNameRequired": "On a besoin de ton prénom pour personnaliser tes attestations.",
+      "lastNameRequired": "On a besoin de ton nom pour personnaliser tes attestations.",
+      "emailInvalid": "Cet e-mail ne semble pas valide. Vérifie qu'il contient bien un @ et un domaine.",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Au moins 8 caractères",
+      "confirm": "Confirmer le mot de passe",
+      "confirmPlaceholder": "Retape le même mot de passe",
+      "confirmRequired": "Retape ton mot de passe pour confirmer.",
+      "confirmMismatch": "Les deux mots de passe ne correspondent pas. Vérifie la saisie.",
+      "terms": "J'accepte les <cgv>CGV</cgv> et la <privacy>politique de confidentialité</privacy>.",
+      "submit": "Créer mon compte",
+      "submitLoading": "Création du compte…",
+      "swap": "Déjà un compte ? <link>Se connecter</link>"
+    },
+    "login": {
+      "title": "Content de te revoir.",
+      "subtitle": "Connecte-toi pour reprendre tes cours là où tu les as laissés.",
+      "bannerTitle": "Identifiants incorrects.",
+      "bannerBody": "Vérifie ton e-mail et ton mot de passe, ou réinitialise-le ci-dessous.",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "••••••••",
+      "forgot": "Mot de passe oublié ?",
+      "submit": "Se connecter",
+      "submitLoading": "Connexion en cours…",
+      "swap": "Pas encore de compte ? <link>Créer un compte</link>"
+    },
+    "forgot": {
+      "title": "Réinitialiser ton mot de passe.",
+      "subtitle": "Indique l'e-mail de ton compte. On t'envoie un lien sécurisé, valide une heure.",
+      "emailInvalid": "Cet e-mail ne semble pas valide. Vérifie le format avant d'envoyer.",
+      "submit": "Recevoir un lien",
+      "submitLoading": "Envoi du lien…",
+      "back": "← Retour à la connexion",
+      "sentTitle": "Vérifie ta boîte mail.",
+      "sentBody": "Si un compte existe avec cette adresse, tu recevras un lien dans les prochaines minutes.",
+      "resendPrompt": "Pas reçu ? Regarde dans les spams, ou <link>renvoyer le lien</link>.",
+      "resending": "Envoi…",
+      "resent": "Lien renvoyé ✓"
+    },
+    "reset": {
+      "title": "Choisis un nouveau mot de passe.",
+      "subtitle": "Au moins 8 caractères. Évite ceux que tu utilises déjà ailleurs.",
+      "hint": "8 caractères, idéalement avec un chiffre et un symbole",
+      "password": "Nouveau mot de passe",
+      "passwordPlaceholder": "Au moins 8 caractères",
+      "confirm": "Confirmer le mot de passe",
+      "confirmPlaceholder": "Retape le même mot de passe",
+      "confirmMismatch": "Les deux mots de passe ne correspondent pas. Vérifie la saisie.",
+      "submit": "Réinitialiser",
+      "submitLoading": "Mise à jour…",
+      "submitDone": "Mot de passe mis à jour ✓",
+      "back": "← Retour à la connexion"
+    }
+  },
+  "account": {
+    "meta": {
+      "title": "Mon compte",
+      "description": "Tes informations, ta sécurité et tes données."
+    },
+    "crumb": {
+      "dashboard": "Tableau de bord",
+      "current": "Mon compte"
+    },
+    "title": "Mon compte",
+    "subtitle": "Tes informations, ta sécurité et tes données. Tout est à toi, à modifier ou exporter quand tu veux.",
+    "tabs": {
+      "profile": "Profil",
+      "security": "Sécurité",
+      "data": "Données",
+      "billing": "Facturation"
+    },
+    "profile": {
+      "title": "Profil public",
+      "desc": "Ces informations apparaissent sur tes badges vérifiables. Le nom et l'initiale sont visibles, l'e-mail reste privé.",
+      "upload": "Importer une photo",
+      "useInitials": "Utiliser mes initiales",
+      "photoNote": "JPG ou PNG, 1 Mo maximum. Sans photo, tes initiales sont affichées sur fond foncé.",
+      "nameLabel": "Nom affiché",
+      "emailLabel": "Adresse e-mail",
+      "emailHelp": "On t'enverra un lien de confirmation à la nouvelle adresse.",
+      "clean": "Tu n'as pas de modification en cours.",
+      "dirty": "Modifications non enregistrées.",
+      "save": "Enregistrer",
+      "savedToast": "Profil enregistré.",
+      "uploadToast": "Sélecteur de fichier (maquette).",
+      "initialsToast": "Initiales restaurées."
+    },
+    "security": {
+      "passwordTitle": "Mot de passe",
+      "passwordDesc": "Choisis un mot de passe d'au moins huit caractères. On te conseille de ne pas le réutiliser ailleurs.",
+      "current": "Mot de passe actuel",
+      "currentPlaceholder": "••••••••",
+      "new": "Nouveau mot de passe",
+      "newPlaceholder": "Au moins 8 caractères",
+      "confirm": "Confirmer",
+      "confirmPlaceholder": "Retape le nouveau",
+      "forgotHint": "Si tu l'as oublié, <link>demande un lien de réinitialisation</link>.",
+      "change": "Changer le mot de passe",
+      "changedToast": "Mot de passe changé.",
+      "sessionsTitle": "Sessions actives",
+      "sessionsDesc": "Voici les appareils où tu es connecté en ce moment. Si tu vois quelque chose d'inhabituel, déconnecte-les tous.",
+      "thisDevice": "Cet appareil",
+      "disconnect": "Déconnecter",
+      "disconnectedToast": "Session déconnectée.",
+      "sessionsHint": "Tu resteras connecté sur cet appareil.",
+      "disconnectAll": "Déconnecter toutes les autres sessions",
+      "disconnectAllToast": "Autres sessions déconnectées."
+    },
+    "data": {
+      "exportTitle": "Exporter mes données",
+      "exportDesc": "Conformément au RGPD, tu peux télécharger à tout moment l'ensemble de ce que nous savons de toi.",
+      "exportRowTitle": "Une archive complète, au format JSON",
+      "exportRowBody": "Profil, progression des cours, badges obtenus, historique de tes lectures, factures, préférences. Nous t'enverrons un lien de téléchargement par e-mail, valable 24 h.",
+      "exportBtn": "Télécharger mes données",
+      "exportToast": "Demande envoyée. Tu recevras un lien par e-mail.",
+      "deleteTitle": "Supprimer mon compte",
+      "deleteDesc": "Action définitive. Ton profil, ta progression et tes badges seront effacés. Les abonnements en cours seront résiliés.",
+      "deleteRowTitle": "Suppression définitive",
+      "deleteRowBody": "Nous garderons uniquement ce que la loi nous oblige à conserver (factures pendant dix ans, par exemple). Tout le reste est supprimé sous trente jours.",
+      "deleteBtn": "Supprimer mon compte"
+    },
+    "deleteModal": {
+      "step1Title": "Avant de supprimer ton compte",
+      "step1Intro": "Cette action ne peut pas être annulée. Voici ce qui sera effacé :",
+      "step1Items": [
+        "Ton profil et ton historique de progression",
+        "Tes badges et les pages publiques de vérification associées",
+        "Ton abonnement à La Quotidienne (résilié immédiatement)"
+      ],
+      "step1Export": "Tu peux préférer <link>exporter d'abord tes données</link>.",
+      "step1Of2": "Étape 1 sur 2",
+      "step2Of2": "Étape 2 sur 2",
+      "cancel": "Annuler",
+      "continue": "Continuer",
+      "step2Title": "Confirmer la suppression",
+      "step2Prompt": "Pour confirmer, tape <code>{phrase}</code> dans le champ ci-dessous.",
+      "confirmLabel": "Confirmation",
+      "confirmPhrase": "supprimer mon compte",
+      "deleteFinal": "Supprimer définitivement",
+      "deletedToast": "Compte programmé pour suppression."
+    }
+  }
+}
