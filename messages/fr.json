@@ -249,7 +249,7 @@
     },
     "login": {
       "title": "Content de te revoir.",
-      "subtitle": "Connecte-toi pour reprendre tes cours là où tu les as laissés.",
+      "subtitle": "Reprends tes cours là où tu les as laissés.",
       "bannerTitle": "Identifiants incorrects.",
       "bannerBody": "Vérifie ton e-mail et ton mot de passe, ou réinitialise-le ci-dessous.",
       "password": "Mot de passe",
