@@ -1,0 +1,362 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+}
+
+enum SourceCategory {
+  OFFICIAL
+  RESEARCH
+  COMMUNITY
+}
+
+enum ArticleStatus {
+  PENDING
+  SUMMARIZED
+  SKIPPED
+  FAILED
+}
+
+enum SummaryCategory {
+  MODEL_RELEASE
+  RESEARCH_PAPER
+  PRODUCT
+  SAFETY_ETHICS
+  TOOLING
+  OTHER
+}
+
+enum IssueStatus {
+  DRAFT
+  READY
+  SENT
+}
+
+enum AIPurpose {
+  NEWSLETTER_SUMMARY
+  OTHER
+}
+
+model User {
+  id               String    @id @default(cuid())
+  email            String    @unique
+  name             String?
+  passwordHash     String?
+  role             Role      @default(STUDENT)
+  emailVerified    DateTime?
+  image            String?
+  stripeCustomerId String?   @unique
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  accounts               Account[]
+  sessions               Session[]
+  enrollments            Enrollment[]
+  lessonCompletions      LessonCompletion[]
+  quizAttempts           QuizAttempt[]
+  badges                 Badge[]
+  stripeSubscriptions    StripeSubscription[]
+  newsletterSubscription NewsletterSubscription?
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Course {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String   @db.VarChar(300)
+  level       Int
+  order       Int
+  published   Boolean  @default(false)
+  aiAssisted  Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  lessons     Lesson[]
+  quiz        Quiz?
+  enrollments Enrollment[]
+  badges      Badge[]
+
+  @@index([level, order])
+}
+
+model Lesson {
+  id               String   @id @default(cuid())
+  courseId         String
+  title            String
+  contentMd        String
+  order            Int
+  aiAssisted       Boolean  @default(false)
+  estimatedMinutes Int?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  course      Course             @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  completions LessonCompletion[]
+
+  @@index([courseId, order])
+}
+
+model Quiz {
+  id         String   @id @default(cuid())
+  courseId   String   @unique
+  passScore  Int      @default(70)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  course    Course        @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  questions Question[]
+  attempts  QuizAttempt[]
+}
+
+model Question {
+  id          String   @id @default(cuid())
+  quizId      String
+  text        String
+  options     Json
+  order       Int
+  explanation String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+
+  @@index([quizId, order])
+}
+
+model QuizAttempt {
+  id              String   @id @default(cuid())
+  userId          String
+  quizId          String
+  score           Int
+  passed          Boolean
+  answers         Json
+  durationSeconds Int
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quiz Quiz @relation(fields: [quizId], references: [id], onDelete: Cascade)
+
+  @@index([userId, quizId])
+}
+
+model Enrollment {
+  id             String    @id @default(cuid())
+  userId         String
+  courseId       String
+  progress       Int       @default(0)
+  completedAt    DateTime?
+  lastAccessedAt DateTime  @default(now())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+}
+
+model LessonCompletion {
+  id          String   @id @default(cuid())
+  userId      String
+  lessonId    String
+  completedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+}
+
+model Badge {
+  id          String   @id @default(cuid())
+  userId      String
+  courseId    String
+  verifyToken String   @unique
+  issuedAt    DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+}
+
+model StripeSubscription {
+  id                   String   @id @default(cuid())
+  userId               String
+  stripeSubscriptionId String   @unique
+  stripePriceId        String
+  status               String
+  currentPeriodStart   DateTime
+  currentPeriodEnd     DateTime
+  cancelAtPeriodEnd    Boolean  @default(false)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, status])
+}
+
+model NewsletterSubscription {
+  id             String    @id @default(cuid())
+  userId         String    @unique
+  confirmed      Boolean   @default(false)
+  confirmToken   String    @unique
+  confirmedAt    DateTime?
+  unsubscribedAt DateTime?
+  maxLevel       Int?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model NewsletterSource {
+  id            String         @id @default(cuid())
+  name          String
+  rssUrl        String         @unique
+  category      SourceCategory
+  enabled       Boolean        @default(true)
+  lastFetchedAt DateTime?
+  lastError     String?
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  articles NewsletterArticle[]
+}
+
+model NewsletterArticle {
+  id          String        @id @default(cuid())
+  sourceId    String
+  sourceUrl   String        @unique
+  title       String
+  rawContent  String?
+  publishedAt DateTime
+  fetchedAt   DateTime      @default(now())
+  status      ArticleStatus @default(PENDING)
+  skipReason  String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  source  NewsletterSource           @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+  summary NewsletterArticleSummary?
+
+  @@index([status, publishedAt])
+}
+
+model NewsletterArticleSummary {
+  id             String          @id @default(cuid())
+  articleId      String          @unique
+  titleLocalized String
+  summary        String
+  whyItMatters   String
+  category       SummaryCategory
+  level          Int
+  generatedAt    DateTime        @default(now())
+  model          String
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  article NewsletterArticle     @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  items   NewsletterIssueItem[]
+
+  @@index([generatedAt])
+}
+
+model NewsletterIssue {
+  id             String      @id @default(cuid())
+  subject        String
+  intro          String      @default("")
+  status         IssueStatus @default(DRAFT)
+  intendedSendAt DateTime
+  sentAt         DateTime?
+  autoSent       Boolean     @default(false)
+  recipientCount Int?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+
+  items NewsletterIssueItem[]
+
+  @@index([status, intendedSendAt])
+}
+
+model NewsletterIssueItem {
+  id        String   @id @default(cuid())
+  issueId   String
+  summaryId String
+  order     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  issue   NewsletterIssue          @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  summary NewsletterArticleSummary @relation(fields: [summaryId], references: [id], onDelete: Cascade)
+
+  @@unique([issueId, summaryId])
+}
+
+model AIGenerationLog {
+  id                String    @id @default(cuid())
+  purpose           AIPurpose
+  model             String
+  attemptNumber     Int
+  inputTokens       Int
+  outputTokens      Int
+  cachedInputTokens Int       @default(0)
+  costUsd           Decimal   @db.Decimal(10, 6)
+  success           Boolean
+  errorMessage      String?
+  metadata          Json?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@index([createdAt])
+}
