@@ -19,10 +19,10 @@ export default async function MarketingLayout({ children }: { children: ReactNod
   const nav = (
     <NavLinks
       items={[
-        { label: tc('nav.how'), href: '#etapes' },
+        { label: tc('nav.how'), href: '/#etapes' },
         { label: tc('nav.courses'), href: '/cours' },
-        { label: tc('nav.newsletter'), href: '#newsletter' },
-        { label: tc('nav.faq'), href: '#faq' },
+        { label: tc('nav.newsletter'), href: '/#newsletter' },
+        { label: tc('nav.faq'), href: '/#faq' },
       ]}
     />
   );

@@ -400,5 +400,81 @@
       "cta": "Choisir un nouveau mot de passe",
       "footer": "Tu n'as pas fait cette demande ? Ignore ce message, ton mot de passe actuel reste valable."
     }
+  },
+  "courses": {
+    "meta": {
+      "title": "Les cours",
+      "description": "Des parcours progressifs pour comprendre et utiliser l IA au quotidien. Gratuits, avec attestation de completion."
+    },
+    "kicker": "Cours",
+    "title": "Apprendre l IA, niveau par niveau",
+    "lede": "Chaque parcours part de zero et se termine par un quiz. Tout est gratuit ; le compte sert a garder ta progression et tes attestations.",
+    "empty": "Les premiers cours arrivent bientot.",
+    "lessonCount": "{count, plural, one {# lecon} other {# lecons}}",
+    "progress": "{progress} % termine",
+    "start": "Commencer",
+    "resume": "Reprendre",
+    "review": "Revoir",
+    "aiAssisted": "Contenu assiste par IA, relu manuellement",
+    "handWritten": "Contenu redige a la main",
+    "detail": {
+      "lessons": "Les lecons",
+      "quizTitle": "Quiz final",
+      "quizLocked": "Termine toutes les lecons pour ouvrir le quiz.",
+      "quizOpen": "Tu peux passer le quiz.",
+      "quizPassed": "Quiz reussi. Ton attestation est disponible.",
+      "quizStart": "Passer le quiz",
+      "badgeView": "Voir mon attestation",
+      "minutes": "{count} min",
+      "completed": "Terminee",
+      "backToCourses": "Tous les cours"
+    },
+    "lesson": {
+      "markRead": "Marquer comme lu",
+      "marked": "Lecon terminee",
+      "previous": "Lecon precedente",
+      "next": "Lecon suivante",
+      "backToCourse": "Retour au cours",
+      "loginToTrack": "Connecte-toi pour enregistrer ta progression.",
+      "verifyToTrack": "Confirme ton adresse email pour enregistrer ta progression.",
+      "position": "Lecon {index} sur {total}"
+    }
+  },
+  "quiz": {
+    "meta": {
+      "title": "Quiz",
+      "description": "Valide tes acquis et obtiens ton attestation de completion."
+    },
+    "kicker": "Quiz final",
+    "intro": "Une seule bonne reponse par question. Tu peux retenter autant de fois que tu veux.",
+    "question": "Question {index} sur {total}",
+    "submit": "Valider mes reponses",
+    "submitting": "Correction en cours",
+    "incomplete": "Reponds a toutes les questions avant de valider.",
+    "resultTitle": "Ton resultat",
+    "score": "{score} %",
+    "passed": "Reussi. Ton attestation de completion est disponible.",
+    "failed": "Il manque quelques points. Relis les lecons et retente.",
+    "passScore": "Seuil de reussite : {passScore} %",
+    "yourAnswer": "Ta reponse",
+    "correctAnswer": "Bonne reponse",
+    "retry": "Retenter le quiz",
+    "seeBadge": "Voir mon attestation",
+    "backToCourse": "Retour au cours",
+    "error": "La correction a echoue. Reessaie dans un instant."
+  },
+  "badges": {
+    "meta": {
+      "title": "Attestation de completion",
+      "description": "Verification publique d une attestation de completion delivree par AIm."
+    },
+    "kicker": "Attestation verifiee",
+    "heading": "{name} a termine {course}",
+    "issuedOn": "Delivree le {date}",
+    "disclaimer": "Cette attestation confirme l achevement du cours sur AIm. Elle ne constitue pas une certification professionnelle reconnue.",
+    "addToLinkedIn": "Ajouter a LinkedIn",
+    "discover": "Decouvrir AIm",
+    "notFound": "Attestation introuvable",
+    "notFoundBody": "Ce lien ne correspond a aucune attestation. Verifie l adresse ou demande un nouveau lien a son titulaire."
   }
 }
