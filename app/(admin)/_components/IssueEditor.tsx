@@ -46,7 +46,19 @@ export default function IssueEditor({
   }
 
   if (readOnly) {
-    return <Box sx={{ fontSize: '14px', color: 'text.secondary' }}>{t('alreadySent')}</Box>;
+    return (
+      <Box sx={{ display: 'grid', gap: 1 }}>
+        {message ? (
+          <Box
+            role="status"
+            sx={{ fontSize: '14px', color: error ? 'error.main' : 'success.main' }}
+          >
+            {message}
+          </Box>
+        ) : null}
+        <Box sx={{ fontSize: '14px', color: 'text.secondary' }}>{t('alreadySent')}</Box>
+      </Box>
+    );
   }
 
   return (
@@ -106,7 +118,9 @@ export default function IssueEditor({
         >
           {t('delete')}
         </Button>
-        <Box sx={{ fontSize: '14px', color: error ? 'error.main' : 'success.main' }}>{message}</Box>
+        <Box role="status" sx={{ fontSize: '14px', color: error ? 'error.main' : 'success.main' }}>
+          {message}
+        </Box>
       </Box>
     </Box>
   );

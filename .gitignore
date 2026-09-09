@@ -51,3 +51,8 @@ skills-lock.json
 
 # prisma generated client
 /lib/generated
+
+# playwright
+/test-results
+/playwright-report
+/blob-report
