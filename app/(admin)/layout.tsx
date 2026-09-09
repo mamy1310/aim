@@ -18,6 +18,9 @@ export default async function AdminLayout({ children }: { children: ReactNode })
       {[
         { label: t('dashboard'), href: '/admin' },
         { label: t('courses'), href: '/admin/courses' },
+        { label: t('newsletter'), href: '/admin/newsletter/issues' },
+        { label: t('users'), href: '/admin/users' },
+        { label: t('logs'), href: '/admin/logs' },
         { label: t('back'), href: '/' },
       ].map((item) => (
         <Link

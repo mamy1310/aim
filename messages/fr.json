@@ -521,7 +521,10 @@
     "nav": {
       "dashboard": "Tableau de bord",
       "courses": "Cours",
-      "back": "Retour au site"
+      "back": "Retour au site",
+      "newsletter": "Newsletter",
+      "logs": "Traces IA",
+      "users": "Comptes"
     },
     "home": {
       "title": "Administration",
@@ -597,7 +600,101 @@
     "errors": {
       "invalid_input": "Certains champs sont incomplets ou mal remplis.",
       "slug_taken": "Cet identifiant d URL est deja pris.",
-      "unexpected": "Une erreur est survenue."
+      "unexpected": "Une erreur est survenue.",
+      "url_taken": "Ce flux est deja enregistre.",
+      "not_found": "Element introuvable.",
+      "already_sent": "Cette edition a deja ete envoyee.",
+      "empty_issue": "Cette edition ne contient aucun article."
+    },
+    "newsletter": {
+      "sources": {
+        "title": "Sources RSS",
+        "name": "Nom",
+        "url": "URL du flux",
+        "category": "Categorie",
+        "enabled": "Active",
+        "lastFetch": "Dernier passage",
+        "never": "Jamais",
+        "error": "Erreur",
+        "add": "Ajouter une source",
+        "save": "Enregistrer",
+        "saved": "Source enregistree",
+        "delete": "Supprimer",
+        "deleteConfirm": "Supprimer cette source et ses articles ?"
+      },
+      "articles": {
+        "title": "Articles collectes",
+        "empty": "Aucun article collecte.",
+        "status": "Statut",
+        "source": "Source",
+        "published": "Publie le",
+        "reason": "Raison",
+        "requeue": "Remettre en attente",
+        "filterAll": "Tous"
+      },
+      "issues": {
+        "title": "Editions",
+        "empty": "Aucune edition pour le moment.",
+        "subject": "Sujet",
+        "status": "Statut",
+        "sendAt": "Envoi prevu",
+        "sentAt": "Envoye le",
+        "recipients": "{count, plural, one {# destinataire} other {# destinataires}}",
+        "autoSent": "Envoi automatique",
+        "manualSent": "Validee manuellement",
+        "edit": "Ouvrir"
+      },
+      "issue": {
+        "title": "Edition du jour",
+        "subjectField": "Sujet de l email",
+        "intro": "Edito (facultatif)",
+        "save": "Enregistrer",
+        "saved": "Edition enregistree",
+        "send": "Valider et envoyer",
+        "sendConfirm": "Envoyer cette edition maintenant ?",
+        "sent": "Edition envoyee",
+        "delete": "Supprimer l edition",
+        "deleteConfirm": "Supprimer cette edition ?",
+        "preview": "Contenu envoye",
+        "whyItMatters": "Pourquoi c est important",
+        "sourceLink": "Article original",
+        "alreadySent": "Cette edition a deja ete envoyee, elle n est plus modifiable."
+      },
+      "statuses": {
+        "PENDING": "En attente",
+        "SUMMARIZED": "Resume",
+        "SKIPPED": "Ecarte",
+        "FAILED": "Echec",
+        "DRAFT": "Brouillon",
+        "READY": "Prete",
+        "SENT": "Envoyee"
+      }
+    },
+    "logs": {
+      "title": "Traces de generation IA",
+      "empty": "Aucune generation enregistree.",
+      "date": "Date",
+      "model": "Modele",
+      "attempt": "Tentative",
+      "tokens": "Tokens",
+      "cost": "Cout",
+      "status": "Resultat",
+      "success": "Succes",
+      "failure": "Echec",
+      "total": "Cout cumule sur 24 h : {cost} $"
+    },
+    "users": {
+      "title": "Comptes",
+      "email": "Adresse",
+      "name": "Nom",
+      "role": "Role",
+      "verified": "Confirmee",
+      "subscription": "Newsletter",
+      "createdAt": "Inscription",
+      "search": "Rechercher une adresse",
+      "none": "Aucun compte trouve.",
+      "subscribed": "Abonne",
+      "notSubscribed": "Non abonne"
     }
   }
 }
