@@ -482,5 +482,92 @@
     "discover": "Decouvrir AIm",
     "notFound": "Attestation introuvable",
     "notFoundBody": "Ce lien ne correspond a aucune attestation. Verifie l adresse ou demande un nouveau lien a son titulaire."
+  },
+  "admin": {
+    "meta": {
+      "title": "Administration",
+      "description": "Espace d administration AIm."
+    },
+    "nav": {
+      "dashboard": "Tableau de bord",
+      "courses": "Cours",
+      "back": "Retour au site"
+    },
+    "home": {
+      "title": "Administration",
+      "users": "Comptes",
+      "verified": "Adresses confirmees",
+      "courses": "Cours publies",
+      "drafts": "Cours en brouillon",
+      "badges": "Attestations delivrees",
+      "subscribers": "Abonnes newsletter actifs"
+    },
+    "courses": {
+      "title": "Cours",
+      "new": "Nouveau cours",
+      "empty": "Aucun cours pour le moment.",
+      "published": "Publie",
+      "draft": "Brouillon",
+      "lessons": "{count, plural, one {# lecon} other {# lecons}}",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "deleteConfirm": "Supprimer ce cours et tout son contenu ?"
+    },
+    "course": {
+      "newTitle": "Nouveau cours",
+      "editTitle": "Modifier le cours",
+      "slug": "Identifiant d URL",
+      "slugHelp": "En minuscules, mots separes par des tirets.",
+      "titleField": "Titre",
+      "description": "Description",
+      "descriptionHelp": "300 caracteres maximum.",
+      "level": "Niveau",
+      "order": "Ordre d affichage",
+      "published": "Publie",
+      "aiAssisted": "Contenu assiste par IA",
+      "save": "Enregistrer",
+      "saved": "Modifications enregistrees",
+      "lessonsTitle": "Lecons",
+      "addLesson": "Ajouter une lecon",
+      "quizTitle": "Quiz final",
+      "editQuiz": "Modifier le quiz",
+      "noQuiz": "Aucun quiz pour ce cours.",
+      "questions": "{count, plural, one {# question} other {# questions}}"
+    },
+    "lesson": {
+      "newTitle": "Nouvelle lecon",
+      "editTitle": "Modifier la lecon",
+      "titleField": "Titre",
+      "order": "Ordre",
+      "minutes": "Duree estimee en minutes",
+      "aiAssisted": "Contenu assiste par IA",
+      "content": "Contenu (markdown)",
+      "preview": "Apercu",
+      "save": "Enregistrer",
+      "saved": "Lecon enregistree",
+      "delete": "Supprimer la lecon",
+      "deleteConfirm": "Supprimer cette lecon ?"
+    },
+    "quiz": {
+      "title": "Quiz du cours",
+      "passScore": "Seuil de reussite en pourcentage",
+      "question": "Question {index}",
+      "questionText": "Enonce",
+      "explanation": "Explication affichee apres correction",
+      "option": "Reponse {index}",
+      "correct": "Bonne reponse",
+      "addOption": "Ajouter une reponse",
+      "removeOption": "Retirer",
+      "addQuestion": "Ajouter une question",
+      "removeQuestion": "Supprimer la question",
+      "save": "Enregistrer le quiz",
+      "saved": "Quiz enregistre",
+      "needOneCorrect": "Chaque question doit avoir exactement une bonne reponse."
+    },
+    "errors": {
+      "invalid_input": "Certains champs sont incomplets ou mal remplis.",
+      "slug_taken": "Cet identifiant d URL est deja pris.",
+      "unexpected": "Une erreur est survenue."
+    }
   }
 }
