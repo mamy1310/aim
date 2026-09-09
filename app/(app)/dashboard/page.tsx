@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getFormatter, getTranslations } from 'next-intl/server';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -7,43 +7,13 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
 import { requireUser } from '@/lib/auth/guards';
+import { getDashboardData } from '@/lib/courses/dashboard';
 import { displayName, formatDateLine } from '@/lib/user';
-import Illustration, { type IllustrationVariant } from '../../_components/Illustration';
+import Illustration from '../../_components/Illustration';
 import { ArrowRightIcon, CheckIcon, ChevronRightIcon } from '../../_components/icons';
 import { levelKey } from '@/lib/levels';
 
 import { container, ghostSx, mono, serif } from '../../_components/styles';
-
-const courses: {
-  slug: string;
-  title: string;
-  level: number;
-  pct: number;
-  nextNum: number;
-  nextTitle: string;
-  ill: IllustrationVariant;
-}[] = [
-  {
-    slug: 'comprendre-les-modeles-de-langage',
-    title: 'Comprendre les modèles de langage',
-    level: 1,
-    pct: 62,
-    nextNum: 4,
-    nextTitle: "L'entraînement, en clair",
-    ill: 'arc',
-  },
-];
-
-const badges: {
-  token: string;
-  title: string;
-  date: string;
-  ill: IllustrationVariant;
-}[] = [
-  { token: 'a1b2c3', title: 'Premiers pas avec un assistant', date: 'Mars 2026', ill: 'circle' },
-  { token: 'd4e5f6', title: 'Le vocabulaire essentiel', date: 'Mars 2026', ill: 'dots' },
-  { token: 'g7h8i9', title: 'Écrire de bons prompts', date: 'Avril 2026', ill: 'split' },
-];
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('dashboard.meta');
@@ -62,19 +32,33 @@ export default async function DashboardPage() {
   const t = await getTranslations('dashboard');
   const user = await requireUser();
   const tc = await getTranslations('common');
+  const format = await getFormatter();
+  const { courses, badges } = await getDashboardData(user.id);
 
   const course = courses[0];
   const actionItems = [
-    {
-      href: `/cours/${course.slug}`,
-      title: t('actions.items.resume.title', { course: course.title }),
-      hint: t('actions.items.resume.hint', { num: course.nextNum, min: 25 }),
-    },
-    {
-      href: `/cours/${course.slug}/quiz`,
-      title: t('actions.items.quiz.title'),
-      hint: t('actions.items.quiz.hint'),
-    },
+    ...(course
+      ? [
+          {
+            href: course.nextLessonId
+              ? `/cours/${course.slug}/lecons/${course.nextLessonId}`
+              : `/cours/${course.slug}`,
+            title: t('actions.items.resume.title', { course: course.title }),
+            hint: t('actions.items.resume.hint', { num: course.nextNum }),
+          },
+          {
+            href: `/cours/${course.slug}/quiz`,
+            title: t('actions.items.quiz.title'),
+            hint: t('actions.items.quiz.hint'),
+          },
+        ]
+      : [
+          {
+            href: '/cours',
+            title: t('actions.items.discover.title'),
+            hint: t('actions.items.discover.hint'),
+          },
+        ]),
     {
       href: '/newsletter',
       title: t('actions.items.newsletter.title'),
@@ -162,6 +146,11 @@ export default async function DashboardPage() {
           </Box>
 
           <Box sx={{ display: 'grid', gap: '12px' }}>
+            {courses.length === 0 ? (
+              <Typography sx={{ fontSize: '15px', color: 'text.secondary' }}>
+                {t('resume.empty')}
+              </Typography>
+            ) : null}
             {courses.map((crs) => (
               <Link
                 key={crs.slug}
@@ -364,6 +353,11 @@ export default async function DashboardPage() {
               },
             }}
           >
+            {badges.length === 0 ? (
+              <Typography sx={{ fontSize: '15px', color: 'text.secondary', gridColumn: '1 / -1' }}>
+                {t('badges.empty')}
+              </Typography>
+            ) : null}
             {badges.map((b) => (
               <Link
                 key={b.token}
@@ -449,7 +443,7 @@ export default async function DashboardPage() {
                     color: 'text.disabled',
                   }}
                 >
-                  {b.date}
+                  {format.dateTime(b.issuedAt, { month: 'long', year: 'numeric' })}
                 </Box>
               </Link>
             ))}

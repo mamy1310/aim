@@ -144,11 +144,13 @@
       "seeAll": "Voir tous les cours",
       "next": "Prochaine : <b>Leçon {num} · {title}</b>",
       "progress": "{pct} %",
-      "cta": "Reprendre"
+      "cta": "Reprendre",
+      "empty": "Aucun cours en cours. Choisis un parcours pour demarrer."
     },
     "badges": {
       "title": "Mes badges",
-      "count": "{count, plural, =0 {Aucun badge obtenu} one {# badge obtenu} other {# badges obtenus}}"
+      "count": "{count, plural, =0 {Aucun badge obtenu} one {# badge obtenu} other {# badges obtenus}}",
+      "empty": "Pas encore d attestation. Termine un cours et son quiz pour en obtenir une."
     },
     "newsletter": {
       "title": "La Quotidienne",
@@ -166,7 +168,7 @@
       "items": {
         "resume": {
           "title": "Reprendre « {course} »",
-          "hint": "Leçon {num}, il te reste environ {min} minutes"
+          "hint": "Leçon {num}, la suite de ton parcours"
         },
         "quiz": {
           "title": "Passer le quiz de fin de module",
@@ -175,6 +177,10 @@
         "newsletter": {
           "title": "Essayer La Quotidienne pendant un mois",
           "hint": "Sans engagement, 2,99 €, résiliable à tout moment"
+        },
+        "discover": {
+          "title": "Decouvrir les cours",
+          "hint": "Neuf parcours, du premier contact aux usages avances."
         }
       }
     },
