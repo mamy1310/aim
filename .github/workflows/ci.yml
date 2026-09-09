@@ -28,9 +28,8 @@ jobs:
       - run: pnpm db:generate
       - run: pnpm lint
       - run: pnpm typecheck
-      - run: pnpm test -- --coverage
       - run: pnpm db:test:deploy
-      - run: pnpm exec vitest run --config vitest.integration.config.mts
+      - run: pnpm test:coverage
       - run: pnpm build
       - uses: actions/upload-artifact@v4
         if: always()
