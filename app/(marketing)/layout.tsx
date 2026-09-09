@@ -17,7 +17,7 @@ export default async function MarketingLayout({ children }: { children: ReactNod
   const t = await getTranslations('landing');
   const footerLabels = t.raw('footer.links') as string[];
   const user = await getSessionUser();
-  const footerHrefs = ['/mentions-legales', '/cgv', '/confidentialite', '/contact'];
+  const footerHrefs = ['/mentions-legales', '/cgv', '/confidentialite', '/cookies'];
 
   const nav = (
     <NavLinks
@@ -96,7 +96,9 @@ export default async function MarketingLayout({ children }: { children: ReactNod
             }}
           >
             <Box component="span">{t('footer.copyright')}</Box>
-            <Box component="span">{t('footer.hosting')}</Box>
+            <Box component="span" sx={{ maxWidth: '68ch' }}>
+              {t('footer.hosting')}
+            </Box>
           </Box>
         </Box>
       </Box>

@@ -17,6 +17,7 @@ import {
 } from '@/lib/auth/actions';
 import { PASSWORD_MIN_LENGTH } from '@/lib/auth/schemas';
 import { updateMaxLevelAction } from '@/lib/newsletter/actions';
+import { deleteAccountAction } from '@/lib/account/actions';
 import { MAX_LEVEL } from '@/lib/levels';
 
 import {
@@ -567,6 +568,7 @@ function DataPanel({ onToast }: { onToast: (m: string) => void }) {
               variant="outlined"
               sx={ghostSx}
               startIcon={<DownloadIcon />}
+              href="/api/account/export"
               onClick={() => onToast(t('exportToast'))}
             >
               {t('exportBtn')}
@@ -604,9 +606,10 @@ function DataPanel({ onToast }: { onToast: (m: string) => void }) {
       <DeleteModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        onConfirm={() => {
+        onConfirm={async () => {
           setModalOpen(false);
           onToast(t('deletedToast'));
+          await deleteAccountAction();
         }}
       />
     </Box>
@@ -644,7 +647,7 @@ function DeleteModal({
 }: {
   open: boolean;
   onClose: () => void;
-  onConfirm: () => void;
+  onConfirm: () => void | Promise<void>;
 }) {
   const t = useTranslations('account.deleteModal');
   const [step, setStep] = useState<1 | 2>(1);

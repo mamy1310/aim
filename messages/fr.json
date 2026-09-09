@@ -117,9 +117,9 @@
     },
     "footer": {
       "tagline": "L'intelligence artificielle, expliquée sans détour.",
-      "links": ["Mentions légales", "CGV", "Confidentialité", "Contact"],
+      "links": ["Mentions légales", "CGV", "Confidentialité", "Cookies"],
       "copyright": "© 2026 AIm.",
-      "hosting": "Données hébergées en France."
+      "hosting": "AIm utilise l'IA (DeepSeek) pour résumer les articles de la newsletter, sous supervision humaine. Le contenu des cours est rédigé à la main."
     }
   },
   "dashboard": {
@@ -772,5 +772,177 @@
     "unsubscribeOk": "Tu es desabonne des envois. Pour annuler ton paiement, passe par la gestion de ton abonnement.",
     "unsubscribeInvalid": "Ce lien de desabonnement n est plus valable.",
     "error": "La redirection vers le paiement a echoue. Reessaie dans un instant."
+  },
+  "legal": {
+    "updated": "Derniere mise a jour : juin 2026",
+    "mentions": {
+      "title": "Mentions legales",
+      "description": "Editeur, hebergeur et contact du site AIm.",
+      "sections": [
+        {
+          "heading": "Editeur du site",
+          "body": [
+            "Nom ou raison sociale : [A completer par l editeur du site]",
+            "Adresse : [A completer par l editeur du site]",
+            "Forme juridique et numero d immatriculation : [A completer par l editeur du site]",
+            "Adresse de contact : [A completer par l editeur du site]"
+          ]
+        },
+        {
+          "heading": "Directeur de la publication",
+          "body": ["[A completer par l editeur du site]"]
+        },
+        {
+          "heading": "Hebergement",
+          "body": [
+            "Application : Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, Etats-Unis.",
+            "Base de donnees : Supabase Inc.",
+            "Envoi des emails : Resend."
+          ]
+        },
+        {
+          "heading": "Propriete intellectuelle",
+          "body": [
+            "Les contenus pedagogiques publies sur AIm sont proteges par le droit d auteur. Les resumes de la newsletter renvoient systematiquement vers l article original, dont les droits appartiennent a son editeur."
+          ]
+        }
+      ]
+    },
+    "cgv": {
+      "title": "Conditions generales de vente",
+      "description": "Conditions applicables a l abonnement a la newsletter quotidienne d AIm.",
+      "sections": [
+        {
+          "heading": "Objet",
+          "body": [
+            "Les presentes conditions regissent l abonnement a la newsletter quotidienne d AIm. Les cours et les attestations de completion sont gratuits et ne relevent pas de ces conditions."
+          ]
+        },
+        {
+          "heading": "Service",
+          "body": [
+            "L abonnement donne acces a un envoi quotidien par courrier electronique, contenant un article de l actualite de l intelligence artificielle resume et remis en contexte. Un abonne peut limiter les envois a un niveau de difficulte maximum depuis son compte."
+          ]
+        },
+        {
+          "heading": "Prix et paiement",
+          "body": [
+            "Le prix est de 2,99 euros toutes taxes comprises par mois. Le paiement est preleve mensuellement par Stripe Payments Europe. La taxe sur la valeur ajoutee applicable est calculee par Stripe selon le pays de residence declare."
+          ]
+        },
+        {
+          "heading": "Duree et resiliation",
+          "body": [
+            "L abonnement est mensuel et sans engagement de duree. Il peut etre resilie a tout moment depuis l espace de gestion de l abonnement. La resiliation prend effet a la fin de la periode en cours ; aucune periode entamee n est remboursee."
+          ]
+        },
+        {
+          "heading": "Droit de retractation",
+          "body": [
+            "Conformement a l article L221-28 du code de la consommation, le droit de retractation de quatorze jours ne s applique pas aux contenus numeriques dont l execution a commence avec l accord expres du consommateur. En souscrivant, l abonne demande l execution immediate du service et renonce a son droit de retractation."
+          ]
+        },
+        {
+          "heading": "Responsabilite",
+          "body": [
+            "Les resumes sont produits avec l assistance d un modele d intelligence artificielle et relus avant envoi. Ils ne constituent ni un conseil professionnel ni une garantie d exactitude. L abonne est invite a consulter l article original, dont le lien figure dans chaque envoi."
+          ]
+        },
+        {
+          "heading": "Reclamations et droit applicable",
+          "body": [
+            "Toute reclamation peut etre adressee a [A completer par l editeur du site]. Les presentes conditions sont soumises au droit francais."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Politique de confidentialite",
+      "description": "Donnees collectees par AIm, finalites, duree de conservation et droits des personnes.",
+      "sections": [
+        {
+          "heading": "Responsable du traitement",
+          "body": [
+            "[A completer par l editeur du site]. Pour toute question relative aux donnees personnelles : [A completer par l editeur du site]."
+          ]
+        },
+        {
+          "heading": "Donnees collectees",
+          "body": [
+            "Compte : adresse email, nom affiche, mot de passe sous forme de condensat, date de confirmation de l adresse.",
+            "Apprentissage : cours suivis, lecons terminees, tentatives de quiz, attestations delivrees.",
+            "Abonnement : identifiant client et identifiant d abonnement Stripe, statut du paiement, preference de niveau. Aucune coordonnee bancaire n est stockee par AIm.",
+            "Technique : cookie de session necessaire au fonctionnement du compte."
+          ]
+        },
+        {
+          "heading": "Finalites et bases legales",
+          "body": [
+            "Execution du contrat : gestion du compte, de la progression et de l abonnement.",
+            "Interet legitime : securite du service, prevention des abus de connexion.",
+            "Consentement : envoi de la newsletter apres confirmation explicite de l adresse, et mesure d audience si elle est acceptee."
+          ]
+        },
+        {
+          "heading": "Intelligence artificielle et hebergement des donnees",
+          "body": [
+            "Les resumes de la newsletter sont generes via l API DeepSeek, dont les serveurs sont heberges en Chine.",
+            "Seul du contenu public est transmis a DeepSeek : le titre et le texte des articles issus de flux RSS publics. Aucune donnee personnelle d utilisateur n est jamais transmise a DeepSeek.",
+            "Aucune autre intelligence artificielle n est utilisee par l application. Le contenu des cours est redige a la main, en dehors de l application."
+          ]
+        },
+        {
+          "heading": "Sous-traitants",
+          "body": [
+            "Vercel pour l hebergement de l application, Supabase pour la base de donnees, Resend pour l envoi des emails, Stripe pour le paiement, DeepSeek pour la generation des resumes."
+          ]
+        },
+        {
+          "heading": "Durees de conservation",
+          "body": [
+            "Compte et progression : jusqu a la suppression du compte par l utilisateur.",
+            "Traces de generation des resumes : quatre-vingt-dix jours, puis purge automatique.",
+            "Donnees de facturation : conservees par Stripe selon les obligations comptables applicables."
+          ]
+        },
+        {
+          "heading": "Droits des personnes",
+          "body": [
+            "Chaque utilisateur peut acceder a ses donnees, les rectifier, les exporter au format JSON et supprimer son compte depuis la rubrique Mes donnees de son espace personnel. Une reclamation peut etre adressee a la Commission nationale de l informatique et des libertes."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Politique cookies",
+      "description": "Cookies utilises par AIm et modalites de choix.",
+      "sections": [
+        {
+          "heading": "Cookies necessaires",
+          "body": [
+            "Un cookie de session est depose lors de la connexion. Il permet de rester authentifie et ne peut pas etre desactive sans empecher l acces au compte. Sa duree de vie est de trente jours."
+          ]
+        },
+        {
+          "heading": "Mesure d audience",
+          "body": [
+            "Aucune mesure d audience n est active a ce jour. Si elle est mise en place, elle ne sera deposee qu apres acceptation explicite depuis la banniere de choix, et pourra etre refusee sans consequence sur l acces au service."
+          ]
+        },
+        {
+          "heading": "Modifier son choix",
+          "body": [
+            "Le choix exprime dans la banniere est conserve dans le navigateur. Effacer les donnees du site reaffiche la banniere au prochain passage."
+          ]
+        }
+      ]
+    }
+  },
+  "cookies": {
+    "title": "Cookies",
+    "body": "AIm depose un cookie necessaire a la connexion. La mesure d audience, elle, n est activee que si tu l acceptes.",
+    "accept": "Tout accepter",
+    "refuse": "Necessaires uniquement",
+    "more": "Politique cookies"
   }
 }

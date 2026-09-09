@@ -5,6 +5,7 @@ import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 
+import CookieBanner from './_components/CookieBanner';
 import ThemeRegistry from './ThemeRegistry';
 import './globals.css';
 
@@ -52,7 +53,10 @@ export default async function RootLayout({
         <InitColorSchemeScript attribute="class" />
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <ThemeRegistry>{children}</ThemeRegistry>
+            <ThemeRegistry>
+              {children}
+              <CookieBanner />
+            </ThemeRegistry>
           </NextIntlClientProvider>
         </AppRouterCacheProvider>
       </body>
