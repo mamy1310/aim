@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <title>OpenAI</title>
+  <item>
+    <title>Introducing a smaller reasoning model</title>
+    <link>https://openai.com/index/smaller-model</link>
+    <pubDate>Wed, 03 Jun 2026 08:00:00 GMT</pubDate>
+    <description><![CDATA[<p>We are releasing a compact reasoning model that runs on a single GPU.</p>]]></description>
+  </item>
+  <item>
+    <title>Un vieil article a ignorer</title>
+    <link>https://openai.com/index/vieil-article</link>
+    <pubDate>Mon, 01 Jan 2026 08:00:00 GMT</pubDate>
+    <description>Trop ancien pour la selection.</description>
+  </item>
+</channel></rss>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <title>Communaute</title>
+  <item>
+    <title>Un billet de blog communautaire</title>
+    <link>https://exemple.test/billet</link>
+    <pubDate>Wed, 03 Jun 2026 09:00:00 GMT</pubDate>
+    <description>Retour d experience sur un assistant.</description>
+  </item>
+</channel></rss>

@@ -1,0 +1,21 @@
+name: Purge des traces de generation IA
+
+on:
+  schedule:
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+jobs:
+  call:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Appel de l'endpoint
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 5
+          max_attempts: 3
+          retry_wait_seconds: 60
+          command: |
+            curl --fail --silent --show-error --max-time 240 \
+              -X POST "${{ secrets.APP_URL }}/api/cron/cleanup-logs" \
+              -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"

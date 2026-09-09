@@ -406,6 +406,35 @@
       "expiry": "Ce lien reste valable une heure et ne fonctionne qu une seule fois.",
       "cta": "Choisir un nouveau mot de passe",
       "footer": "Tu n'as pas fait cette demande ? Ignore ce message, ton mot de passe actuel reste valable."
+    },
+    "adminDraft": {
+      "subject": "Brouillon de newsletter a valider",
+      "preheader": "Un brouillon attend ta relecture.",
+      "heading": "Le brouillon du jour est pret",
+      "body": "Article retenu : {title}",
+      "autoSend": "Sans intervention de ta part, l envoi partira automatiquement le {time} (UTC).",
+      "cta": "Relire et valider",
+      "footer": "Message automatique envoye a l administrateur d AIm."
+    },
+    "issue": {
+      "whyItMatters": "Pourquoi c est important :",
+      "source": "Source :",
+      "readOriginal": "Lire l article original",
+      "aiNotice": "Resume assiste par IA, valide manuellement.",
+      "unsubscribe": "Se desabonner :"
+    },
+    "levels": {
+      "1": "Niveau 1",
+      "2": "Niveau 2",
+      "3": "Niveau 3"
+    },
+    "categories": {
+      "MODEL_RELEASE": "Nouveau modele",
+      "RESEARCH_PAPER": "Recherche",
+      "PRODUCT": "Produit",
+      "SAFETY_ETHICS": "Securite et ethique",
+      "TOOLING": "Outils",
+      "OTHER": "Autre"
     }
   },
   "courses": {
