@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
+import { env } from '@/lib/env';
+
 import AuthHead from '../_components/AuthHead';
 import LoginForm from './LoginForm';
 
@@ -14,7 +16,7 @@ export default async function LoginPage() {
   return (
     <>
       <AuthHead route="/login" title={t('title')} subtitle={t('subtitle')} />
-      <LoginForm />
+      <LoginForm googleEnabled={env.googleOAuthEnabled} />
     </>
   );
 }

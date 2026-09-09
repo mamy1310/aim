@@ -16,7 +16,7 @@ import SwapLink, { inlineLinkSx } from '../_components/swap';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export default function RegisterForm() {
+export default function RegisterForm({ googleEnabled }: { googleEnabled: boolean }) {
   const t = useTranslations('auth.register');
   const tc = useTranslations('auth.common');
   const ts = useTranslations('auth.strength');
@@ -223,8 +223,12 @@ export default function RegisterForm() {
 
       <AuthSubmit label={t('submit')} loadingLabel={t('submitLoading')} loading={loading} />
 
-      <OrDivider />
-      <GoogleButton />
+      {googleEnabled ? (
+        <>
+          <OrDivider />
+          <GoogleButton />
+        </>
+      ) : null}
 
       <SwapLink>
         {t.rich('swap', {

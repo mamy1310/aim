@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -50,7 +50,6 @@ export function AuthSubmit({
 
 export function GoogleButton() {
   const t = useTranslations('auth.common');
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   return (
@@ -61,7 +60,7 @@ export function GoogleButton() {
       disabled={loading}
       onClick={() => {
         setLoading(true);
-        router.push('/dashboard');
+        void signIn('google', { redirectTo: '/dashboard' });
       }}
       startIcon={
         loading ? (

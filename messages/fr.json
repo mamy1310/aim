@@ -319,19 +319,14 @@
     },
     "profile": {
       "title": "Profil public",
-      "desc": "Ces informations apparaissent sur tes badges vérifiables. Le nom et l'initiale sont visibles, l'e-mail reste privé.",
-      "upload": "Importer une photo",
-      "useInitials": "Utiliser mes initiales",
-      "photoNote": "JPG ou PNG, 1 Mo maximum. Sans photo, tes initiales sont affichées sur fond foncé.",
+      "desc": "Ces informations apparaissent sur tes attestations verifiables. Le nom et l initiale sont visibles, l e-mail reste prive.",
       "nameLabel": "Nom affiché",
       "emailLabel": "Adresse e-mail",
       "emailHelp": "On t'enverra un lien de confirmation à la nouvelle adresse.",
       "clean": "Tu n'as pas de modification en cours.",
       "dirty": "Modifications non enregistrées.",
       "save": "Enregistrer",
-      "savedToast": "Profil enregistré.",
-      "uploadToast": "Sélecteur de fichier (maquette).",
-      "initialsToast": "Initiales restaurées."
+      "savedToast": "Profil enregistré."
     },
     "security": {
       "passwordTitle": "Mot de passe",

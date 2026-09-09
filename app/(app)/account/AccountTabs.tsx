@@ -324,30 +324,6 @@ function ProfilePanel({
           </Box>
 
           <Box sx={{ display: 'grid', gap: 2.75, minWidth: 0 }}>
-            <Box sx={{ display: 'grid', gap: 1.25 }}>
-              <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-                <Button
-                  size="small"
-                  variant="outlined"
-                  sx={ghostSx}
-                  onClick={() => onToast(t('uploadToast'))}
-                >
-                  {t('upload')}
-                </Button>
-                <Button
-                  size="small"
-                  variant="outlined"
-                  sx={ghostSx}
-                  onClick={() => onToast(t('initialsToast'))}
-                >
-                  {t('useInitials')}
-                </Button>
-              </Box>
-              <Typography sx={{ fontSize: '13px', color: 'text.secondary', maxWidth: '50ch' }}>
-                {t('photoNote')}
-              </Typography>
-            </Box>
-
             <Box
               sx={{
                 display: 'grid',
