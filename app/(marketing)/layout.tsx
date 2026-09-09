@@ -5,6 +5,8 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
+import { getSessionUser } from '@/lib/auth/guards';
+
 import TopBar from '../_components/TopBar';
 import NavLinks from '../_components/NavLinks';
 import ThemeToggle from '../_components/ThemeToggle';
@@ -14,6 +16,7 @@ export default async function MarketingLayout({ children }: { children: ReactNod
   const tc = await getTranslations('common');
   const t = await getTranslations('landing');
   const footerLabels = t.raw('footer.links') as string[];
+  const user = await getSessionUser();
   const footerHrefs = ['/mentions-legales', '/cgv', '/confidentialite', '/contact'];
 
   const nav = (
@@ -29,8 +32,8 @@ export default async function MarketingLayout({ children }: { children: ReactNod
 
   const actions = (
     <>
-      <Button href="/login" variant="outlined" size="small" sx={ghostSx}>
-        {tc('actions.login')}
+      <Button href={user ? '/dashboard' : '/login'} variant="outlined" size="small" sx={ghostSx}>
+        {user ? tc('actions.dashboard') : tc('actions.login')}
       </Button>
       <ThemeToggle />
     </>

@@ -13,7 +13,8 @@
     },
     "actions": {
       "login": "Se connecter",
-      "toggleTheme": "Changer de thème"
+      "toggleTheme": "Changer de thème",
+      "dashboard": "Mon espace"
     },
     "levels": {
       "1": "Niveau 1",
