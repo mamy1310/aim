@@ -5,7 +5,9 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
-import { activeSessions, currentUser } from '../_data';
+import { requireUser } from '@/lib/auth/guards';
+import { prisma } from '@/lib/db';
+
 import { mono, serif } from '../../_components/styles';
 import AccountTabs from './AccountTabs';
 
@@ -16,6 +18,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function AccountPage() {
   const t = await getTranslations('account');
+  const user = await requireUser();
+  const sessionCount = await prisma.session.count({
+    where: { userId: user.id, expires: { gt: new Date() } },
+  });
 
   return (
     <Box component="main" sx={{ maxWidth: 880, mx: 'auto', px: { xs: '20px', md: '32px' } }}>
@@ -63,8 +69,8 @@ export default async function AccountPage() {
       </Box>
 
       <AccountTabs
-        user={{ fullName: currentUser.fullName, email: currentUser.email }}
-        sessions={activeSessions}
+        user={{ fullName: user.name ?? '', email: user.email }}
+        sessionCount={sessionCount}
       />
     </Box>
   );

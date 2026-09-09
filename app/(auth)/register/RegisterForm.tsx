@@ -7,6 +7,9 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Checkbox from '@mui/material/Checkbox';
 
+import { registerAction } from '@/lib/auth/actions';
+import { PASSWORD_MIN_LENGTH } from '@/lib/auth/schemas';
+
 import { Field, PasswordField, PasswordStrength, OrDivider } from '../_components/fields';
 import { AuthSubmit, GoogleButton } from '../_components/buttons';
 import SwapLink, { inlineLinkSx } from '../_components/swap';
@@ -17,6 +20,7 @@ export default function RegisterForm() {
   const t = useTranslations('auth.register');
   const tc = useTranslations('auth.common');
   const ts = useTranslations('auth.strength');
+  const te = useTranslations('auth.errors');
   const router = useRouter();
 
   const [firstName, setFirstName] = useState('');
@@ -35,14 +39,16 @@ export default function RegisterForm() {
     terms?: boolean;
   }>({});
   const [loading, setLoading] = useState(false);
+  const [banner, setBanner] = useState('');
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     const next: typeof errors = {};
     if (!firstName.trim()) next.firstName = t('firstNameRequired');
     if (!lastName.trim()) next.lastName = t('lastNameRequired');
     if (!EMAIL_RE.test(email.trim())) next.email = t('emailInvalid');
-    if (password.length < 8) next.password = true;
+    if (password.length < PASSWORD_MIN_LENGTH || !/[a-zA-Z]/.test(password) || !/\d/.test(password))
+      next.password = true;
     if (!confirm) next.confirm = t('confirmRequired');
     else if (confirm !== password) next.confirm = t('confirmMismatch');
     if (!terms) next.terms = true;
@@ -51,11 +57,43 @@ export default function RegisterForm() {
     if (Object.keys(next).length > 0) return;
 
     setLoading(true);
-    setTimeout(() => router.push('/dashboard'), 900);
+    setBanner('');
+    const result = await registerAction({
+      name: `${firstName.trim()} ${lastName.trim()}`,
+      email: email.trim(),
+      password,
+    });
+
+    if (result.ok) {
+      router.push('/dashboard');
+      router.refresh();
+      return;
+    }
+
+    setLoading(false);
+    setBanner(te(result.error));
+    if (result.error === 'email_taken') setErrors({ email: te('email_taken') });
   }
 
   return (
     <Box component="form" onSubmit={submit} noValidate sx={{ display: 'grid', gap: 2 }}>
+      {banner ? (
+        <Box
+          role="alert"
+          sx={{
+            p: '12px 14px',
+            borderRadius: '10px',
+            border: '1px solid',
+            borderColor: 'error.main',
+            bgcolor: 'error.light',
+            color: 'error.main',
+            fontSize: '13.5px',
+            lineHeight: 1.45,
+          }}
+        >
+          {banner}
+        </Box>
+      ) : null}
       <Box sx={{ display: 'grid', gap: 1.5, gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' } }}>
         <Field
           label={t('firstName')}

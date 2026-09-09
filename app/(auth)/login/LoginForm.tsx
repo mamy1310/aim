@@ -6,6 +6,8 @@ import { useTranslations } from 'next-intl';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 
+import { loginAction } from '@/lib/auth/actions';
+
 import { AlertCircleIcon } from '../../_components/icons';
 import { Field, PasswordField, OrDivider } from '../_components/fields';
 import { AuthSubmit, GoogleButton } from '../_components/buttons';
@@ -22,12 +24,14 @@ export default function LoginForm() {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [pwError, setPwError] = useState(false);
-  const [banner, setBanner] = useState(false);
+  const [banner, setBanner] = useState('');
   const [loading, setLoading] = useState(false);
 
-  function submit(e: React.FormEvent) {
+  const te = useTranslations('auth.errors');
+
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
-    setBanner(false);
+    setBanner('');
     let ok = true;
     if (!EMAIL_RE.test(email.trim())) {
       setEmailError(tc('emailInvalid'));
@@ -40,15 +44,17 @@ export default function LoginForm() {
     if (!ok) return;
 
     setLoading(true);
-    setTimeout(() => {
-      if (/ok$/i.test(password)) {
-        router.push('/dashboard');
-      } else {
-        setLoading(false);
-        setBanner(true);
-        setPwError(true);
-      }
-    }, 700);
+    const result = await loginAction({ email: email.trim(), password });
+
+    if (result.ok) {
+      router.push('/dashboard');
+      router.refresh();
+      return;
+    }
+
+    setLoading(false);
+    setBanner(te(result.error));
+    setPwError(true);
   }
 
   return (
@@ -81,7 +87,7 @@ export default function LoginForm() {
             <Box component="strong" sx={{ fontWeight: 600 }}>
               {t('bannerTitle')}
             </Box>{' '}
-            {t('bannerBody')}
+            {banner}
           </span>
         </Box>
       ) : null}
@@ -95,7 +101,7 @@ export default function LoginForm() {
         onChange={(v) => {
           setEmail(v);
           setEmailError('');
-          setBanner(false);
+          setBanner('');
         }}
         error={!!emailError}
         message={emailError}
@@ -110,7 +116,7 @@ export default function LoginForm() {
         onChange={(v) => {
           setPassword(v);
           setPwError(false);
-          setBanner(false);
+          setBanner('');
         }}
         error={pwError}
         labelRight={

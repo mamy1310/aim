@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
-import AuthHead from '../_components/AuthHead';
+import AuthHead from '../../_components/AuthHead';
 import ResetForm from './ResetForm';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -9,12 +9,18 @@ export async function generateMetadata(): Promise<Metadata> {
   return { title: t('title'), description: t('description') };
 }
 
-export default async function ResetPasswordPage() {
+export default async function ResetPasswordPage({
+  params,
+}: {
+  params: Promise<{ token: string }>;
+}) {
   const t = await getTranslations('auth.reset');
+  const { token } = await params;
+
   return (
     <>
       <AuthHead route="/reset-password" title={t('title')} subtitle={t('subtitle')} />
-      <ResetForm />
+      <ResetForm token={token} />
     </>
   );
 }

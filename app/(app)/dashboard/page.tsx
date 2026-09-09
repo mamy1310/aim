@@ -6,7 +6,8 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
-import { currentUser } from '../_data';
+import { requireUser } from '@/lib/auth/guards';
+import { displayName, formatDateLine } from '@/lib/user';
 import Illustration, { type IllustrationVariant } from '../../_components/Illustration';
 import { ArrowRightIcon, CheckIcon, ChevronRightIcon } from '../../_components/icons';
 import { levelKey } from '@/lib/levels';
@@ -59,6 +60,7 @@ const blockSx = {
 
 export default async function DashboardPage() {
   const t = await getTranslations('dashboard');
+  const user = await requireUser();
   const tc = await getTranslations('common');
 
   const course = courses[0];
@@ -95,7 +97,7 @@ export default async function DashboardPage() {
               color: 'text.disabled',
             }}
           >
-            {currentUser.dateLine}
+            {formatDateLine(new Date())}
           </Box>
           <Typography
             component="h1"
@@ -109,7 +111,7 @@ export default async function DashboardPage() {
             }}
           >
             {t.rich('greeting.hello', {
-              name: currentUser.name,
+              name: displayName(user),
               em: (chunks) => (
                 <Box
                   component="em"

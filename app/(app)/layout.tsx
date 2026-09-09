@@ -7,10 +7,15 @@ import TopBar from '../_components/TopBar';
 import NavLinks from '../_components/NavLinks';
 import ThemeToggle from '../_components/ThemeToggle';
 import { container, serif } from '../_components/styles';
-import { currentUser } from './_data';
+import { requireUser } from '@/lib/auth/guards';
+
+import LogoutButton from './LogoutButton';
+import { displayName } from '@/lib/user';
 
 export default async function AppLayout({ children }: { children: ReactNode }) {
   const t = await getTranslations('dashboard');
+  const user = await requireUser();
+  const name = displayName(user);
 
   const nav = (
     <NavLinks
@@ -64,9 +69,9 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
             lineHeight: 1,
           }}
         >
-          {currentUser.name.charAt(0).toUpperCase()}
+          {name.charAt(0).toUpperCase()}
         </Box>
-        {currentUser.name}
+        {name}
       </Link>
     </>
   );
@@ -92,7 +97,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
           }}
         >
           <Box component="span">
-            {t('footer.copyright')} · {t('footer.signedInAs', { name: currentUser.name })}
+            {t('footer.copyright')} · {t('footer.signedInAs', { name })}
           </Box>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2.25 }}>
             <Link
@@ -102,20 +107,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
             >
               {t('footer.account')}
             </Link>
-            <Link
-              href="/aide"
-              underline="none"
-              sx={{ color: 'text.secondary', '&:hover': { color: 'text.primary' } }}
-            >
-              {t('footer.help')}
-            </Link>
-            <Link
-              href="/logout"
-              underline="none"
-              sx={{ color: 'text.secondary', '&:hover': { color: 'text.primary' } }}
-            >
-              {t('footer.logout')}
-            </Link>
+            <LogoutButton />
           </Box>
         </Box>
       </Box>

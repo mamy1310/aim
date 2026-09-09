@@ -6,6 +6,8 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
+import { forgotPasswordAction } from '@/lib/auth/actions';
+
 import { MailIcon } from '../../_components/icons';
 import { mono, serif } from '../../_components/styles';
 import { Field } from '../_components/fields';
@@ -26,26 +28,24 @@ export default function ForgotForm() {
   const [sentEmail, setSentEmail] = useState('');
   const [resendLabel, setResendLabel] = useState('');
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!EMAIL_RE.test(email.trim())) {
       setError(t('emailInvalid'));
       return;
     }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setSentEmail(email.trim());
-      setSent(true);
-    }, 700);
+    await forgotPasswordAction({ email: email.trim() });
+    setLoading(false);
+    setSentEmail(email.trim());
+    setSent(true);
   }
 
-  function resend() {
+  async function resend() {
     setResendLabel(t('resending'));
-    setTimeout(() => {
-      setResendLabel(t('resent'));
-      setTimeout(() => setResendLabel(''), 2200);
-    }, 600);
+    await forgotPasswordAction({ email: sentEmail });
+    setResendLabel(t('resent'));
+    setTimeout(() => setResendLabel(''), 2200);
   }
 
   if (sent) {

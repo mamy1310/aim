@@ -10,25 +10,21 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Dialog from '@mui/material/Dialog';
 import Snackbar from '@mui/material/Snackbar';
 
-import type { DeviceKind } from '../_data';
+import {
+  changePasswordAction,
+  revokeOtherSessionsAction,
+  updateProfileAction,
+} from '@/lib/auth/actions';
+import { PASSWORD_MIN_LENGTH } from '@/lib/auth/schemas';
+
 import {
   AlertTriangleIcon,
   CheckIcon,
   ChevronRightIcon,
   DownloadIcon,
-  LaptopIcon,
-  PhoneIcon,
   TrashIcon,
 } from '../../_components/icons';
 import { ghostSx, mono, serif } from '../../_components/styles';
-
-type Session = {
-  id: string;
-  device: DeviceKind;
-  label: string;
-  meta: string;
-  current: boolean;
-};
 
 type TabKey = 'profile' | 'security' | 'data';
 
@@ -146,10 +142,10 @@ function LabelledInput({
 
 export default function AccountTabs({
   user,
-  sessions,
+  sessionCount,
 }: {
   user: { fullName: string; email: string };
-  sessions: Session[];
+  sessionCount: number;
 }) {
   const t = useTranslations('account');
   const [tab, setTab] = useState<TabKey>('profile');
@@ -244,7 +240,7 @@ export default function AccountTabs({
 
       <Box sx={{ pt: 4.5, pb: 10 }}>
         {tab === 'profile' && <ProfilePanel user={user} onToast={showToast} />}
-        {tab === 'security' && <SecurityPanel sessions={sessions} onToast={showToast} />}
+        {tab === 'security' && <SecurityPanel sessionCount={sessionCount} onToast={showToast} />}
         {tab === 'data' && <DataPanel onToast={showToast} />}
       </Box>
 
@@ -289,6 +285,8 @@ function ProfilePanel({
   const [name, setName] = useState(user.fullName);
   const [email, setEmail] = useState(user.email);
   const [base, setBase] = useState({ name: user.fullName, email: user.email });
+  const [saving, setSaving] = useState(false);
+  const te = useTranslations('auth.errors');
 
   const dirty = name !== base.name || email !== base.email;
   const photoInitial = (name.trim()[0] || 'L').toUpperCase();
@@ -382,8 +380,15 @@ function ProfilePanel({
         <Button
           size="small"
           variant="contained"
-          disabled={!dirty}
-          onClick={() => {
+          disabled={!dirty || saving}
+          onClick={async () => {
+            setSaving(true);
+            const result = await updateProfileAction({ name, email });
+            setSaving(false);
+            if (!result.ok) {
+              onToast(te(result.error));
+              return;
+            }
             setBase({ name, email });
             onToast(t('savedToast'));
           }}
@@ -396,13 +401,14 @@ function ProfilePanel({
 }
 
 function SecurityPanel({
-  sessions,
+  sessionCount,
   onToast,
 }: {
-  sessions: Session[];
+  sessionCount: number;
   onToast: (m: string) => void;
 }) {
   const t = useTranslations('account.security');
+  const te = useTranslations('auth.errors');
   const [current, setCurrent] = useState('');
   const [pw, setPw] = useState('');
   const [confirm, setConfirm] = useState('');
@@ -466,8 +472,13 @@ function SecurityPanel({
           <Button
             size="small"
             variant="contained"
-            disabled={!current || pw.length < 8 || pw !== confirm}
-            onClick={() => {
+            disabled={!current || pw.length < PASSWORD_MIN_LENGTH || pw !== confirm}
+            onClick={async () => {
+              const result = await changePasswordAction({ current, next: pw });
+              if (!result.ok) {
+                onToast(te(result.error));
+                return;
+              }
               setCurrent('');
               setPw('');
               setConfirm('');
@@ -482,92 +493,8 @@ function SecurityPanel({
       <Box sx={cardSx}>
         <CardHead title={t('sessionsTitle')} desc={t('sessionsDesc')} />
         <Box sx={cardBodySx}>
-          <Box
-            sx={{
-              border: '1px solid',
-              borderColor: 'divider',
-              borderRadius: '10px',
-              overflow: 'hidden',
-            }}
-          >
-            {sessions.map((s, i) => (
-              <Box
-                key={s.id}
-                sx={{
-                  display: 'grid',
-                  gridTemplateColumns: '32px 1fr auto',
-                  gap: 1.75,
-                  alignItems: 'center',
-                  p: '14px 16px',
-                  fontSize: '14px',
-                  borderBottom: i < sessions.length - 1 ? '1px solid' : 'none',
-                  borderColor: 'dividerSoft',
-                }}
-              >
-                <Box
-                  aria-hidden
-                  sx={{
-                    width: 32,
-                    height: 32,
-                    borderRadius: '8px',
-                    bgcolor: 'background.sunk',
-                    color: 'text.secondary',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '16px',
-                  }}
-                >
-                  {s.device === 'phone' ? <PhoneIcon /> : <LaptopIcon />}
-                </Box>
-                <Box sx={{ display: 'grid', gap: '2px', minWidth: 0 }}>
-                  <Box
-                    sx={{
-                      color: 'text.primary',
-                      fontWeight: 500,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 0.75,
-                      flexWrap: 'wrap',
-                    }}
-                  >
-                    {s.label}
-                    {s.current ? (
-                      <Box
-                        component="span"
-                        sx={{
-                          ...mono,
-                          fontSize: '10.5px',
-                          letterSpacing: '0.05em',
-                          color: 'success.main',
-                          bgcolor: 'success.light',
-                          px: 0.75,
-                          py: '2px',
-                          borderRadius: '4px',
-                        }}
-                      >
-                        {t('thisDevice')}
-                      </Box>
-                    ) : null}
-                  </Box>
-                  <Box sx={{ fontSize: '12.5px', color: 'text.secondary' }}>{s.meta}</Box>
-                </Box>
-                {s.current ? (
-                  <Box component="span" sx={{ ...mono, fontSize: '12px', color: 'text.disabled' }}>
-                    —
-                  </Box>
-                ) : (
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    sx={ghostSx}
-                    onClick={() => onToast(t('disconnectedToast'))}
-                  >
-                    {t('disconnect')}
-                  </Button>
-                )}
-              </Box>
-            ))}
+          <Box sx={{ fontSize: '14px', color: 'text.secondary' }}>
+            {t('sessionsCount', { count: sessionCount })}
           </Box>
         </Box>
         <Box sx={cardFootSx}>
@@ -576,7 +503,11 @@ function SecurityPanel({
             size="small"
             variant="outlined"
             sx={ghostSx}
-            onClick={() => onToast(t('disconnectAllToast'))}
+            disabled={sessionCount < 2}
+            onClick={async () => {
+              await revokeOtherSessionsAction();
+              onToast(t('disconnectAllToast'));
+            }}
           >
             {t('disconnectAll')}
           </Button>

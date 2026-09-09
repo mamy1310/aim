@@ -6,12 +6,16 @@ import { useTranslations } from 'next-intl';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 
-import { PasswordField, PasswordStrength } from '../_components/fields';
-import { AuthSubmit } from '../_components/buttons';
-import { inlineLinkSx } from '../_components/swap';
+import { resetPasswordAction } from '@/lib/auth/actions';
+import { PASSWORD_MIN_LENGTH } from '@/lib/auth/schemas';
 
-export default function ResetForm() {
+import { PasswordField, PasswordStrength } from '../../_components/fields';
+import { AuthSubmit } from '../../_components/buttons';
+import { inlineLinkSx } from '../../_components/swap';
+
+export default function ResetForm({ token }: { token: string }) {
   const t = useTranslations('auth.reset');
+  const te = useTranslations('auth.errors');
   const router = useRouter();
 
   const [password, setPassword] = useState('');
@@ -20,11 +24,16 @@ export default function ResetForm() {
   const [confirmError, setConfirmError] = useState('');
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const [banner, setBanner] = useState('');
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     let ok = true;
-    if (password.length < 8) {
+    if (
+      password.length < PASSWORD_MIN_LENGTH ||
+      !/[a-zA-Z]/.test(password) ||
+      !/\d/.test(password)
+    ) {
       setPwError(true);
       ok = false;
     }
@@ -35,14 +44,38 @@ export default function ResetForm() {
     if (!ok) return;
 
     setLoading(true);
-    setTimeout(() => {
-      setDone(true);
-      setTimeout(() => router.push('/login'), 900);
-    }, 800);
+    setBanner('');
+    const result = await resetPasswordAction({ token, password });
+
+    if (!result.ok) {
+      setLoading(false);
+      setBanner(te(result.error));
+      return;
+    }
+
+    setDone(true);
+    router.push('/login');
   }
 
   return (
     <Box component="form" onSubmit={submit} noValidate sx={{ display: 'grid', gap: 2 }}>
+      {banner ? (
+        <Box
+          role="alert"
+          sx={{
+            p: '12px 14px',
+            borderRadius: '10px',
+            border: '1px solid',
+            borderColor: 'error.main',
+            bgcolor: 'error.light',
+            color: 'error.main',
+            fontSize: '13.5px',
+            lineHeight: 1.45,
+          }}
+        >
+          {banner}
+        </Box>
+      ) : null}
       <PasswordField
         label={t('password')}
         autoComplete="new-password"

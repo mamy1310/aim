@@ -181,7 +181,6 @@
     "footer": {
       "signedInAs": "Connecté en tant que {name}",
       "account": "Mon compte",
-      "help": "Aide",
       "logout": "Se déconnecter",
       "copyright": "© 2026 AIm"
     }
@@ -203,6 +202,10 @@
       "reset": {
         "title": "Nouveau mot de passe",
         "description": "Choisis un nouveau mot de passe pour ton compte AIm."
+      },
+      "verify": {
+        "title": "Confirmation de l adresse",
+        "description": "Confirme ton adresse email pour activer toutes les fonctions de ton compte AIm."
       }
     },
     "footer": "© 2026 AIm",
@@ -246,7 +249,6 @@
       "title": "Content de te revoir.",
       "subtitle": "Reprends tes cours là où tu les as laissés.",
       "bannerTitle": "Identifiants incorrects.",
-      "bannerBody": "Vérifie ton e-mail et ton mot de passe, ou réinitialise-le ci-dessous.",
       "password": "Mot de passe",
       "passwordPlaceholder": "••••••••",
       "forgot": "Mot de passe oublié ?",
@@ -280,6 +282,22 @@
       "submitLoading": "Mise à jour…",
       "submitDone": "Mot de passe mis à jour ✓",
       "back": "← Retour à la connexion"
+    },
+    "errors": {
+      "invalid_input": "Certains champs sont incomplets ou mal remplis.",
+      "invalid_credentials": "Email ou mot de passe incorrect.",
+      "email_taken": "Un compte existe deja avec cette adresse.",
+      "rate_limited": "Trop de tentatives. Reessaie dans une quinzaine de minutes.",
+      "invalid_token": "Ce lien a expire ou a deja ete utilise.",
+      "unexpected": "Une erreur est survenue. Reessaie dans un instant."
+    },
+    "verify": {
+      "title": "Adresse confirmee.",
+      "subtitle": "Ton compte est actif : tu peux suivre les cours, obtenir tes attestations et gerer ton abonnement.",
+      "errorTitle": "Lien invalide.",
+      "errorSubtitle": "Ce lien a expire ou a deja servi. Reconnecte-toi pour recevoir un nouveau lien de confirmation.",
+      "cta": "Aller au tableau de bord",
+      "ctaError": "Retour a la connexion"
     }
   },
   "account": {
@@ -328,13 +346,11 @@
       "change": "Changer le mot de passe",
       "changedToast": "Mot de passe changé.",
       "sessionsTitle": "Sessions actives",
-      "sessionsDesc": "Voici les appareils où tu es connecté en ce moment. Si tu vois quelque chose d'inhabituel, déconnecte-les tous.",
-      "thisDevice": "Cet appareil",
-      "disconnect": "Déconnecter",
-      "disconnectedToast": "Session déconnectée.",
-      "sessionsHint": "Tu resteras connecté sur cet appareil.",
+      "sessionsDesc": "Les appareils actuellement connectes a ton compte.",
+      "sessionsHint": "Deconnecter les autres appareils met fin a toutes les sessions sauf celle-ci.",
       "disconnectAll": "Déconnecter toutes les autres sessions",
-      "disconnectAllToast": "Autres sessions déconnectées."
+      "disconnectAllToast": "Autres sessions déconnectées.",
+      "sessionsCount": "{count, plural, one {# session active} other {# sessions actives}}"
     },
     "data": {
       "exportTitle": "Exporter mes données",
@@ -368,6 +384,26 @@
       "confirmPhrase": "supprimer mon compte",
       "deleteFinal": "Supprimer définitivement",
       "deletedToast": "Compte programmé pour suppression."
+    }
+  },
+  "emails": {
+    "verifyEmail": {
+      "subject": "Confirme ton adresse email",
+      "preheader": "Un clic et ton compte AIm est actif.",
+      "heading": "Confirme ton adresse email",
+      "body": "Tu viens de creer un compte sur AIm. Confirme ton adresse pour suivre ta progression, obtenir tes attestations et gerer ton abonnement.",
+      "expiry": "Ce lien reste valable 24 heures.",
+      "cta": "Confirmer mon adresse",
+      "footer": "Tu n'es pas a l'origine de cette inscription ? Ignore ce message, aucun compte ne sera active."
+    },
+    "resetPassword": {
+      "subject": "Reinitialiser ton mot de passe",
+      "preheader": "Choisis un nouveau mot de passe.",
+      "heading": "Reinitialiser ton mot de passe",
+      "body": "Une demande de reinitialisation a ete faite pour ton compte AIm. Choisis un nouveau mot de passe en suivant le lien ci-dessous.",
+      "expiry": "Ce lien reste valable une heure et ne fonctionne qu une seule fois.",
+      "cta": "Choisir un nouveau mot de passe",
+      "footer": "Tu n'as pas fait cette demande ? Ignore ce message, ton mot de passe actuel reste valable."
     }
   }
 }
