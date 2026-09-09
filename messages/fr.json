@@ -16,9 +16,9 @@
       "toggleTheme": "Changer de thème"
     },
     "levels": {
-      "BEGINNER": "Débutant",
-      "INTERMEDIATE": "Intermédiaire",
-      "ADVANCED": "Avancé"
+      "1": "Niveau 1",
+      "2": "Niveau 2",
+      "3": "Niveau 3"
     }
   },
   "landing": {
@@ -116,12 +116,7 @@
     },
     "footer": {
       "tagline": "L'intelligence artificielle, expliquée sans détour.",
-      "links": [
-        "Mentions légales",
-        "CGV",
-        "Confidentialité",
-        "Contact"
-      ],
+      "links": ["Mentions légales", "CGV", "Confidentialité", "Contact"],
       "copyright": "© 2026 AIm.",
       "hosting": "Données hébergées en France."
     }
@@ -222,8 +217,8 @@
       "hide": "Masquer le mot de passe"
     },
     "strength": {
-      "hint": "8 caractères minimum, mélange conseillé",
-      "levels": ["", "Faible", "Moyen", "Bien", "Solide"]
+      "hint": "10 caractères minimum, une lettre et un chiffre",
+      "levels": ["Faible", "Moyen", "Bien", "Solide"]
     },
     "register": {
       "title": "Créer un compte AIm.",

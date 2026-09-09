@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { forwardRef } from "react";
-import NextLink, { type LinkProps } from "next/link";
+import { forwardRef } from 'react';
+import NextLink, { type LinkProps } from 'next/link';
 
 const LinkBehavior = forwardRef<
   HTMLAnchorElement,
-  Omit<LinkProps, "href"> & { href: LinkProps["href"] }
+  Omit<LinkProps, 'href'> & { href: LinkProps['href'] }
 >(function LinkBehavior(props, ref) {
   const { href, ...other } = props;
   return <NextLink ref={ref} href={href} {...other} />;

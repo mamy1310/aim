@@ -1,14 +1,14 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 const base: SVGProps<SVGSVGElement> = {
-  width: "1em",
-  height: "1em",
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
-  "aria-hidden": true,
+  width: '1em',
+  height: '1em',
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
+  'aria-hidden': true,
 };
 
 export function CheckIcon(props: SVGProps<SVGSVGElement>) {

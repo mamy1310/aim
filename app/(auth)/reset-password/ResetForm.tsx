@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
-import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 
-import { PasswordField, PasswordStrength } from "../_components/fields";
-import { AuthSubmit } from "../_components/buttons";
-import { inlineLinkSx } from "../_components/swap";
+import { PasswordField, PasswordStrength } from '../_components/fields';
+import { AuthSubmit } from '../_components/buttons';
+import { inlineLinkSx } from '../_components/swap';
 
 export default function ResetForm() {
-  const t = useTranslations("auth.reset");
+  const t = useTranslations('auth.reset');
   const router = useRouter();
 
-  const [password, setPassword] = useState("");
-  const [confirm, setConfirm] = useState("");
+  const [password, setPassword] = useState('');
+  const [confirm, setConfirm] = useState('');
   const [pwError, setPwError] = useState(false);
-  const [confirmError, setConfirmError] = useState("");
+  const [confirmError, setConfirmError] = useState('');
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
 
@@ -29,7 +29,7 @@ export default function ResetForm() {
       ok = false;
     }
     if (confirm !== password) {
-      setConfirmError(t("confirmMismatch"));
+      setConfirmError(t('confirmMismatch'));
       ok = false;
     }
     if (!ok) return;
@@ -37,16 +37,16 @@ export default function ResetForm() {
     setLoading(true);
     setTimeout(() => {
       setDone(true);
-      setTimeout(() => router.push("/login"), 900);
+      setTimeout(() => router.push('/login'), 900);
     }, 800);
   }
 
   return (
-    <Box component="form" onSubmit={submit} noValidate sx={{ display: "grid", gap: 2 }}>
+    <Box component="form" onSubmit={submit} noValidate sx={{ display: 'grid', gap: 2 }}>
       <PasswordField
-        label={t("password")}
+        label={t('password')}
         autoComplete="new-password"
-        placeholder={t("passwordPlaceholder")}
+        placeholder={t('passwordPlaceholder')}
         value={password}
         onChange={(v) => {
           setPassword(v);
@@ -54,17 +54,17 @@ export default function ResetForm() {
         }}
         error={pwError}
       >
-        <PasswordStrength value={password} hint={t("hint")} />
+        <PasswordStrength value={password} hint={t('hint')} />
       </PasswordField>
 
       <PasswordField
-        label={t("confirm")}
+        label={t('confirm')}
         autoComplete="new-password"
-        placeholder={t("confirmPlaceholder")}
+        placeholder={t('confirmPlaceholder')}
         value={confirm}
         onChange={(v) => {
           setConfirm(v);
-          setConfirmError("");
+          setConfirmError('');
         }}
         error={!!confirmError}
         message={confirmError}
@@ -72,14 +72,14 @@ export default function ResetForm() {
       />
 
       <AuthSubmit
-        label={t("submit")}
-        loadingLabel={done ? t("submitDone") : t("submitLoading")}
+        label={t('submit')}
+        loadingLabel={done ? t('submitDone') : t('submitLoading')}
         loading={loading}
       />
 
-      <Box sx={{ textAlign: "center", fontSize: "14px" }}>
+      <Box sx={{ textAlign: 'center', fontSize: '14px' }}>
         <Link href="/login" underline="none" sx={inlineLinkSx}>
-          {t("back")}
+          {t('back')}
         </Link>
       </Box>
     </Box>

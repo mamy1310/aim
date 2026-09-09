@@ -1,32 +1,28 @@
-import type { ReactNode } from "react";
-import { getTranslations } from "next-intl/server";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Link from "@mui/material/Link";
-import Typography from "@mui/material/Typography";
+import type { ReactNode } from 'react';
+import { getTranslations } from 'next-intl/server';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 
-import TopBar from "../_components/TopBar";
-import NavLinks from "../_components/NavLinks";
-import ThemeToggle from "../_components/ThemeToggle";
-import { container, ghostSx, serif } from "../_components/styles";
+import TopBar from '../_components/TopBar';
+import NavLinks from '../_components/NavLinks';
+import ThemeToggle from '../_components/ThemeToggle';
+import { container, ghostSx, serif } from '../_components/styles';
 
-export default async function MarketingLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
-  const tc = await getTranslations("common");
-  const t = await getTranslations("landing");
-  const footerLabels = t.raw("footer.links") as string[];
-  const footerHrefs = ["/mentions-legales", "/cgv", "/confidentialite", "/contact"];
+export default async function MarketingLayout({ children }: { children: ReactNode }) {
+  const tc = await getTranslations('common');
+  const t = await getTranslations('landing');
+  const footerLabels = t.raw('footer.links') as string[];
+  const footerHrefs = ['/mentions-legales', '/cgv', '/confidentialite', '/contact'];
 
   const nav = (
     <NavLinks
       items={[
-        { label: tc("nav.how"), href: "#etapes" },
-        { label: tc("nav.courses"), href: "/cours" },
-        { label: tc("nav.newsletter"), href: "#newsletter" },
-        { label: tc("nav.faq"), href: "#faq" },
+        { label: tc('nav.how'), href: '#etapes' },
+        { label: tc('nav.courses'), href: '/cours' },
+        { label: tc('nav.newsletter'), href: '#newsletter' },
+        { label: tc('nav.faq'), href: '#faq' },
       ]}
     />
   );
@@ -34,7 +30,7 @@ export default async function MarketingLayout({
   const actions = (
     <>
       <Button href="/login" variant="outlined" size="small" sx={ghostSx}>
-        {tc("actions.login")}
+        {tc('actions.login')}
       </Button>
       <ThemeToggle />
     </>
@@ -46,36 +42,36 @@ export default async function MarketingLayout({
       {children}
       <Box
         component="footer"
-        sx={{ py: { xs: 6, md: 7 }, color: "text.secondary", fontSize: "14px" }}
+        sx={{ py: { xs: 6, md: 7 }, color: 'text.secondary', fontSize: '14px' }}
       >
         <Box sx={container}>
           <Box
             sx={{
-              display: "grid",
+              display: 'grid',
               gap: 3,
               mb: 4,
-              gridTemplateColumns: { md: "1fr auto" },
-              alignItems: { md: "end" },
+              gridTemplateColumns: { md: '1fr auto' },
+              alignItems: { md: 'end' },
             }}
           >
             <Box>
-              <Box sx={{ ...serif, fontSize: "20px", color: "text.primary", mb: 0.75 }}>
-                {tc("appName")}
+              <Box sx={{ ...serif, fontSize: '20px', color: 'text.primary', mb: 0.75 }}>
+                {tc('appName')}
               </Box>
-              <Typography sx={{ color: "text.secondary", fontSize: "14px", maxWidth: "36ch" }}>
-                {t("footer.tagline")}
+              <Typography sx={{ color: 'text.secondary', fontSize: '14px', maxWidth: '36ch' }}>
+                {t('footer.tagline')}
               </Typography>
             </Box>
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: "18px 22px" }}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '18px 22px' }}>
               {footerLabels.map((label, i) => (
                 <Link
                   key={label}
                   href={footerHrefs[i]}
                   underline="none"
                   sx={{
-                    color: "text.secondary",
-                    fontSize: "14px",
-                    "&:hover": { color: "text.primary" },
+                    color: 'text.secondary',
+                    fontSize: '14px',
+                    '&:hover': { color: 'text.primary' },
                   }}
                 >
                   {label}
@@ -85,19 +81,19 @@ export default async function MarketingLayout({
           </Box>
           <Box
             sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
               gap: 1.5,
               pt: 3,
-              borderTop: "1px solid",
-              borderColor: "dividerSoft",
-              fontSize: "12.5px",
-              color: "text.disabled",
+              borderTop: '1px solid',
+              borderColor: 'dividerSoft',
+              fontSize: '12.5px',
+              color: 'text.disabled',
             }}
           >
-            <Box component="span">{t("footer.copyright")}</Box>
-            <Box component="span">{t("footer.hosting")}</Box>
+            <Box component="span">{t('footer.copyright')}</Box>
+            <Box component="span">{t('footer.hosting')}</Box>
           </Box>
         </Box>
       </Box>

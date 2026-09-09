@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useTranslations } from "next-intl";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
-import { ghostSx } from "../../_components/styles";
+import { ghostSx } from '../../_components/styles';
 
 function Spinner() {
   return (
@@ -15,11 +15,11 @@ function Spinner() {
       sx={{
         width: 16,
         height: 16,
-        borderRadius: "999px",
-        border: "2px solid currentColor",
-        borderRightColor: "transparent",
-        animation: "auth-spin .7s linear infinite",
-        "@keyframes auth-spin": { to: { transform: "rotate(360deg)" } },
+        borderRadius: '999px',
+        border: '2px solid currentColor',
+        borderRightColor: 'transparent',
+        animation: 'auth-spin .7s linear infinite',
+        '@keyframes auth-spin': { to: { transform: 'rotate(360deg)' } },
       }}
     />
   );
@@ -49,7 +49,7 @@ export function AuthSubmit({
 }
 
 export function GoogleButton() {
-  const t = useTranslations("auth.common");
+  const t = useTranslations('auth.common');
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -61,7 +61,7 @@ export function GoogleButton() {
       disabled={loading}
       onClick={() => {
         setLoading(true);
-        router.push("/dashboard");
+        router.push('/dashboard');
       }}
       startIcon={
         loading ? (
@@ -72,24 +72,24 @@ export function GoogleButton() {
             sx={{
               width: 16,
               height: 16,
-              borderRadius: "999px",
+              borderRadius: '999px',
               background:
-                "conic-gradient(from -60deg, oklch(0.62 0.18 28) 0 25%, oklch(0.66 0.14 85) 25% 50%, oklch(0.55 0.14 145) 50% 75%, oklch(0.55 0.16 250) 75% 100%)",
-              position: "relative",
-              "&::after": {
+                'conic-gradient(from -60deg, oklch(0.62 0.18 28) 0 25%, oklch(0.66 0.14 85) 25% 50%, oklch(0.55 0.14 145) 50% 75%, oklch(0.55 0.16 250) 75% 100%)',
+              position: 'relative',
+              '&::after': {
                 content: '""',
-                position: "absolute",
-                inset: "30%",
-                bgcolor: "background.paper",
-                borderRadius: "999px",
+                position: 'absolute',
+                inset: '30%',
+                bgcolor: 'background.paper',
+                borderRadius: '999px',
               },
             }}
           />
         )
       }
-      sx={{ ...ghostSx, height: 46, bgcolor: "background.paper" }}
+      sx={{ ...ghostSx, height: 46, bgcolor: 'background.paper' }}
     >
-      {loading ? t("googleLoading") : t("google")}
+      {loading ? t('googleLoading') : t('google')}
     </Button>
   );
 }
