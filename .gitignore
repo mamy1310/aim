@@ -48,3 +48,6 @@ next-env.d.ts
 
 .claude/*
 skills-lock.json
+
+# prisma generated client
+/lib/generated
