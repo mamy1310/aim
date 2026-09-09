@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AIm
 
-## Getting Started
+Plateforme d'apprentissage a l'IA : des cours gratuits par niveaux, et une newsletter
+quotidienne payante qui resume l'actualite IA.
 
-First, run the development server:
+Stack : Next.js 16 (App Router) · React 19 · TypeScript strict · MUI v9 · Prisma + PostgreSQL ·
+Auth.js v5 · Stripe · Resend · DeepSeek · next-intl · Vitest + Playwright.
+
+La specification fonctionnelle complete est le fichier `aim-spec.md` a la racine (non versionne).
+
+## Prerequis
+
+- Node 22 ou superieur
+- pnpm 10
+- Docker et Docker Compose
+
+## Demarrage local
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+docker compose up -d db stripe-mock
+pnpm db:deploy
+pnpm db:seed
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+L'application demarre sur http://localhost:3000 sans aucune cle d'API reelle : les valeurs de
+`.env` sont factices et tous les services tiers sont simules (stripe-mock, mocks Resend et
+DeepSeek dans les tests). Les generations IA sont coupees par `AI_SUMMARIZATION_ENABLED=false`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Comptes du seed : `admin@aim.local` et `etudiant@aim.local`, mot de passe `motdepasse1`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Commandes
 
-## Learn More
+| Commande                              | Role                                                                   |
+| ------------------------------------- | ---------------------------------------------------------------------- |
+| `pnpm dev`                            | serveur de developpement                                               |
+| `pnpm build` / `pnpm start`           | build et serveur de production                                         |
+| `pnpm lint` / `pnpm lint:fix`         | ESLint                                                                 |
+| `pnpm typecheck`                      | `tsc --noEmit`                                                         |
+| `pnpm format` / `pnpm format:check`   | Prettier                                                               |
+| `pnpm test` / `pnpm test:watch`       | tests unitaires (Vitest)                                               |
+| `pnpm test:integration`               | tests d'integration (demarre la base de test, applique les migrations) |
+| `pnpm test:e2e` / `pnpm test:e2e:ui`  | tests end to end (Playwright)                                          |
+| `pnpm db:migrate` / `pnpm db:deploy`  | migrations Prisma                                                      |
+| `pnpm db:generate` / `pnpm db:studio` | client Prisma et Prisma Studio                                         |
+| `pnpm db:seed` / `pnpm db:test:seed`  | donnees de depart                                                      |
+| `pnpm verify`                         | lint + typecheck + tests unitaires + build                             |
 
-To learn more about Next.js, take a look at the following resources:
+## Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/          routes App Router : (marketing), (auth), (app), api
+lib/          logique metier testable : db, ai, newsletter, auth, stripe
+prisma/       schema, migrations, seed
+messages/     traductions next-intl (fr)
+tests/        unit, integration, e2e
+.github/      CI et workflows cron
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environnements
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`.env` contient les valeurs de developpement (factices, versionnees). `.env.test` sert aux tests
+d'integration. `.env.example` liste les variables a renseigner en preproduction et en production.
