@@ -19,9 +19,13 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function AccountPage() {
   const t = await getTranslations('account');
   const user = await requireUser();
-  const sessionCount = await prisma.session.count({
-    where: { userId: user.id, expires: { gt: new Date() } },
-  });
+  const [sessionCount, newsletter] = await Promise.all([
+    prisma.session.count({ where: { userId: user.id, expires: { gt: new Date() } } }),
+    prisma.newsletterSubscription.findUnique({
+      where: { userId: user.id },
+      select: { maxLevel: true },
+    }),
+  ]);
 
   return (
     <Box component="main" sx={{ maxWidth: 880, mx: 'auto', px: { xs: '20px', md: '32px' } }}>
@@ -71,6 +75,8 @@ export default async function AccountPage() {
       <AccountTabs
         user={{ fullName: user.name ?? '', email: user.email }}
         sessionCount={sessionCount}
+        maxLevel={newsletter?.maxLevel ?? null}
+        hasNewsletter={Boolean(newsletter)}
       />
     </Box>
   );

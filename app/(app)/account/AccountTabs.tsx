@@ -1,6 +1,6 @@
 'use client';
 
-import { type ReactNode, useId, useState } from 'react';
+import { type ChangeEvent, type ReactNode, useId, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -16,6 +16,8 @@ import {
   updateProfileAction,
 } from '@/lib/auth/actions';
 import { PASSWORD_MIN_LENGTH } from '@/lib/auth/schemas';
+import { updateMaxLevelAction } from '@/lib/newsletter/actions';
+import { MAX_LEVEL } from '@/lib/levels';
 
 import {
   AlertTriangleIcon,
@@ -143,9 +145,13 @@ function LabelledInput({
 export default function AccountTabs({
   user,
   sessionCount,
+  maxLevel,
+  hasNewsletter,
 }: {
   user: { fullName: string; email: string };
   sessionCount: number;
+  maxLevel: number | null;
+  hasNewsletter: boolean;
 }) {
   const t = useTranslations('account');
   const [tab, setTab] = useState<TabKey>('profile');
@@ -239,7 +245,14 @@ export default function AccountTabs({
       </Box>
 
       <Box sx={{ pt: 4.5, pb: 10 }}>
-        {tab === 'profile' && <ProfilePanel user={user} onToast={showToast} />}
+        {tab === 'profile' && (
+          <ProfilePanel
+            user={user}
+            maxLevel={maxLevel}
+            hasNewsletter={hasNewsletter}
+            onToast={showToast}
+          />
+        )}
         {tab === 'security' && <SecurityPanel sessionCount={sessionCount} onToast={showToast} />}
         {tab === 'data' && <DataPanel onToast={showToast} />}
       </Box>
@@ -276,9 +289,13 @@ export default function AccountTabs({
 
 function ProfilePanel({
   user,
+  maxLevel,
+  hasNewsletter,
   onToast,
 }: {
   user: { fullName: string; email: string };
+  maxLevel: number | null;
+  hasNewsletter: boolean;
   onToast: (m: string) => void;
 }) {
   const t = useTranslations('account.profile');
@@ -346,6 +363,46 @@ function ProfilePanel({
                 help={t('emailHelp')}
               />
             </Box>
+
+            {hasNewsletter ? (
+              <Box sx={{ display: 'grid', gap: 0.75, maxWidth: 320 }}>
+                <Box
+                  component="label"
+                  htmlFor="niveau-max"
+                  sx={{ fontSize: '13.5px', fontWeight: 500 }}
+                >
+                  {t('maxLevel')}
+                </Box>
+                <Box
+                  component="select"
+                  id="niveau-max"
+                  defaultValue={maxLevel === null ? 'all' : String(maxLevel)}
+                  onChange={async (event: ChangeEvent<HTMLSelectElement>) => {
+                    const value = event.target.value;
+                    await updateMaxLevelAction(value === 'all' ? null : Number(value));
+                    onToast(t('savedToast'));
+                  }}
+                  sx={{
+                    p: '10px 12px',
+                    borderRadius: '10px',
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    bgcolor: 'background.paper',
+                    color: 'text.primary',
+                    font: 'inherit',
+                    fontSize: '15px',
+                  }}
+                >
+                  <option value="all">{t('maxLevelAll')}</option>
+                  {Array.from({ length: MAX_LEVEL }, (_, index) => index + 1).map((level) => (
+                    <option key={level} value={level}>
+                      {level}
+                    </option>
+                  ))}
+                </Box>
+                <Box sx={{ fontSize: '13px', color: 'text.disabled' }}>{t('maxLevelHelp')}</Box>
+              </Box>
+            ) : null}
           </Box>
         </Box>
       </Box>

@@ -333,7 +333,10 @@
       "clean": "Tu n'as pas de modification en cours.",
       "dirty": "Modifications non enregistrées.",
       "save": "Enregistrer",
-      "savedToast": "Profil enregistré."
+      "savedToast": "Profil enregistré.",
+      "maxLevel": "Niveau maximum des articles recus",
+      "maxLevelAll": "Tous les niveaux",
+      "maxLevelHelp": "Les articles au dela de ce niveau ne te sont pas envoyes."
     },
     "security": {
       "passwordTitle": "Mot de passe",
@@ -386,6 +389,34 @@
       "confirmPhrase": "supprimer mon compte",
       "deleteFinal": "Supprimer définitivement",
       "deletedToast": "Compte programmé pour suppression."
+    },
+    "billing": {
+      "meta": {
+        "title": "Abonnement",
+        "description": "Etat de ton abonnement a la newsletter et gestion du paiement."
+      },
+      "title": "Abonnement",
+      "crumb": "Abonnement",
+      "none": "Tu n as pas d abonnement en cours.",
+      "status": "Statut",
+      "renewal": "Prochaine echeance",
+      "cancelAtPeriodEnd": "Ton abonnement prendra fin a la prochaine echeance.",
+      "subscribe": "M abonner",
+      "manage": "Gerer mon abonnement",
+      "success": "Paiement enregistre. Confirme ton adresse via l email recu pour lancer les envois.",
+      "canceled": "Paiement annule, rien n a ete debite.",
+      "newsletterState": "Envois",
+      "receiving": "Actifs",
+      "waitingConfirmation": "En attente de confirmation",
+      "unsubscribed": "Desabonne",
+      "statuses": {
+        "active": "Actif",
+        "trialing": "Periode d essai",
+        "past_due": "Paiement en retard",
+        "canceled": "Annule",
+        "incomplete": "Incomplet",
+        "unpaid": "Impaye"
+      }
     }
   },
   "emails": {
@@ -435,6 +466,22 @@
       "SAFETY_ETHICS": "Securite et ethique",
       "TOOLING": "Outils",
       "OTHER": "Autre"
+    },
+    "newsletterOptIn": {
+      "subject": "Confirme ton abonnement a la newsletter",
+      "preheader": "Un dernier clic avant de recevoir La Quotidienne.",
+      "heading": "Confirme ton abonnement",
+      "body": "Ton paiement est enregistre. Confirme ton adresse pour commencer a recevoir la newsletter quotidienne. Sans cette confirmation, aucun envoi ne part.",
+      "cta": "Confirmer mon abonnement",
+      "footer": "Tu peux te desabonner a tout moment depuis le lien present dans chaque envoi."
+    },
+    "paymentFailed": {
+      "subject": "Ton paiement n a pas abouti",
+      "preheader": "Le dernier prelevement a echoue.",
+      "heading": "Ton paiement n a pas abouti",
+      "body": "Le dernier prelevement de ton abonnement a la newsletter a echoue. Mets a jour ton moyen de paiement pour continuer a recevoir les envois.",
+      "cta": "Gerer mon abonnement",
+      "footer": "Si tu as deja regularise, tu peux ignorer ce message."
     }
   },
   "courses": {
@@ -696,5 +743,34 @@
       "subscribed": "Abonne",
       "notSubscribed": "Non abonne"
     }
+  },
+  "newsletter": {
+    "meta": {
+      "title": "La Quotidienne",
+      "description": "Un article d actualite IA par jour, resume et remis en contexte pour les non-specialistes."
+    },
+    "kicker": "La Quotidienne",
+    "title": "Un article par jour, decode",
+    "lede": "Chaque matin, un article de l actualite IA selectionne parmi les sources officielles et la recherche, resume en francais clair, avec ce qu il faut en retenir.",
+    "price": "2,99 €",
+    "per": "par mois, sans engagement",
+    "bullets": [
+      "Un seul article par jour, choisi et relu",
+      "Resume assiste par IA, valide manuellement",
+      "Filtre par niveau de difficulte",
+      "Desabonnement en un clic"
+    ],
+    "cta": "M abonner",
+    "ctaLoading": "Redirection en cours",
+    "manage": "Gerer mon abonnement",
+    "loginFirst": "Connecte-toi pour t abonner",
+    "verifyFirst": "Confirme ton adresse email pour t abonner",
+    "alreadySubscribed": "Tu es abonne a La Quotidienne.",
+    "pendingConfirmation": "Ton abonnement est actif : confirme ton adresse via le lien recu par email pour recevoir les envois.",
+    "confirmationOk": "Abonnement confirme. Le premier envoi arrive au prochain passage.",
+    "confirmationInvalid": "Ce lien de confirmation n est plus valable.",
+    "unsubscribeOk": "Tu es desabonne des envois. Pour annuler ton paiement, passe par la gestion de ton abonnement.",
+    "unsubscribeInvalid": "Ce lien de desabonnement n est plus valable.",
+    "error": "La redirection vers le paiement a echoue. Reessaie dans un instant."
   }
 }
