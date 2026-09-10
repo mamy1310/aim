@@ -117,7 +117,12 @@
     },
     "footer": {
       "tagline": "L'intelligence artificielle, expliquée sans détour.",
-      "links": ["Mentions légales", "CGV", "Confidentialité", "Cookies"],
+      "links": [
+        "Mentions légales",
+        "CGV",
+        "Confidentialité",
+        "Cookies"
+      ],
       "copyright": "© 2026 AIm.",
       "hosting": "AIm utilise l'IA (DeepSeek) pour résumer les articles de la newsletter, sous supervision humaine. Le contenu des cours est rédigé à la main."
     }
@@ -228,7 +233,12 @@
     },
     "strength": {
       "hint": "10 caractères minimum, une lettre et un chiffre",
-      "levels": ["Faible", "Moyen", "Bien", "Solide"]
+      "levels": [
+        "Faible",
+        "Moyen",
+        "Bien",
+        "Solide"
+      ]
     },
     "register": {
       "title": "Créer un compte AIm.",
@@ -782,28 +792,35 @@
         {
           "heading": "Éditeur du site",
           "body": [
-            "Nom ou raison sociale : [À compléter par l'éditeur du site]",
-            "Adresse : [À compléter par l'éditeur du site]",
-            "Forme juridique et numéro d'immatriculation : [À compléter par l'éditeur du site]",
-            "Adresse de contact : [À compléter par l'éditeur du site]"
+            "Le site AIm est édité à titre non professionnel par Rakotoarisoa Andrianirina Mamitiana.",
+            "Adresse de contact : mamitiana_rakotoarisoa@outlook.com",
+            "Conformément à l'article 6, III, 2° de la loi pour la confiance dans l'économie numérique, l'éditeur non professionnel qui souhaite préserver son anonymat vis-à-vis du public communique ses éléments d'identification à son hébergeur, qui les tient à la disposition des autorités judiciaires."
           ]
         },
         {
           "heading": "Directeur de la publication",
-          "body": ["[À compléter par l'éditeur du site]"]
+          "body": [
+            "Rakotoarisoa Andrianirina Mamitiana"
+          ]
         },
         {
           "heading": "Hébergement",
           "body": [
             "Application : Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis.",
-            "Base de données : Supabase Inc.",
-            "Envoi des e-mails : Resend."
+            "Base de données : Supabase Inc., 970 Toa Payoh North #07-04, Singapour 318992.",
+            "Envoi des e-mails : Resend (Plus Five Five, Inc.), 2261 Market Street #5039, San Francisco, CA 94114, États-Unis."
           ]
         },
         {
           "heading": "Propriété intellectuelle",
           "body": [
             "Les contenus pédagogiques publiés sur AIm sont protégés par le droit d'auteur. Les résumés de la newsletter renvoient systématiquement vers l'article original, dont les droits appartiennent à son éditeur."
+          ]
+        },
+        {
+          "heading": "Signaler un contenu",
+          "body": [
+            "Tout contenu qui paraîtrait illicite ou porter atteinte à un droit peut être signalé à mamitiana_rakotoarisoa@outlook.com. Le signalement est traité dans les meilleurs délais."
           ]
         }
       ]
@@ -815,7 +832,7 @@
         {
           "heading": "Objet",
           "body": [
-            "Les présentes conditions régissent l'abonnement à la newsletter quotidienne d'AIm. Les cours et les attestations de complétion sont gratuits et ne relèvent pas de ces conditions."
+            "Les présentes conditions régissent l'abonnement à la newsletter quotidienne d'AIm, éditée par Rakotoarisoa Andrianirina Mamitiana. Les cours et les attestations de complétion sont gratuits et ne relèvent pas de ces conditions."
           ]
         },
         {
@@ -851,7 +868,8 @@
         {
           "heading": "Réclamations et droit applicable",
           "body": [
-            "Toute réclamation peut être adressée à [À compléter par l'éditeur du site]. Les présentes conditions sont soumises au droit français."
+            "Toute réclamation peut être adressée à mamitiana_rakotoarisoa@outlook.com. Une réponse est apportée sous trente jours.",
+            "Les présentes conditions sont soumises au droit français. À défaut d'accord amiable, le litige relève des juridictions compétentes dans les conditions prévues par le code de la consommation."
           ]
         }
       ]
@@ -863,7 +881,8 @@
         {
           "heading": "Responsable du traitement",
           "body": [
-            "[À compléter par l'éditeur du site]. Pour toute question relative aux données personnelles : [À compléter par l'éditeur du site]."
+            "Rakotoarisoa Andrianirina Mamitiana, éditeur du site AIm.",
+            "Pour toute question relative aux données personnelles, ou pour exercer tes droits : mamitiana_rakotoarisoa@outlook.com."
           ]
         },
         {
@@ -908,7 +927,8 @@
         {
           "heading": "Droits des personnes",
           "body": [
-            "Chaque utilisateur peut accéder à ses données, les rectifier, les exporter au format JSON et supprimer son compte depuis la rubrique « Mes données » de son espace personnel. Une réclamation peut être adressée à la Commission nationale de l'informatique et des libertés."
+            "Chaque utilisateur peut accéder à ses données, les rectifier, les exporter au format JSON et supprimer son compte depuis la rubrique « Mes données » de son espace personnel.",
+            "Ces droits, ainsi que le droit d'opposition et le droit à la limitation du traitement, peuvent aussi s'exercer par écrit à mamitiana_rakotoarisoa@outlook.com. Une réclamation peut être adressée à la Commission nationale de l'informatique et des libertés."
           ]
         }
       ]
