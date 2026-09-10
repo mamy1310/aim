@@ -29,9 +29,6 @@ export const resetPasswordSchema = z.object({
   password: passwordSchema,
 });
 
-export type RegisterInput = z.infer<typeof registerSchema>;
-export type LoginInput = z.infer<typeof loginSchema>;
-
 export const profileSchema = z.object({
   name: z.string().trim().min(1).max(120),
   email: emailSchema,

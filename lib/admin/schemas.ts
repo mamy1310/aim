@@ -42,7 +42,3 @@ export const quizSchema = z.object({
     )
     .min(1),
 });
-
-export type CourseInput = z.infer<typeof courseSchema>;
-export type LessonInput = z.infer<typeof lessonSchema>;
-export type QuizInput = z.infer<typeof quizSchema>;

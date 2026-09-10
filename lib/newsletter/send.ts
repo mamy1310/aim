@@ -38,7 +38,6 @@ export async function sendIssue(
 
   const messages = recipients.map((recipient) => {
     const { html, text } = renderIssueEmail({
-      subject: issue.subject,
       intro: issue.intro,
       date: now,
       levelLabel: levels(String(Math.min(summary.level, 3)) as '1' | '2' | '3'),

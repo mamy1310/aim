@@ -1,5 +1,3 @@
-export type ActionOutcome = { ok: true } | { ok: false; error: string };
-
 // A failing server action rejects.
 export async function runAction<T extends { ok: boolean }>(
   call: () => Promise<T>,

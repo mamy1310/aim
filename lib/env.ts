@@ -11,9 +11,6 @@ function optional(name: string, fallback: string): string {
 }
 
 export const env = {
-  get authSecret() {
-    return required('AUTH_SECRET');
-  },
   get siteUrl() {
     return optional('NEXT_PUBLIC_SITE_URL', 'http://localhost:3000');
   },

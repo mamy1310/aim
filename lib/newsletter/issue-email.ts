@@ -3,7 +3,6 @@ import { getEmailTranslations } from '@/lib/i18n/emails';
 import { env } from '@/lib/env';
 
 export type IssueEmailInput = {
-  subject: string;
   intro: string;
   date: Date;
   levelLabel: string;
