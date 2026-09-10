@@ -124,7 +124,7 @@ describe('envoi d une edition', () => {
 
     const message = batches[0][0];
     expect(message.text).toContain('/api/newsletter/unsubscribe/');
-    expect(message.text).toContain('assiste par IA');
+    expect(message.text).toContain('assisté par IA');
     expect(message.text).toContain('https://officiel.test/article-1');
     expect(message.text).not.toMatch(/[—]/);
   });

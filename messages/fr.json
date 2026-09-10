@@ -146,12 +146,12 @@
       "next": "Prochaine : <b>Leçon {num} · {title}</b>",
       "progress": "{pct} %",
       "cta": "Reprendre",
-      "empty": "Aucun cours en cours. Choisis un parcours pour demarrer."
+      "empty": "Aucun cours en cours. Choisis un parcours pour démarrer."
     },
     "badges": {
       "title": "Mes badges",
       "count": "{count, plural, =0 {Aucun badge obtenu} one {# badge obtenu} other {# badges obtenus}}",
-      "empty": "Pas encore d attestation. Termine un cours et son quiz pour en obtenir une."
+      "empty": "Pas encore d'attestation. Termine un cours et son quiz pour en obtenir une."
     },
     "newsletter": {
       "title": "La Quotidienne",
@@ -180,8 +180,8 @@
           "hint": "Sans engagement, 2,99 €, résiliable à tout moment"
         },
         "discover": {
-          "title": "Decouvrir les cours",
-          "hint": "Neuf parcours, du premier contact aux usages avances."
+          "title": "Découvrir les cours",
+          "hint": "Des parcours du premier contact aux usages avancés."
         }
       }
     },
@@ -211,8 +211,8 @@
         "description": "Choisis un nouveau mot de passe pour ton compte AIm."
       },
       "verify": {
-        "title": "Confirmation de l adresse",
-        "description": "Confirme ton adresse email pour activer toutes les fonctions de ton compte AIm."
+        "title": "Confirmation de l'adresse",
+        "description": "Confirme ton adresse e-mail pour activer toutes les fonctions de ton compte AIm."
       }
     },
     "footer": "© 2026 AIm",
@@ -292,19 +292,19 @@
     },
     "errors": {
       "invalid_input": "Certains champs sont incomplets ou mal remplis.",
-      "invalid_credentials": "Email ou mot de passe incorrect.",
-      "email_taken": "Un compte existe deja avec cette adresse.",
-      "rate_limited": "Trop de tentatives. Reessaie dans une quinzaine de minutes.",
-      "invalid_token": "Ce lien a expire ou a deja ete utilise.",
-      "unexpected": "Une erreur est survenue. Reessaie dans un instant."
+      "invalid_credentials": "E-mail ou mot de passe incorrect.",
+      "email_taken": "Un compte existe déjà avec cette adresse.",
+      "rate_limited": "Trop de tentatives. Réessaie dans une quinzaine de minutes.",
+      "invalid_token": "Ce lien a expiré ou a déjà été utilisé.",
+      "unexpected": "Une erreur est survenue. Réessaie dans un instant."
     },
     "verify": {
-      "title": "Adresse confirmee.",
-      "subtitle": "Ton compte est actif : tu peux suivre les cours, obtenir tes attestations et gerer ton abonnement.",
+      "title": "Adresse confirmée.",
+      "subtitle": "Ton compte est actif : tu peux suivre les cours, obtenir tes attestations et gérer ton abonnement.",
       "errorTitle": "Lien invalide.",
-      "errorSubtitle": "Ce lien a expire ou a deja servi. Reconnecte-toi pour recevoir un nouveau lien de confirmation.",
+      "errorSubtitle": "Ce lien a expiré ou a déjà servi. Reconnecte-toi pour recevoir un nouveau lien de confirmation.",
       "cta": "Aller au tableau de bord",
-      "ctaError": "Retour a la connexion"
+      "ctaError": "Retour à la connexion"
     }
   },
   "account": {
@@ -326,7 +326,7 @@
     },
     "profile": {
       "title": "Profil public",
-      "desc": "Ces informations apparaissent sur tes attestations verifiables. Le nom et l initiale sont visibles, l e-mail reste prive.",
+      "desc": "Ces informations apparaissent sur tes attestations vérifiables. Le nom et l'initiale sont visibles, l'e-mail reste privé.",
       "nameLabel": "Nom affiché",
       "emailLabel": "Adresse e-mail",
       "emailHelp": "On t'enverra un lien de confirmation à la nouvelle adresse.",
@@ -334,9 +334,9 @@
       "dirty": "Modifications non enregistrées.",
       "save": "Enregistrer",
       "savedToast": "Profil enregistré.",
-      "maxLevel": "Niveau maximum des articles recus",
+      "maxLevel": "Niveau maximum des articles reçus",
       "maxLevelAll": "Tous les niveaux",
-      "maxLevelHelp": "Les articles au dela de ce niveau ne te sont pas envoyes."
+      "maxLevelHelp": "Les articles au-delà de ce niveau ne te sont pas envoyés."
     },
     "security": {
       "passwordTitle": "Mot de passe",
@@ -351,8 +351,8 @@
       "change": "Changer le mot de passe",
       "changedToast": "Mot de passe changé.",
       "sessionsTitle": "Sessions actives",
-      "sessionsDesc": "Les appareils actuellement connectes a ton compte.",
-      "sessionsHint": "Deconnecter les autres appareils met fin a toutes les sessions sauf celle-ci.",
+      "sessionsDesc": "Les appareils actuellement connectés à ton compte.",
+      "sessionsHint": "Déconnecter les autres appareils met fin à toutes les sessions sauf celle-ci.",
       "disconnectAll": "Déconnecter toutes les autres sessions",
       "disconnectAllToast": "Autres sessions déconnectées.",
       "sessionsCount": "{count, plural, one {# session active} other {# sessions actives}}"
@@ -393,66 +393,66 @@
     "billing": {
       "meta": {
         "title": "Abonnement",
-        "description": "Etat de ton abonnement a la newsletter et gestion du paiement."
+        "description": "État de ton abonnement à la newsletter et gestion du paiement."
       },
       "title": "Abonnement",
       "crumb": "Abonnement",
-      "none": "Tu n as pas d abonnement en cours.",
+      "none": "Tu n'as pas d'abonnement en cours.",
       "status": "Statut",
-      "renewal": "Prochaine echeance",
-      "cancelAtPeriodEnd": "Ton abonnement prendra fin a la prochaine echeance.",
-      "subscribe": "M abonner",
-      "manage": "Gerer mon abonnement",
-      "success": "Paiement enregistre. Confirme ton adresse via l email recu pour lancer les envois.",
-      "canceled": "Paiement annule, rien n a ete debite.",
+      "renewal": "Prochaine échéance",
+      "cancelAtPeriodEnd": "Ton abonnement prendra fin à la prochaine échéance.",
+      "subscribe": "M'abonner",
+      "manage": "Gérer mon abonnement",
+      "success": "Paiement enregistré. Confirme ton adresse via l'e-mail reçu pour lancer les envois.",
+      "canceled": "Paiement annulé, rien n'a été débité.",
       "newsletterState": "Envois",
       "receiving": "Actifs",
       "waitingConfirmation": "En attente de confirmation",
-      "unsubscribed": "Desabonne",
+      "unsubscribed": "Désabonné",
       "statuses": {
         "active": "Actif",
-        "trialing": "Periode d essai",
+        "trialing": "Période d'essai",
         "past_due": "Paiement en retard",
-        "canceled": "Annule",
+        "canceled": "Annulé",
         "incomplete": "Incomplet",
-        "unpaid": "Impaye"
+        "unpaid": "Impayé"
       }
     }
   },
   "emails": {
     "verifyEmail": {
-      "subject": "Confirme ton adresse email",
+      "subject": "Confirme ton adresse e-mail",
       "preheader": "Un clic et ton compte AIm est actif.",
-      "heading": "Confirme ton adresse email",
-      "body": "Tu viens de creer un compte sur AIm. Confirme ton adresse pour suivre ta progression, obtenir tes attestations et gerer ton abonnement.",
+      "heading": "Confirme ton adresse e-mail",
+      "body": "Tu viens de créer un compte sur AIm. Confirme ton adresse pour suivre ta progression, obtenir tes attestations et gérer ton abonnement.",
       "expiry": "Ce lien reste valable 24 heures.",
       "cta": "Confirmer mon adresse",
-      "footer": "Tu n'es pas a l'origine de cette inscription ? Ignore ce message, aucun compte ne sera active."
+      "footer": "Tu n'es pas à l'origine de cette inscription ? Ignore ce message, aucun compte ne sera activé."
     },
     "resetPassword": {
-      "subject": "Reinitialiser ton mot de passe",
+      "subject": "Réinitialiser ton mot de passe",
       "preheader": "Choisis un nouveau mot de passe.",
-      "heading": "Reinitialiser ton mot de passe",
-      "body": "Une demande de reinitialisation a ete faite pour ton compte AIm. Choisis un nouveau mot de passe en suivant le lien ci-dessous.",
-      "expiry": "Ce lien reste valable une heure et ne fonctionne qu une seule fois.",
+      "heading": "Réinitialiser ton mot de passe",
+      "body": "Une demande de réinitialisation a été faite pour ton compte AIm. Choisis un nouveau mot de passe en suivant le lien ci-dessous.",
+      "expiry": "Ce lien reste valable une heure et ne fonctionne qu'une seule fois.",
       "cta": "Choisir un nouveau mot de passe",
       "footer": "Tu n'as pas fait cette demande ? Ignore ce message, ton mot de passe actuel reste valable."
     },
     "adminDraft": {
-      "subject": "Brouillon de newsletter a valider",
+      "subject": "Brouillon de newsletter à valider",
       "preheader": "Un brouillon attend ta relecture.",
-      "heading": "Le brouillon du jour est pret",
+      "heading": "Le brouillon du jour est prêt",
       "body": "Article retenu : {title}",
-      "autoSend": "Sans intervention de ta part, l envoi partira automatiquement le {time} (UTC).",
+      "autoSend": "Sans intervention de ta part, l'envoi partira automatiquement le {time} (UTC).",
       "cta": "Relire et valider",
-      "footer": "Message automatique envoye a l administrateur d AIm."
+      "footer": "Message automatique envoyé à l'administrateur d'AIm."
     },
     "issue": {
-      "whyItMatters": "Pourquoi c est important :",
+      "whyItMatters": "Pourquoi c'est important :",
       "source": "Source :",
-      "readOriginal": "Lire l article original",
-      "aiNotice": "Resume assiste par IA, valide manuellement.",
-      "unsubscribe": "Se desabonner :"
+      "readOriginal": "Lire l'article original",
+      "aiNotice": "Résumé assisté par IA, validé manuellement.",
+      "unsubscribe": "Se désabonner :"
     },
     "levels": {
       "1": "Niveau 1",
@@ -460,135 +460,135 @@
       "3": "Niveau 3"
     },
     "categories": {
-      "MODEL_RELEASE": "Nouveau modele",
+      "MODEL_RELEASE": "Nouveau modèle",
       "RESEARCH_PAPER": "Recherche",
       "PRODUCT": "Produit",
-      "SAFETY_ETHICS": "Securite et ethique",
+      "SAFETY_ETHICS": "Sécurité et éthique",
       "TOOLING": "Outils",
       "OTHER": "Autre"
     },
     "newsletterOptIn": {
-      "subject": "Confirme ton abonnement a la newsletter",
+      "subject": "Confirme ton abonnement à la newsletter",
       "preheader": "Un dernier clic avant de recevoir La Quotidienne.",
       "heading": "Confirme ton abonnement",
-      "body": "Ton paiement est enregistre. Confirme ton adresse pour commencer a recevoir la newsletter quotidienne. Sans cette confirmation, aucun envoi ne part.",
+      "body": "Ton paiement est enregistré. Confirme ton adresse pour commencer à recevoir la newsletter quotidienne. Sans cette confirmation, aucun envoi ne part.",
       "cta": "Confirmer mon abonnement",
-      "footer": "Tu peux te desabonner a tout moment depuis le lien present dans chaque envoi."
+      "footer": "Tu peux te désabonner à tout moment depuis le lien présent dans chaque envoi."
     },
     "paymentFailed": {
-      "subject": "Ton paiement n a pas abouti",
-      "preheader": "Le dernier prelevement a echoue.",
-      "heading": "Ton paiement n a pas abouti",
-      "body": "Le dernier prelevement de ton abonnement a la newsletter a echoue. Mets a jour ton moyen de paiement pour continuer a recevoir les envois.",
-      "cta": "Gerer mon abonnement",
-      "footer": "Si tu as deja regularise, tu peux ignorer ce message."
+      "subject": "Ton paiement n'a pas abouti",
+      "preheader": "Le dernier prélèvement a échoué.",
+      "heading": "Ton paiement n'a pas abouti",
+      "body": "Le dernier prélèvement de ton abonnement à la newsletter a échoué. Mets à jour ton moyen de paiement pour continuer à recevoir les envois.",
+      "cta": "Gérer mon abonnement",
+      "footer": "Si tu as déjà régularisé, tu peux ignorer ce message."
     }
   },
   "courses": {
     "meta": {
       "title": "Les cours",
-      "description": "Des parcours progressifs pour comprendre et utiliser l IA au quotidien. Gratuits, avec attestation de completion."
+      "description": "Des parcours progressifs pour comprendre et utiliser l'IA au quotidien. Gratuits, avec attestation de complétion."
     },
     "kicker": "Cours",
-    "title": "Apprendre l IA, niveau par niveau",
-    "lede": "Chaque parcours part de zero et se termine par un quiz. Tout est gratuit ; le compte sert a garder ta progression et tes attestations.",
-    "empty": "Les premiers cours arrivent bientot.",
-    "lessonCount": "{count, plural, one {# lecon} other {# lecons}}",
-    "progress": "{progress} % termine",
+    "title": "Apprendre l'IA, niveau par niveau",
+    "lede": "Chaque parcours part de zéro et se termine par un quiz. Tout est gratuit ; le compte sert à garder ta progression et tes attestations.",
+    "empty": "Les premiers cours arrivent bientôt.",
+    "lessonCount": "{count, plural, one {# leçon} other {# leçons}}",
+    "progress": "{progress} % terminé",
     "start": "Commencer",
     "resume": "Reprendre",
     "review": "Revoir",
-    "aiAssisted": "Contenu assiste par IA, relu manuellement",
-    "handWritten": "Contenu redige a la main",
+    "aiAssisted": "Contenu assisté par IA, relu manuellement",
+    "handWritten": "Contenu rédigé à la main",
     "detail": {
-      "lessons": "Les lecons",
+      "lessons": "Les leçons",
       "quizTitle": "Quiz final",
-      "quizLocked": "Termine toutes les lecons pour ouvrir le quiz.",
+      "quizLocked": "Termine toutes les leçons pour ouvrir le quiz.",
       "quizOpen": "Tu peux passer le quiz.",
-      "quizPassed": "Quiz reussi. Ton attestation est disponible.",
+      "quizPassed": "Quiz réussi. Ton attestation est disponible.",
       "quizStart": "Passer le quiz",
       "badgeView": "Voir mon attestation",
       "minutes": "{count} min",
-      "completed": "Terminee",
+      "completed": "Terminée",
       "backToCourses": "Tous les cours"
     },
     "lesson": {
       "markRead": "Marquer comme lu",
-      "marked": "Lecon terminee",
-      "previous": "Lecon precedente",
-      "next": "Lecon suivante",
+      "marked": "Leçon terminée",
+      "previous": "Leçon précédente",
+      "next": "Leçon suivante",
       "backToCourse": "Retour au cours",
       "loginToTrack": "Connecte-toi pour enregistrer ta progression.",
-      "verifyToTrack": "Confirme ton adresse email pour enregistrer ta progression.",
-      "position": "Lecon {index} sur {total}"
+      "verifyToTrack": "Confirme ton adresse e-mail pour enregistrer ta progression.",
+      "position": "Leçon {index} sur {total}"
     }
   },
   "quiz": {
     "meta": {
       "title": "Quiz",
-      "description": "Valide tes acquis et obtiens ton attestation de completion."
+      "description": "Valide tes acquis et obtiens ton attestation de complétion."
     },
     "kicker": "Quiz final",
-    "intro": "Une seule bonne reponse par question. Tu peux retenter autant de fois que tu veux.",
+    "intro": "Une seule bonne réponse par question. Tu peux retenter autant de fois que tu veux.",
     "question": "Question {index} sur {total}",
-    "submit": "Valider mes reponses",
+    "submit": "Valider mes réponses",
     "submitting": "Correction en cours",
-    "incomplete": "Reponds a toutes les questions avant de valider.",
-    "resultTitle": "Ton resultat",
+    "incomplete": "Réponds à toutes les questions avant de valider.",
+    "resultTitle": "Ton résultat",
     "score": "{score} %",
-    "passed": "Reussi. Ton attestation de completion est disponible.",
-    "failed": "Il manque quelques points. Relis les lecons et retente.",
-    "passScore": "Seuil de reussite : {passScore} %",
-    "yourAnswer": "Ta reponse",
-    "correctAnswer": "Bonne reponse",
+    "passed": "Réussi. Ton attestation de complétion est disponible.",
+    "failed": "Il manque quelques points. Relis les leçons et retente.",
+    "passScore": "Seuil de réussite : {passScore} %",
+    "yourAnswer": "Ta réponse",
+    "correctAnswer": "Bonne réponse",
     "retry": "Retenter le quiz",
     "seeBadge": "Voir mon attestation",
     "backToCourse": "Retour au cours",
-    "error": "La correction a echoue. Reessaie dans un instant."
+    "error": "La correction a échoué. Réessaie dans un instant."
   },
   "badges": {
     "meta": {
-      "title": "Attestation de completion",
-      "description": "Verification publique d une attestation de completion delivree par AIm."
+      "title": "Attestation de complétion",
+      "description": "Vérification publique d'une attestation de complétion délivrée par AIm."
     },
-    "kicker": "Attestation verifiee",
-    "heading": "{name} a termine {course}",
-    "issuedOn": "Delivree le {date}",
-    "disclaimer": "Cette attestation confirme l achevement du cours sur AIm. Elle ne constitue pas une certification professionnelle reconnue.",
-    "addToLinkedIn": "Ajouter a LinkedIn",
-    "discover": "Decouvrir AIm",
+    "kicker": "Attestation vérifiée",
+    "heading": "{name} a terminé {course}",
+    "issuedOn": "Délivrée le {date}",
+    "disclaimer": "Cette attestation confirme l'achèvement du cours sur AIm. Elle ne constitue pas une certification professionnelle reconnue.",
+    "addToLinkedIn": "Ajouter à LinkedIn",
+    "discover": "Découvrir AIm",
     "notFound": "Attestation introuvable",
-    "notFoundBody": "Ce lien ne correspond a aucune attestation. Verifie l adresse ou demande un nouveau lien a son titulaire."
+    "notFoundBody": "Ce lien ne correspond à aucune attestation. Vérifie l'adresse ou demande un nouveau lien à son titulaire."
   },
   "admin": {
     "meta": {
       "title": "Administration",
-      "description": "Espace d administration AIm."
+      "description": "Espace d'administration AIm."
     },
     "nav": {
       "dashboard": "Tableau de bord",
       "courses": "Cours",
-      "back": "Retour au site",
       "newsletter": "Newsletter",
+      "users": "Comptes",
       "logs": "Traces IA",
-      "users": "Comptes"
+      "back": "Retour au site"
     },
     "home": {
       "title": "Administration",
       "users": "Comptes",
-      "verified": "Adresses confirmees",
-      "courses": "Cours publies",
+      "verified": "Adresses confirmées",
+      "courses": "Cours publiés",
       "drafts": "Cours en brouillon",
-      "badges": "Attestations delivrees",
-      "subscribers": "Abonnes newsletter actifs"
+      "badges": "Attestations délivrées",
+      "subscribers": "Abonnés newsletter actifs"
     },
     "courses": {
       "title": "Cours",
       "new": "Nouveau cours",
       "empty": "Aucun cours pour le moment.",
-      "published": "Publie",
+      "published": "Publié",
       "draft": "Brouillon",
-      "lessons": "{count, plural, one {# lecon} other {# lecons}}",
+      "lessons": "{count, plural, one {# leçon} other {# leçons}}",
       "edit": "Modifier",
       "delete": "Supprimer",
       "deleteConfirm": "Supprimer ce cours et tout son contenu ?"
@@ -596,343 +596,343 @@
     "course": {
       "newTitle": "Nouveau cours",
       "editTitle": "Modifier le cours",
-      "slug": "Identifiant d URL",
-      "slugHelp": "En minuscules, mots separes par des tirets.",
+      "slug": "Identifiant d'URL",
+      "slugHelp": "En minuscules, mots séparés par des tirets.",
       "titleField": "Titre",
       "description": "Description",
-      "descriptionHelp": "300 caracteres maximum.",
+      "descriptionHelp": "300 caractères maximum.",
       "level": "Niveau",
-      "order": "Ordre d affichage",
-      "published": "Publie",
-      "aiAssisted": "Contenu assiste par IA",
+      "order": "Ordre d'affichage",
+      "published": "Publié",
+      "aiAssisted": "Contenu assisté par IA",
       "save": "Enregistrer",
-      "saved": "Modifications enregistrees",
-      "lessonsTitle": "Lecons",
-      "addLesson": "Ajouter une lecon",
+      "saved": "Modifications enregistrées",
+      "lessonsTitle": "Leçons",
+      "addLesson": "Ajouter une leçon",
       "quizTitle": "Quiz final",
       "editQuiz": "Modifier le quiz",
       "noQuiz": "Aucun quiz pour ce cours.",
       "questions": "{count, plural, one {# question} other {# questions}}"
     },
     "lesson": {
-      "newTitle": "Nouvelle lecon",
-      "editTitle": "Modifier la lecon",
+      "newTitle": "Nouvelle leçon",
+      "editTitle": "Modifier la leçon",
       "titleField": "Titre",
       "order": "Ordre",
-      "minutes": "Duree estimee en minutes",
-      "aiAssisted": "Contenu assiste par IA",
+      "minutes": "Durée estimée en minutes",
+      "aiAssisted": "Contenu assisté par IA",
       "content": "Contenu (markdown)",
-      "preview": "Apercu",
+      "preview": "Aperçu",
       "save": "Enregistrer",
-      "saved": "Lecon enregistree",
-      "delete": "Supprimer la lecon",
-      "deleteConfirm": "Supprimer cette lecon ?"
+      "saved": "Leçon enregistrée",
+      "delete": "Supprimer la leçon",
+      "deleteConfirm": "Supprimer cette leçon ?"
     },
     "quiz": {
       "title": "Quiz du cours",
-      "passScore": "Seuil de reussite en pourcentage",
+      "passScore": "Seuil de réussite en pourcentage",
       "question": "Question {index}",
-      "questionText": "Enonce",
-      "explanation": "Explication affichee apres correction",
-      "option": "Reponse {index}",
-      "correct": "Bonne reponse",
-      "addOption": "Ajouter une reponse",
+      "questionText": "Énoncé",
+      "explanation": "Explication affichée après correction",
+      "option": "Réponse {index}",
+      "correct": "Bonne réponse",
+      "addOption": "Ajouter une réponse",
       "removeOption": "Retirer",
       "addQuestion": "Ajouter une question",
       "removeQuestion": "Supprimer la question",
       "save": "Enregistrer le quiz",
-      "saved": "Quiz enregistre",
-      "needOneCorrect": "Chaque question doit avoir exactement une bonne reponse."
-    },
-    "errors": {
-      "invalid_input": "Certains champs sont incomplets ou mal remplis.",
-      "slug_taken": "Cet identifiant d URL est deja pris.",
-      "unexpected": "Une erreur est survenue.",
-      "url_taken": "Ce flux est deja enregistre.",
-      "not_found": "Element introuvable.",
-      "already_sent": "Cette edition a deja ete envoyee.",
-      "empty_issue": "Cette edition ne contient aucun article."
+      "saved": "Quiz enregistré",
+      "needOneCorrect": "Chaque question doit avoir exactement une bonne réponse."
     },
     "newsletter": {
       "sources": {
         "title": "Sources RSS",
         "name": "Nom",
         "url": "URL du flux",
-        "category": "Categorie",
+        "category": "Catégorie",
         "enabled": "Active",
         "lastFetch": "Dernier passage",
         "never": "Jamais",
         "error": "Erreur",
         "add": "Ajouter une source",
         "save": "Enregistrer",
-        "saved": "Source enregistree",
+        "saved": "Source enregistrée",
         "delete": "Supprimer",
         "deleteConfirm": "Supprimer cette source et ses articles ?"
       },
       "articles": {
-        "title": "Articles collectes",
-        "empty": "Aucun article collecte.",
+        "title": "Articles collectés",
+        "empty": "Aucun article collecté.",
         "status": "Statut",
         "source": "Source",
-        "published": "Publie le",
+        "published": "Publié le",
         "reason": "Raison",
         "requeue": "Remettre en attente",
         "filterAll": "Tous"
       },
       "issues": {
-        "title": "Editions",
-        "empty": "Aucune edition pour le moment.",
+        "title": "Éditions",
+        "empty": "Aucune édition pour le moment.",
         "subject": "Sujet",
         "status": "Statut",
-        "sendAt": "Envoi prevu",
-        "sentAt": "Envoye le",
+        "sendAt": "Envoi prévu",
+        "sentAt": "Envoyée le",
         "recipients": "{count, plural, one {# destinataire} other {# destinataires}}",
         "autoSent": "Envoi automatique",
-        "manualSent": "Validee manuellement",
+        "manualSent": "Validée manuellement",
         "edit": "Ouvrir"
       },
       "issue": {
-        "title": "Edition du jour",
-        "subjectField": "Sujet de l email",
-        "intro": "Edito (facultatif)",
+        "title": "Édition du jour",
+        "subjectField": "Sujet de l'e-mail",
+        "intro": "Édito (facultatif)",
         "save": "Enregistrer",
-        "saved": "Edition enregistree",
+        "saved": "Édition enregistrée",
         "send": "Valider et envoyer",
-        "sendConfirm": "Envoyer cette edition maintenant ?",
-        "sent": "Edition envoyee",
-        "delete": "Supprimer l edition",
-        "deleteConfirm": "Supprimer cette edition ?",
-        "preview": "Contenu envoye",
-        "whyItMatters": "Pourquoi c est important",
+        "sendConfirm": "Envoyer cette édition maintenant ?",
+        "sent": "Édition envoyée",
+        "delete": "Supprimer l'édition",
+        "deleteConfirm": "Supprimer cette édition ?",
+        "preview": "Contenu envoyé",
+        "whyItMatters": "Pourquoi c'est important",
         "sourceLink": "Article original",
-        "alreadySent": "Cette edition a deja ete envoyee, elle n est plus modifiable."
+        "alreadySent": "Cette édition a déjà été envoyée, elle n'est plus modifiable."
       },
       "statuses": {
         "PENDING": "En attente",
-        "SUMMARIZED": "Resume",
-        "SKIPPED": "Ecarte",
-        "FAILED": "Echec",
+        "SUMMARIZED": "Résumé",
+        "SKIPPED": "Écarté",
+        "FAILED": "Échec",
         "DRAFT": "Brouillon",
-        "READY": "Prete",
-        "SENT": "Envoyee"
+        "READY": "Prête",
+        "SENT": "Envoyée"
       }
     },
     "logs": {
-      "title": "Traces de generation IA",
-      "empty": "Aucune generation enregistree.",
+      "title": "Traces de génération IA",
+      "empty": "Aucune génération enregistrée.",
       "date": "Date",
-      "model": "Modele",
+      "model": "Modèle",
       "attempt": "Tentative",
-      "tokens": "Tokens",
-      "cost": "Cout",
-      "status": "Resultat",
-      "success": "Succes",
-      "failure": "Echec",
-      "total": "Cout cumule sur 24 h : {cost} $"
+      "tokens": "tokens",
+      "cost": "Coût",
+      "status": "Résultat",
+      "success": "Succès",
+      "failure": "Échec",
+      "total": "Coût cumulé sur 24 h : {cost} $"
     },
     "users": {
       "title": "Comptes",
       "email": "Adresse",
       "name": "Nom",
-      "role": "Role",
-      "verified": "Confirmee",
+      "role": "Rôle",
+      "verified": "Confirmée",
       "subscription": "Newsletter",
       "createdAt": "Inscription",
       "search": "Rechercher une adresse",
-      "none": "Aucun compte trouve.",
-      "subscribed": "Abonne",
-      "notSubscribed": "Non abonne"
+      "none": "Aucun compte trouvé.",
+      "subscribed": "Abonné",
+      "notSubscribed": "Non abonné"
+    },
+    "errors": {
+      "invalid_input": "Certains champs sont incomplets ou mal remplis.",
+      "slug_taken": "Cet identifiant d'URL est déjà pris.",
+      "url_taken": "Ce flux est déjà enregistré.",
+      "not_found": "Élément introuvable.",
+      "already_sent": "Cette édition a déjà été envoyée.",
+      "empty_issue": "Cette édition ne contient aucun article.",
+      "unexpected": "Une erreur est survenue."
     }
   },
   "newsletter": {
     "meta": {
       "title": "La Quotidienne",
-      "description": "Un article d actualite IA par jour, resume et remis en contexte pour les non-specialistes."
+      "description": "Un article d'actualité IA par jour, résumé et remis en contexte pour les non-spécialistes."
     },
     "kicker": "La Quotidienne",
-    "title": "Un article par jour, decode",
-    "lede": "Chaque matin, un article de l actualite IA selectionne parmi les sources officielles et la recherche, resume en francais clair, avec ce qu il faut en retenir.",
+    "title": "Un article par jour, décodé",
+    "lede": "Chaque matin, un article de l'actualité IA choisi parmi les sources officielles et la recherche, résumé en français clair, avec ce qu'il faut en retenir.",
     "price": "2,99 €",
     "per": "par mois, sans engagement",
     "bullets": [
       "Un seul article par jour, choisi et relu",
-      "Resume assiste par IA, valide manuellement",
-      "Filtre par niveau de difficulte",
-      "Desabonnement en un clic"
+      "Résumé assisté par IA, validé manuellement",
+      "Filtre par niveau de difficulté",
+      "Désabonnement en un clic"
     ],
-    "cta": "M abonner",
+    "cta": "M'abonner",
     "ctaLoading": "Redirection en cours",
-    "manage": "Gerer mon abonnement",
-    "loginFirst": "Connecte-toi pour t abonner",
-    "verifyFirst": "Confirme ton adresse email pour t abonner",
-    "alreadySubscribed": "Tu es abonne a La Quotidienne.",
-    "pendingConfirmation": "Ton abonnement est actif : confirme ton adresse via le lien recu par email pour recevoir les envois.",
-    "confirmationOk": "Abonnement confirme. Le premier envoi arrive au prochain passage.",
-    "confirmationInvalid": "Ce lien de confirmation n est plus valable.",
-    "unsubscribeOk": "Tu es desabonne des envois. Pour annuler ton paiement, passe par la gestion de ton abonnement.",
-    "unsubscribeInvalid": "Ce lien de desabonnement n est plus valable.",
-    "error": "La redirection vers le paiement a echoue. Reessaie dans un instant."
+    "manage": "Gérer mon abonnement",
+    "loginFirst": "Connecte-toi pour t'abonner",
+    "verifyFirst": "Confirme ton adresse e-mail pour t'abonner",
+    "alreadySubscribed": "Tu es abonné à La Quotidienne.",
+    "pendingConfirmation": "Ton abonnement est actif : confirme ton adresse via le lien reçu par e-mail pour recevoir les envois.",
+    "confirmationOk": "Abonnement confirmé. Le premier envoi arrive au prochain passage.",
+    "confirmationInvalid": "Ce lien de confirmation n'est plus valable.",
+    "unsubscribeOk": "Tu es désabonné des envois. Pour annuler ton paiement, passe par la gestion de ton abonnement.",
+    "unsubscribeInvalid": "Ce lien de désabonnement n'est plus valable.",
+    "error": "La redirection vers le paiement a échoué. Réessaie dans un instant."
   },
   "legal": {
-    "updated": "Derniere mise a jour : juin 2026",
+    "updated": "Dernière mise à jour : juin 2026",
     "mentions": {
-      "title": "Mentions legales",
-      "description": "Editeur, hebergeur et contact du site AIm.",
+      "title": "Mentions légales",
+      "description": "Éditeur, hébergeur et contact du site AIm.",
       "sections": [
         {
-          "heading": "Editeur du site",
+          "heading": "Éditeur du site",
           "body": [
-            "Nom ou raison sociale : [A completer par l editeur du site]",
-            "Adresse : [A completer par l editeur du site]",
-            "Forme juridique et numero d immatriculation : [A completer par l editeur du site]",
-            "Adresse de contact : [A completer par l editeur du site]"
+            "Nom ou raison sociale : [À compléter par l'éditeur du site]",
+            "Adresse : [À compléter par l'éditeur du site]",
+            "Forme juridique et numéro d'immatriculation : [À compléter par l'éditeur du site]",
+            "Adresse de contact : [À compléter par l'éditeur du site]"
           ]
         },
         {
           "heading": "Directeur de la publication",
-          "body": ["[A completer par l editeur du site]"]
+          "body": ["[À compléter par l'éditeur du site]"]
         },
         {
-          "heading": "Hebergement",
+          "heading": "Hébergement",
           "body": [
-            "Application : Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, Etats-Unis.",
-            "Base de donnees : Supabase Inc.",
-            "Envoi des emails : Resend."
+            "Application : Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis.",
+            "Base de données : Supabase Inc.",
+            "Envoi des e-mails : Resend."
           ]
         },
         {
-          "heading": "Propriete intellectuelle",
+          "heading": "Propriété intellectuelle",
           "body": [
-            "Les contenus pedagogiques publies sur AIm sont proteges par le droit d auteur. Les resumes de la newsletter renvoient systematiquement vers l article original, dont les droits appartiennent a son editeur."
+            "Les contenus pédagogiques publiés sur AIm sont protégés par le droit d'auteur. Les résumés de la newsletter renvoient systématiquement vers l'article original, dont les droits appartiennent à son éditeur."
           ]
         }
       ]
     },
     "cgv": {
-      "title": "Conditions generales de vente",
-      "description": "Conditions applicables a l abonnement a la newsletter quotidienne d AIm.",
+      "title": "Conditions générales de vente",
+      "description": "Conditions applicables à l'abonnement à la newsletter quotidienne d'AIm.",
       "sections": [
         {
           "heading": "Objet",
           "body": [
-            "Les presentes conditions regissent l abonnement a la newsletter quotidienne d AIm. Les cours et les attestations de completion sont gratuits et ne relevent pas de ces conditions."
+            "Les présentes conditions régissent l'abonnement à la newsletter quotidienne d'AIm. Les cours et les attestations de complétion sont gratuits et ne relèvent pas de ces conditions."
           ]
         },
         {
           "heading": "Service",
           "body": [
-            "L abonnement donne acces a un envoi quotidien par courrier electronique, contenant un article de l actualite de l intelligence artificielle resume et remis en contexte. Un abonne peut limiter les envois a un niveau de difficulte maximum depuis son compte."
+            "L'abonnement donne accès à un envoi quotidien par courrier électronique, contenant un article de l'actualité de l'intelligence artificielle résumé et remis en contexte. Un abonné peut limiter les envois à un niveau de difficulté maximum depuis son compte."
           ]
         },
         {
           "heading": "Prix et paiement",
           "body": [
-            "Le prix est de 2,99 euros toutes taxes comprises par mois. Le paiement est preleve mensuellement par Stripe Payments Europe. La taxe sur la valeur ajoutee applicable est calculee par Stripe selon le pays de residence declare."
+            "Le prix est de 2,99 euros toutes taxes comprises par mois. Le paiement est prélevé mensuellement par Stripe Payments Europe. La taxe sur la valeur ajoutée applicable est calculée par Stripe selon le pays de résidence déclaré."
           ]
         },
         {
-          "heading": "Duree et resiliation",
+          "heading": "Durée et résiliation",
           "body": [
-            "L abonnement est mensuel et sans engagement de duree. Il peut etre resilie a tout moment depuis l espace de gestion de l abonnement. La resiliation prend effet a la fin de la periode en cours ; aucune periode entamee n est remboursee."
+            "L'abonnement est mensuel et sans engagement de durée. Il peut être résilié à tout moment depuis l'espace de gestion de l'abonnement. La résiliation prend effet à la fin de la période en cours ; aucune période entamée n'est remboursée."
           ]
         },
         {
-          "heading": "Droit de retractation",
+          "heading": "Droit de rétractation",
           "body": [
-            "Conformement a l article L221-28 du code de la consommation, le droit de retractation de quatorze jours ne s applique pas aux contenus numeriques dont l execution a commence avec l accord expres du consommateur. En souscrivant, l abonne demande l execution immediate du service et renonce a son droit de retractation."
+            "Conformément à l'article L221-28 du code de la consommation, le droit de rétractation de quatorze jours ne s'applique pas aux contenus numériques dont l'exécution a commencé avec l'accord exprès du consommateur. En souscrivant, l'abonné demande l'exécution immédiate du service et renonce à son droit de rétractation."
           ]
         },
         {
-          "heading": "Responsabilite",
+          "heading": "Responsabilité",
           "body": [
-            "Les resumes sont produits avec l assistance d un modele d intelligence artificielle et relus avant envoi. Ils ne constituent ni un conseil professionnel ni une garantie d exactitude. L abonne est invite a consulter l article original, dont le lien figure dans chaque envoi."
+            "Les résumés sont produits avec l'assistance d'un modèle d'intelligence artificielle et relus avant envoi. Ils ne constituent ni un conseil professionnel ni une garantie d'exactitude. L'abonné est invité à consulter l'article original, dont le lien figure dans chaque envoi."
           ]
         },
         {
-          "heading": "Reclamations et droit applicable",
+          "heading": "Réclamations et droit applicable",
           "body": [
-            "Toute reclamation peut etre adressee a [A completer par l editeur du site]. Les presentes conditions sont soumises au droit francais."
+            "Toute réclamation peut être adressée à [À compléter par l'éditeur du site]. Les présentes conditions sont soumises au droit français."
           ]
         }
       ]
     },
     "privacy": {
-      "title": "Politique de confidentialite",
-      "description": "Donnees collectees par AIm, finalites, duree de conservation et droits des personnes.",
+      "title": "Politique de confidentialité",
+      "description": "Données collectées par AIm, finalités, durée de conservation et droits des personnes.",
       "sections": [
         {
           "heading": "Responsable du traitement",
           "body": [
-            "[A completer par l editeur du site]. Pour toute question relative aux donnees personnelles : [A completer par l editeur du site]."
+            "[À compléter par l'éditeur du site]. Pour toute question relative aux données personnelles : [À compléter par l'éditeur du site]."
           ]
         },
         {
-          "heading": "Donnees collectees",
+          "heading": "Données collectées",
           "body": [
-            "Compte : adresse email, nom affiche, mot de passe sous forme de condensat, date de confirmation de l adresse.",
-            "Apprentissage : cours suivis, lecons terminees, tentatives de quiz, attestations delivrees.",
-            "Abonnement : identifiant client et identifiant d abonnement Stripe, statut du paiement, preference de niveau. Aucune coordonnee bancaire n est stockee par AIm.",
-            "Technique : cookie de session necessaire au fonctionnement du compte."
+            "Compte : adresse e-mail, nom affiché, mot de passe sous forme de condensat, date de confirmation de l'adresse.",
+            "Apprentissage : cours suivis, leçons terminées, tentatives de quiz, attestations délivrées.",
+            "Abonnement : identifiant client et identifiant d'abonnement Stripe, statut du paiement, préférence de niveau. Aucune coordonnée bancaire n'est stockée par AIm.",
+            "Technique : cookie de session nécessaire au fonctionnement du compte."
           ]
         },
         {
-          "heading": "Finalites et bases legales",
+          "heading": "Finalités et bases légales",
           "body": [
-            "Execution du contrat : gestion du compte, de la progression et de l abonnement.",
-            "Interet legitime : securite du service, prevention des abus de connexion.",
-            "Consentement : envoi de la newsletter apres confirmation explicite de l adresse, et mesure d audience si elle est acceptee."
+            "Exécution du contrat : gestion du compte, de la progression et de l'abonnement.",
+            "Intérêt légitime : sécurité du service, prévention des abus de connexion.",
+            "Consentement : envoi de la newsletter après confirmation explicite de l'adresse, et mesure d'audience si elle est acceptée."
           ]
         },
         {
-          "heading": "Intelligence artificielle et hebergement des donnees",
+          "heading": "Intelligence artificielle et hébergement des données",
           "body": [
-            "Les resumes de la newsletter sont generes via l API DeepSeek, dont les serveurs sont heberges en Chine.",
-            "Seul du contenu public est transmis a DeepSeek : le titre et le texte des articles issus de flux RSS publics. Aucune donnee personnelle d utilisateur n est jamais transmise a DeepSeek.",
-            "Aucune autre intelligence artificielle n est utilisee par l application. Le contenu des cours est redige a la main, en dehors de l application."
+            "Les résumés de la newsletter sont générés via l'API DeepSeek, dont les serveurs sont hébergés en Chine.",
+            "Seul du contenu public est transmis à DeepSeek : le titre et le texte des articles issus de flux RSS publics. Aucune donnée personnelle d'utilisateur n'est jamais transmise à DeepSeek.",
+            "Aucune autre intelligence artificielle n'est utilisée par l'application. Le contenu des cours est rédigé à la main, en dehors de l'application."
           ]
         },
         {
           "heading": "Sous-traitants",
           "body": [
-            "Vercel pour l hebergement de l application, Supabase pour la base de donnees, Resend pour l envoi des emails, Stripe pour le paiement, DeepSeek pour la generation des resumes."
+            "Vercel pour l'hébergement de l'application, Supabase pour la base de données, Resend pour l'envoi des e-mails, Stripe pour le paiement, DeepSeek pour la génération des résumés."
           ]
         },
         {
-          "heading": "Durees de conservation",
+          "heading": "Durées de conservation",
           "body": [
-            "Compte et progression : jusqu a la suppression du compte par l utilisateur.",
-            "Traces de generation des resumes : quatre-vingt-dix jours, puis purge automatique.",
-            "Donnees de facturation : conservees par Stripe selon les obligations comptables applicables."
+            "Compte et progression : jusqu'à la suppression du compte par l'utilisateur.",
+            "Traces de génération des résumés : quatre-vingt-dix jours, puis purge automatique.",
+            "Données de facturation : conservées par Stripe selon les obligations comptables applicables."
           ]
         },
         {
           "heading": "Droits des personnes",
           "body": [
-            "Chaque utilisateur peut acceder a ses donnees, les rectifier, les exporter au format JSON et supprimer son compte depuis la rubrique Mes donnees de son espace personnel. Une reclamation peut etre adressee a la Commission nationale de l informatique et des libertes."
+            "Chaque utilisateur peut accéder à ses données, les rectifier, les exporter au format JSON et supprimer son compte depuis la rubrique « Mes données » de son espace personnel. Une réclamation peut être adressée à la Commission nationale de l'informatique et des libertés."
           ]
         }
       ]
     },
     "cookies": {
       "title": "Politique cookies",
-      "description": "Cookies utilises par AIm et modalites de choix.",
+      "description": "Cookies utilisés par AIm et modalités de choix.",
       "sections": [
         {
-          "heading": "Cookies necessaires",
+          "heading": "Cookies nécessaires",
           "body": [
-            "Un cookie de session est depose lors de la connexion. Il permet de rester authentifie et ne peut pas etre desactive sans empecher l acces au compte. Sa duree de vie est de trente jours."
+            "Un cookie de session est déposé lors de la connexion. Il permet de rester authentifié et ne peut pas être désactivé sans empêcher l'accès au compte. Sa durée de vie est de trente jours."
           ]
         },
         {
-          "heading": "Mesure d audience",
+          "heading": "Mesure d'audience",
           "body": [
-            "Aucune mesure d audience n est active a ce jour. Si elle est mise en place, elle ne sera deposee qu apres acceptation explicite depuis la banniere de choix, et pourra etre refusee sans consequence sur l acces au service."
+            "Aucune mesure d'audience n'est active à ce jour. Si elle est mise en place, elle ne sera déposée qu'après acceptation explicite depuis la bannière de choix, et pourra être refusée sans conséquence sur l'accès au service."
           ]
         },
         {
           "heading": "Modifier son choix",
           "body": [
-            "Le choix exprime dans la banniere est conserve dans le navigateur. Effacer les donnees du site reaffiche la banniere au prochain passage."
+            "Le choix exprimé dans la bannière est conservé dans le navigateur. Effacer les données du site réaffiche la bannière au prochain passage."
           ]
         }
       ]
@@ -940,9 +940,9 @@
   },
   "cookies": {
     "title": "Cookies",
-    "body": "AIm depose un cookie necessaire a la connexion. La mesure d audience, elle, n est activee que si tu l acceptes.",
+    "body": "AIm dépose un cookie nécessaire à la connexion. La mesure d'audience, elle, n'est activée que si tu l'acceptes.",
     "accept": "Tout accepter",
-    "refuse": "Necessaires uniquement",
+    "refuse": "Nécessaires uniquement",
     "more": "Politique cookies"
   }
 }

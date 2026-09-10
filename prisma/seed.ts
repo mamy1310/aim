@@ -45,7 +45,7 @@ async function main() {
     update: {},
     create: {
       email: 'etudiant@aim.local',
-      name: 'Etudiante de test',
+      name: 'Étudiante de test',
       passwordHash,
       emailVerified: new Date(),
     },
@@ -59,48 +59,50 @@ async function main() {
     });
   }
 
+  const courseData = {
+    slug: 'comprendre-l-ia-generative',
+    title: "Comprendre l'IA générative",
+    description:
+      "Les notions de base pour comprendre ce qu'est un modèle de langage, ce qu'il sait faire et où sont ses limites.",
+    level: 1,
+    order: 1,
+    published: true,
+    aiAssisted: false,
+  };
+
   const course = await prisma.course.upsert({
-    where: { slug: 'comprendre-l-ia-generative' },
-    update: {},
-    create: {
-      slug: 'comprendre-l-ia-generative',
-      title: "Comprendre l'IA generative",
-      description:
-        "Les notions de base pour comprendre ce qu'est un modele de langage, ce qu'il sait faire et ou sont ses limites.",
-      level: 1,
-      order: 1,
-      published: true,
-      aiAssisted: false,
-    },
+    where: { slug: courseData.slug },
+    update: courseData,
+    create: courseData,
   });
 
   const lessons = [
     {
-      title: "Ce qu'est un modele de langage",
+      title: "Ce qu'est un modèle de langage",
       order: 1,
       contentMd:
-        "## Un modele de langage predit du texte\n\nUn modele de langage apprend a predire le mot suivant a partir de milliards d'exemples. Il ne consulte pas une base de connaissances : il produit la suite la plus vraisemblable.\n",
+        "## Un modèle de langage prédit du texte\n\nUn modèle de langage apprend à prédire le mot suivant à partir de milliards d'exemples. Il ne consulte pas une base de connaissances : il produit la suite la plus vraisemblable.\n",
       estimatedMinutes: 8,
     },
     {
-      title: 'Ce que le modele ne sait pas faire',
+      title: 'Ce que le modèle ne sait pas faire',
       order: 2,
       contentMd:
-        "## Les limites a connaitre\n\nUn modele peut affirmer une chose fausse avec assurance. Il n'a pas de notion de verite, seulement de vraisemblance. La verification reste a votre charge.\n",
+        "## Les limites à connaître\n\nUn modèle peut affirmer une chose fausse avec assurance. Il n'a pas de notion de vérité, seulement de vraisemblance. La vérification reste à votre charge.\n",
       estimatedMinutes: 7,
     },
     {
       title: 'Formuler une demande utile',
       order: 3,
       contentMd:
-        '## Donner du contexte\n\nUne demande precise produit une reponse precise : indiquez le role attendu, le format de sortie et les contraintes.\n',
+        '## Donner du contexte\n\nUne demande précise produit une réponse précise : indiquez le rôle attendu, le format de sortie et les contraintes.\n',
       estimatedMinutes: 6,
     },
     {
-      title: 'Verifier une reponse',
+      title: 'Vérifier une réponse',
       order: 4,
       contentMd:
-        '## Recouper les sources\n\nDemandez les sources, verifiez-les, et confrontez la reponse a une source primaire avant de la reutiliser.\n',
+        '## Recouper les sources\n\nDemandez les sources, vérifiez-les, et confrontez la réponse à une source primaire avant de la réutiliser.\n',
       estimatedMinutes: 6,
     },
   ];
@@ -125,32 +127,32 @@ async function main() {
   const questions = [
     {
       order: 1,
-      text: 'Que fait un modele de langage lorsqu il repond ?',
+      text: "Que fait un modèle de langage lorsqu'il répond ?",
       options: [
-        { label: 'Il predit la suite de texte la plus vraisemblable', isCorrect: true },
-        { label: 'Il consulte une base de donnees de faits verifies', isCorrect: false },
-        { label: 'Il recopie une reponse ecrite par un humain', isCorrect: false },
+        { label: 'Il prédit la suite de texte la plus vraisemblable', isCorrect: true },
+        { label: 'Il consulte une base de données de faits vérifiés', isCorrect: false },
+        { label: 'Il recopie une réponse écrite par un humain', isCorrect: false },
       ],
-      explanation: 'Le modele produit une suite probable, pas une verite verifiee.',
+      explanation: 'Le modèle produit une suite probable, pas une vérité vérifiée.',
     },
     {
       order: 2,
-      text: 'Une reponse assuree du modele est-elle forcement exacte ?',
+      text: 'Une réponse assurée du modèle est-elle forcément exacte ?',
       options: [
-        { label: 'Non, le ton assure ne garantit rien', isCorrect: true },
-        { label: 'Oui, le modele signale toujours ses doutes', isCorrect: false },
+        { label: 'Non, le ton assuré ne garantit rien', isCorrect: true },
+        { label: 'Oui, le modèle signale toujours ses doutes', isCorrect: false },
       ],
-      explanation: "L'assurance du style est independante de l'exactitude du contenu.",
+      explanation: "L'assurance du style est indépendante de l'exactitude du contenu.",
     },
     {
       order: 3,
-      text: 'Qu est-ce qui ameliore le plus la qualite d une reponse ?',
+      text: "Qu'est-ce qui améliore le plus la qualité d'une réponse ?",
       options: [
-        { label: 'Preciser le role, le format et les contraintes', isCorrect: true },
-        { label: 'Ecrire la demande en majuscules', isCorrect: false },
-        { label: 'Repeter la question plusieurs fois', isCorrect: false },
+        { label: 'Préciser le rôle, le format et les contraintes', isCorrect: true },
+        { label: 'Écrire la demande en majuscules', isCorrect: false },
+        { label: 'Répéter la question plusieurs fois', isCorrect: false },
       ],
-      explanation: 'Le contexte explicite reduit la marge d interpretation.',
+      explanation: "Le contexte explicite réduit la marge d'interprétation.",
     },
   ];
 

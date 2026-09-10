@@ -14,6 +14,58 @@ function flatten(node: Tree | string | (string | Tree)[], prefix = ''): [string,
 
 const entries = flatten(fr as Tree);
 
+// Les mots ci-dessous n'existent en francais qu'avec leurs accents : les voir
+// tels quels signale une chaine saisie sans diacritiques.
+const UNACCENTED = [
+  'necessaire',
+  'deja',
+  'apres',
+  'tres',
+  'etre',
+  'meme',
+  'resume',
+  'cout',
+  'delai',
+  'securite',
+  'verifie',
+  'redige',
+  'lecon',
+  'periode',
+  'reussite',
+  'donnees',
+  'desabonn',
+  'generation',
+  'reponse',
+  'categorie',
+  'numerique',
+  'echeance',
+  'achevement',
+  'edition',
+  'editeur',
+  'completion',
+  'difficulte',
+  'specialiste',
+  'hebergement',
+  'confidentialite',
+];
+
+describe('typographie francaise', () => {
+  it('accentue les mots qui l exigent', () => {
+    // Une frontiere \b casse apres une lettre accentuee : on borne sur les
+    // lettres Unicode pour ne pas retrouver « tres » dans « parametres ».
+    const pattern = new RegExp(`(?<!\\p{L})(${UNACCENTED.join('|')})`, 'iu');
+    const offenders = entries.filter(([, value]) => pattern.test(value));
+    expect(offenders.map(([key]) => key)).toEqual([]);
+  });
+
+  it('elide les articles au lieu de laisser une lettre isolee', () => {
+    const offenders = entries.filter(([, value]) =>
+      /(?<!\p{L}) [ldnjcsmt] [aàâeéèêiîouyh]/iu.test(value),
+    );
+    expect(offenders.map(([key]) => key)).toEqual([]);
+  });
+});
+
 describe('contraintes de vocabulaire', () => {
   it('n emploie jamais le mot certificat, hors mention de non-equivalence', () => {
     const offenders = entries.filter(
