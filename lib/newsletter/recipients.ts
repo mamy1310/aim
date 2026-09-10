@@ -8,8 +8,6 @@ export type Recipient = {
   confirmToken: string;
 };
 
-// Un abonne sans preference recoit tout ; sinon il ne recoit que les articles
-// dont le niveau est inferieur ou egal a sa limite.
 export function filterRecipientsByLevel<T extends { maxLevel: number | null }>(
   subscribers: T[],
   articleLevel: number,

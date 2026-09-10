@@ -14,8 +14,7 @@ export async function confirmSubscription(token: string): Promise<boolean> {
   return true;
 }
 
-// Le desabonnement arrete les envois mais laisse l'abonnement Stripe actif :
-// l'annulation du paiement passe par le portail client.
+// Stops the emails, leaves the Stripe subscription active.
 export async function unsubscribe(token: string): Promise<boolean> {
   const subscription = await prisma.newsletterSubscription.findUnique({
     where: { confirmToken: token },

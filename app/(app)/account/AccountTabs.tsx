@@ -18,6 +18,7 @@ import {
 import { PASSWORD_MIN_LENGTH } from '@/lib/auth/schemas';
 import { updateMaxLevelAction } from '@/lib/newsletter/actions';
 import { deleteAccountAction } from '@/lib/account/actions';
+import { runAction } from '@/lib/client-action';
 import { MAX_LEVEL } from '@/lib/levels';
 
 import {
@@ -380,7 +381,9 @@ function ProfilePanel({
                   defaultValue={maxLevel === null ? 'all' : String(maxLevel)}
                   onChange={async (event: ChangeEvent<HTMLSelectElement>) => {
                     const value = event.target.value;
-                    await updateMaxLevelAction(value === 'all' ? null : Number(value));
+                    await runAction(() =>
+                      updateMaxLevelAction(value === 'all' ? null : Number(value)),
+                    );
                     onToast(t('savedToast'));
                   }}
                   sx={{
@@ -417,7 +420,7 @@ function ProfilePanel({
           disabled={!dirty || saving}
           onClick={async () => {
             setSaving(true);
-            const result = await updateProfileAction({ name, email });
+            const result = await runAction(() => updateProfileAction({ name, email }));
             setSaving(false);
             if (!result.ok) {
               onToast(te(result.error));
@@ -508,7 +511,7 @@ function SecurityPanel({
             variant="contained"
             disabled={!current || pw.length < PASSWORD_MIN_LENGTH || pw !== confirm}
             onClick={async () => {
-              const result = await changePasswordAction({ current, next: pw });
+              const result = await runAction(() => changePasswordAction({ current, next: pw }));
               if (!result.ok) {
                 onToast(te(result.error));
                 return;
@@ -539,7 +542,7 @@ function SecurityPanel({
             sx={ghostSx}
             disabled={sessionCount < 2}
             onClick={async () => {
-              await revokeOtherSessionsAction();
+              await runAction(() => revokeOtherSessionsAction());
               onToast(t('disconnectAllToast'));
             }}
           >

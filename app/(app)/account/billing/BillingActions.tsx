@@ -5,6 +5,8 @@ import { useTranslations } from 'next-intl';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
+import { postJson } from '@/lib/client-action';
+
 import { ghostSx } from '../../../_components/styles';
 
 export default function BillingActions({ hasCustomer }: { hasCustomer: boolean }) {
@@ -16,15 +18,14 @@ export default function BillingActions({ hasCustomer }: { hasCustomer: boolean }
   async function go(endpoint: string) {
     setPending(true);
     setError('');
-    const response = await fetch(endpoint, { method: 'POST' });
-    const body = await response.json().catch(() => ({}));
+    const response = await postJson<{ url?: string }>(endpoint);
 
-    if (!response.ok || !body.url) {
+    if (!response.ok || !response.data.url) {
       setPending(false);
       setError(tn('error'));
       return;
     }
-    window.location.href = body.url;
+    window.location.href = response.data.url;
   }
 
   return (

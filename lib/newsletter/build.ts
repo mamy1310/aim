@@ -26,7 +26,6 @@ export async function runBuildJob(now = new Date()): Promise<BuildJobResult> {
     select: { id: true, titleLocalized: true },
   });
 
-  // Pas de resume du jour : aucune issue, aucun envoi, aucun message "rien aujourd hui".
   if (!summary) return { status: 'no_summary' };
 
   const issue = await prisma.newsletterIssue.create({

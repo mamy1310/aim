@@ -1,6 +1,5 @@
 import { prisma } from '@/lib/db';
 
-// Les traces de generation sont conservees 90 jours, voir la section 11.1.
 export const LOG_RETENTION_DAYS = 90;
 
 export async function purgeOldGenerationLogs(now = new Date()): Promise<{ deleted: number }> {

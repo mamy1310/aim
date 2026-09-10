@@ -41,8 +41,7 @@ export function computeProgress(completedLessons: number, totalLessons: number):
   return Math.round((Math.min(completedLessons, totalLessons) / totalLessons) * 100);
 }
 
-// Melange deterministe a partir d'une graine, pour que l'ordre des options reste
-// stable entre le rendu serveur et l'hydratation client.
+// Seeded so server and client agree on the order.
 export function shuffleWithSeed<T>(items: T[], seed: string): T[] {
   let state = 0;
   for (const char of seed) state = (state * 31 + char.charCodeAt(0)) >>> 0;

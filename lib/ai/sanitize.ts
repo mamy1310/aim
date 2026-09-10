@@ -2,8 +2,7 @@ import sanitizeHtml from 'sanitize-html';
 
 export const MAX_SOURCE_CHARS = 8000;
 
-// Balises qui ressemblent a de la structure de prompt : on les retire avant
-// d'inserer le contenu externe dans le message envoye au modele.
+// Tags that mimic prompt structure.
 const CONTROL_TAGS =
   /<\/?\s*(system|instructions?|role|assistant|user|prompt|tool|function|source_content)[^>]*>/gi;
 

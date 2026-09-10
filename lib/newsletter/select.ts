@@ -10,8 +10,6 @@ const CATEGORY_SCORE: Record<SelectableArticle['source']['category'], number> = 
   COMMUNITY: 1,
 };
 
-// Les flux RSS ne donnent aucune metrique de popularite : on classe par
-// fiabilite de la source, puis par fraicheur.
 export function rankArticles<T extends SelectableArticle>(articles: T[]): T[] {
   return [...articles].sort((a, b) => {
     const byCategory = CATEGORY_SCORE[b.source.category] - CATEGORY_SCORE[a.source.category];

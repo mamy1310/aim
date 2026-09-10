@@ -10,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 import { saveQuizAction } from '@/lib/admin/actions';
+import { runAction } from '@/lib/client-action';
 
 import { ghostSx, mono } from '../../_components/styles';
 
@@ -63,7 +64,7 @@ export default function QuizEditor({
         event.preventDefault();
         setPending(true);
         setMessage('');
-        const result = await saveQuizAction(courseId, { passScore, questions });
+        const result = await runAction(() => saveQuizAction(courseId, { passScore, questions }));
         setPending(false);
         if (!result.ok) {
           setError(true);

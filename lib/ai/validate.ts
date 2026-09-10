@@ -22,7 +22,6 @@ export const summarySchema = z.object({
 
 export type SummaryPayload = z.infer<typeof summarySchema>;
 
-// Tournures interdites, voir la section 10.5 de la specification.
 export const BANNED_PHRASES = [
   'revolutionnaire',
   'game-changer',

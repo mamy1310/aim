@@ -6,6 +6,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+import { postJson } from '@/lib/client-action';
+
 import { mono, serif } from '../../../../_components/styles';
 
 type Question = {
@@ -54,17 +56,13 @@ export default function QuizForm({
     setPending(true);
     setError('');
 
-    const response = await fetch(`/api/quizzes/${quizId}/submit`, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        quizId,
-        durationSeconds: Math.round((Date.now() - startedAt) / 1000),
-        answers: questions.map((question) => ({
-          questionId: question.id,
-          optionIndex: answers[question.id] ?? null,
-        })),
-      }),
+    const response = await postJson<Result>(`/api/quizzes/${quizId}/submit`, {
+      quizId,
+      durationSeconds: Math.round((Date.now() - startedAt) / 1000),
+      answers: questions.map((question) => ({
+        questionId: question.id,
+        optionIndex: answers[question.id] ?? null,
+      })),
     });
 
     setPending(false);
@@ -73,7 +71,7 @@ export default function QuizForm({
       return;
     }
 
-    setResult(await response.json());
+    setResult(response.data);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 

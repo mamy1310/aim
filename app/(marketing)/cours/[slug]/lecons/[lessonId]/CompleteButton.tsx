@@ -6,6 +6,8 @@ import { useTranslations } from 'next-intl';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
+import { postJson } from '@/lib/client-action';
+
 export default function CompleteButton({
   lessonId,
   completed,
@@ -35,7 +37,7 @@ export default function CompleteButton({
       disabled={done || pending}
       onClick={async () => {
         setPending(true);
-        const response = await fetch(`/api/lessons/${lessonId}/complete`, { method: 'POST' });
+        const response = await postJson(`/api/lessons/${lessonId}/complete`);
         setPending(false);
         if (!response.ok) return;
         setDone(true);

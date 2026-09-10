@@ -72,7 +72,6 @@ export async function summarizeArticle(
   const systemPrompt = buildSystemPrompt(MAX_LEVEL);
   const userMessage = buildUserMessage(article);
 
-  // Une temperature basse au second essai rend la sortie plus deterministe.
   const temperatures = [0.3, 0.1];
   let lastFailure = '';
 
@@ -82,7 +81,6 @@ export async function summarizeArticle(
     try {
       generation = await provider.generateStructured(systemPrompt, userMessage, { temperature });
     } catch (error) {
-      // Panne reseau ou 5xx : l'article reste a traiter, un run ulterieur retentera.
       return {
         status: 'retryable',
         reason: error instanceof Error ? error.message : 'erreur reseau',

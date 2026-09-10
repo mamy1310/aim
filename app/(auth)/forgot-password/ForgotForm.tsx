@@ -7,6 +7,7 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
 import { forgotPasswordAction } from '@/lib/auth/actions';
+import { runAction } from '@/lib/client-action';
 
 import { MailIcon } from '../../_components/icons';
 import { mono, serif } from '../../_components/styles';
@@ -35,7 +36,7 @@ export default function ForgotForm() {
       return;
     }
     setLoading(true);
-    await forgotPasswordAction({ email: email.trim() });
+    await runAction(() => forgotPasswordAction({ email: email.trim() }));
     setLoading(false);
     setSentEmail(email.trim());
     setSent(true);
@@ -43,7 +44,7 @@ export default function ForgotForm() {
 
   async function resend() {
     setResendLabel(t('resending'));
-    await forgotPasswordAction({ email: sentEmail });
+    await runAction(() => forgotPasswordAction({ email: sentEmail }));
     setResendLabel(t('resent'));
     setTimeout(() => setResendLabel(''), 2200);
   }

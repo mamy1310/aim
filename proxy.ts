@@ -3,9 +3,7 @@ import type { NextRequest } from 'next/server';
 
 const SESSION_COOKIES = ['authjs.session-token', '__Secure-authjs.session-token'];
 
-// ponytail: le proxy ne verifie que la presence du cookie de session, pas sa validite
-// ni le role. La verification reelle (session en base, role ADMIN) est faite dans les
-// layouts serveur, seul endroit ou l'acces a la base est legitime a chaque rendu.
+// Cookie presence only. Session and role are checked in the server layouts.
 export function proxy(request: NextRequest) {
   const hasSession = SESSION_COOKIES.some((name) => request.cookies.has(name));
   if (hasSession) return NextResponse.next();

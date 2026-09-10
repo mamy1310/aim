@@ -14,13 +14,11 @@ function readChoice(): string | null {
   try {
     return window.localStorage.getItem(STORAGE_KEY);
   } catch {
-    // Stockage indisponible : on n'affiche pas une banniere qu'on ne saurait pas memoriser.
     return 'necessary';
   }
 }
 
-// Le rendu serveur ne connait pas le choix : il considere la banniere deja traitee,
-// ce qui evite tout ecart d'hydratation.
+// The server cannot read the choice, so it renders as already answered.
 const noopSubscribe = () => () => {};
 
 export default function CookieBanner() {
@@ -31,9 +29,7 @@ export default function CookieBanner() {
   function choose(value: 'all' | 'necessary') {
     try {
       window.localStorage.setItem(STORAGE_KEY, value);
-    } catch {
-      // Rien a faire : le choix ne sera pas memorise.
-    }
+    } catch {}
     setDismissed(true);
   }
 

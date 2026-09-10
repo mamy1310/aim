@@ -5,6 +5,8 @@ import { useTranslations } from 'next-intl';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
+import { postJson } from '@/lib/client-action';
+
 import { ghostSx } from '../../_components/styles';
 
 export type CtaState = 'anonymous' | 'unverified' | 'ready' | 'subscribed';
@@ -46,14 +48,13 @@ export default function NewsletterCta({ state }: { state: CtaState }) {
         onClick={async () => {
           setPending(true);
           setError('');
-          const response = await fetch('/api/stripe/checkout', { method: 'POST' });
-          const body = await response.json().catch(() => ({}));
-          if (!response.ok || !body.url) {
+          const response = await postJson<{ url?: string }>('/api/stripe/checkout');
+          if (!response.ok || !response.data.url) {
             setPending(false);
             setError(t('error'));
             return;
           }
-          window.location.href = body.url;
+          window.location.href = response.data.url;
         }}
       >
         {pending ? t('ctaLoading') : t('cta')}

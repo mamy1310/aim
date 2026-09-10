@@ -2,8 +2,6 @@ import Stripe from 'stripe';
 
 import { env } from '@/lib/env';
 
-// En developpement et en test, STRIPE_API_BASE pointe sur stripe-mock : aucun
-// compte Stripe n'est necessaire pour exercer les appels d'API.
 function localOverrides(): Stripe.StripeConfig {
   const base = env.stripeApiBase;
   if (!base) return {};

@@ -11,6 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 
 import { deleteSourceAction, saveSourceAction } from '@/lib/admin/newsletter-actions';
+import { runAction } from '@/lib/client-action';
 
 import { ghostSx, mono } from '../../_components/styles';
 
@@ -43,7 +44,7 @@ export default function SourcesManager({ sources }: { sources: SourceRow[] }) {
   const [error, setError] = useState(false);
 
   async function persist(sourceId: string | null, values: typeof draft) {
-    const result = await saveSourceAction(sourceId, values);
+    const result = await runAction(() => saveSourceAction(sourceId, values));
     if (!result.ok) {
       setError(true);
       setMessage(te(result.error));
@@ -126,7 +127,7 @@ export default function SourcesManager({ sources }: { sources: SourceRow[] }) {
               sx={{ ...ghostSx, color: 'error.main', borderColor: 'error.main' }}
               onClick={async () => {
                 if (!window.confirm(t('deleteConfirm'))) return;
-                await deleteSourceAction(source.id);
+                await runAction(() => deleteSourceAction(source.id));
                 router.refresh();
               }}
             >

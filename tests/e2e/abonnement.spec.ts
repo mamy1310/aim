@@ -17,8 +17,7 @@ test.describe('parcours abonnement', () => {
     await page.goto('/newsletter');
     await expect(page.getByRole('button', { name: /m abonner|m'abonner/i })).toBeVisible();
 
-    // La page de paiement hebergee par Stripe est hors perimetre : on injecte
-    // directement l evenement que Stripe enverrait, signe localement.
+    // Stripe's hosted page is out of scope, so inject the signed event directly.
     const now = Math.floor(Date.now() / 1000);
     const payload = JSON.stringify({
       id: `evt_e2e_${user.id}`,

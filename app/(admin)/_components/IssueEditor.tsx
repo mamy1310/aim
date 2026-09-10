@@ -12,6 +12,7 @@ import {
   sendIssueAction,
   updateIssueAction,
 } from '@/lib/admin/newsletter-actions';
+import { runAction } from '@/lib/client-action';
 
 import { ghostSx } from '../../_components/styles';
 
@@ -67,7 +68,7 @@ export default function IssueEditor({
       onSubmit={async (event) => {
         event.preventDefault();
         setPending(true);
-        const result = await updateIssueAction(issueId, values);
+        const result = await runAction(() => updateIssueAction(issueId, values));
         setPending(false);
         report(result, t('saved'));
       }}
@@ -100,7 +101,7 @@ export default function IssueEditor({
           onClick={async () => {
             if (!window.confirm(t('sendConfirm'))) return;
             setPending(true);
-            const result = await sendIssueAction(issueId);
+            const result = await runAction(() => sendIssueAction(issueId));
             setPending(false);
             report(result, t('sent'));
           }}
@@ -113,7 +114,7 @@ export default function IssueEditor({
           sx={{ color: 'error.main' }}
           onClick={async () => {
             if (!window.confirm(t('deleteConfirm'))) return;
-            await deleteIssueAction(issueId);
+            await runAction(() => deleteIssueAction(issueId).then(() => ({ ok: true as const })));
           }}
         >
           {t('delete')}

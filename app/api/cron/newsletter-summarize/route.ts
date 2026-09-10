@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { assertCronRequest } from '@/lib/cron';
 import { runSummarizeJob } from '@/lib/newsletter/summarize-job';
 
-// L'heure d'execution donne le numero de tentative : 6h UTC = 1, 8h = 2, 10h = 3.
+// 6h UTC is attempt 1, 8h is 2, 10h is 3.
 function attemptNumberFor(hour: number): number {
   if (hour < 7) return 1;
   if (hour < 9) return 2;

@@ -66,8 +66,7 @@ async function upsertSubscription(subscription: Stripe.Subscription): Promise<We
   return { handled: true };
 }
 
-// Chaque traitement est idempotent : rejouer le meme evenement laisse la base
-// dans le meme etat, ce que Stripe fait regulierement.
+// Stripe replays events, so every handler must be idempotent.
 export async function handleStripeEvent(event: Stripe.Event): Promise<WebhookOutcome> {
   switch (event.type) {
     case 'checkout.session.completed': {

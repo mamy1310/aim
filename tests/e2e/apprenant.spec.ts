@@ -9,7 +9,6 @@ test.describe('parcours apprenant', () => {
     const slug = `cours-e2e-${Date.now()}`;
     const course = await createCourse(slug);
 
-    // Inscription
     await page.goto('/register');
     const texts = page.locator('input[type="text"]');
     await texts.nth(0).fill('Lea');
@@ -25,7 +24,6 @@ test.describe('parcours apprenant', () => {
       .click();
     await page.waitForURL('**/dashboard');
 
-    // Le jeton de verification est celui envoye par email, recupere ici en base.
     const token = await prisma.verificationToken.findFirstOrThrow({
       where: { identifier: `verify-email:${email}` },
     });
@@ -34,7 +32,6 @@ test.describe('parcours apprenant', () => {
       ignoreCase: true,
     });
 
-    // Consultation du cours et completion des lecons
     await page.goto(`/cours/${slug}`);
     for (const lesson of course.lessons) {
       await page.goto(`/cours/${slug}/lecons/${lesson.id}`);
@@ -42,13 +39,11 @@ test.describe('parcours apprenant', () => {
       await expect(page.getByRole('button', { name: /termin/i })).toBeVisible();
     }
 
-    // Quiz
     await page.goto(`/cours/${slug}/quiz`);
     await page.locator('label', { hasText: 'La bonne reponse' }).first().locator('input').check();
     await page.getByRole('button', { name: /valider mes r.ponses/i }).click();
     await expect(page.getByText('100 %')).toBeVisible();
 
-    // Attestation publique
     await page
       .getByRole('link', { name: /attestation/i })
       .first()

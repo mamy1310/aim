@@ -1,9 +1,7 @@
 export const LOGIN_MAX_ATTEMPTS = 5;
 export const LOGIN_WINDOW_MS = 15 * 60 * 1000;
 
-// ponytail: compteur en memoire, remis a zero a chaque demarrage d'instance.
-// Suffisant pour freiner le bourrinage sur une instance ; passer sur une table
-// ou un store partage le jour ou le trafic justifie plusieurs instances.
+// ponytail: in-memory, resets per instance. Shared store once traffic needs several.
 const attempts = new Map<string, number[]>();
 
 export function recordAttempt(key: string, now = Date.now()): void {

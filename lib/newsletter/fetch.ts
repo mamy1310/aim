@@ -31,7 +31,7 @@ function itemDate(item: FeedItem): Date | null {
   return Number.isNaN(date.getTime()) ? null : date;
 }
 
-// Seul le texte est conserve : ni images, ni videos, ni pieces jointes.
+// Text only: no images, videos or attachments.
 function itemText(item: FeedItem): string {
   return sanitizeSourceContent(
     item['content:encoded'] ?? item.content ?? item.contentSnippet ?? '',

@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 
 import { loginAction } from '@/lib/auth/actions';
+import { runAction } from '@/lib/client-action';
 
 import { AlertCircleIcon } from '../../_components/icons';
 import { Field, PasswordField, OrDivider } from '../_components/fields';
@@ -24,14 +25,14 @@ export default function LoginForm({ googleEnabled }: { googleEnabled: boolean })
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [pwError, setPwError] = useState(false);
-  const [banner, setBanner] = useState('');
+  const [banner, setBanner] = useState<{ title: boolean; text: string } | null>(null);
   const [loading, setLoading] = useState(false);
 
   const te = useTranslations('auth.errors');
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    setBanner('');
+    setBanner(null);
     let ok = true;
     if (!EMAIL_RE.test(email.trim())) {
       setEmailError(tc('emailInvalid'));
@@ -44,7 +45,7 @@ export default function LoginForm({ googleEnabled }: { googleEnabled: boolean })
     if (!ok) return;
 
     setLoading(true);
-    const result = await loginAction({ email: email.trim(), password });
+    const result = await runAction(() => loginAction({ email: email.trim(), password }));
 
     if (result.ok) {
       router.push('/dashboard');
@@ -53,8 +54,8 @@ export default function LoginForm({ googleEnabled }: { googleEnabled: boolean })
     }
 
     setLoading(false);
-    setBanner(te(result.error));
-    setPwError(true);
+    setBanner({ title: result.error === 'invalid_credentials', text: te(result.error) });
+    setPwError(result.error === 'invalid_credentials');
   }
 
   return (
@@ -84,10 +85,14 @@ export default function LoginForm({ googleEnabled }: { googleEnabled: boolean })
             <AlertCircleIcon />
           </Box>
           <span>
-            <Box component="strong" sx={{ fontWeight: 600 }}>
-              {t('bannerTitle')}
-            </Box>{' '}
-            {banner}
+            {banner.title ? (
+              <>
+                <Box component="strong" sx={{ fontWeight: 600 }}>
+                  {t('bannerTitle')}
+                </Box>{' '}
+              </>
+            ) : null}
+            {banner.text}
           </span>
         </Box>
       ) : null}
@@ -101,7 +106,7 @@ export default function LoginForm({ googleEnabled }: { googleEnabled: boolean })
         onChange={(v) => {
           setEmail(v);
           setEmailError('');
-          setBanner('');
+          setBanner(null);
         }}
         error={!!emailError}
         message={emailError}
@@ -116,7 +121,7 @@ export default function LoginForm({ googleEnabled }: { googleEnabled: boolean })
         onChange={(v) => {
           setPassword(v);
           setPwError(false);
-          setBanner('');
+          setBanner(null);
         }}
         error={pwError}
         labelRight={

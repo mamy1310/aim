@@ -1,5 +1,4 @@
-// Tarifs DeepSeek en dollars par million de tokens, a actualiser a la main
-// quand DeepSeek publie une nouvelle grille.
+// Dollars per million tokens. Update by hand.
 const PRICING: Record<string, { cacheMiss: number; cacheHit: number; output: number }> = {
   'deepseek-v4-flash': { cacheMiss: 0.14, cacheHit: 0.0028, output: 0.28 },
 };

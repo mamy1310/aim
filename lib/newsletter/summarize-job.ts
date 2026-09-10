@@ -20,8 +20,7 @@ function startOfUtcDay(now: Date): Date {
   return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
 }
 
-// Les executions de 8h et 10h sont des filets de securite : si un resume du jour
-// existe deja, le job sort immediatement sans appeler l'API.
+// The 8h and 10h runs are safety nets.
 export async function runSummarizeJob(
   attemptNumber: number,
   provider?: Summarizer,
@@ -66,7 +65,6 @@ export async function runSummarizeJob(
     if (outcome.status === 'cost_limit_reached') return { status: 'cost_limit_reached' };
 
     if (outcome.status === 'retryable') {
-      // L'article reste en PENDING : le prochain passage de la journee retentera.
       return { status: 'retry_later', reason: outcome.reason };
     }
 

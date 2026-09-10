@@ -14,8 +14,7 @@ function flatten(node: Tree | string | (string | Tree)[], prefix = ''): [string,
 
 const entries = flatten(fr as Tree);
 
-// Les mots ci-dessous n'existent en francais qu'avec leurs accents : les voir
-// tels quels signale une chaine saisie sans diacritiques.
+// These words only exist accented in French.
 const UNACCENTED = [
   'necessaire',
   'deja',
@@ -51,8 +50,7 @@ const UNACCENTED = [
 
 describe('typographie francaise', () => {
   it('accentue les mots qui l exigent', () => {
-    // Une frontiere \b casse apres une lettre accentuee : on borne sur les
-    // lettres Unicode pour ne pas retrouver « tres » dans « parametres ».
+    // \b breaks after an accented letter: "tres" would match inside "parametres".
     const pattern = new RegExp(`(?<!\\p{L})(${UNACCENTED.join('|')})`, 'iu');
     const offenders = entries.filter(([, value]) => pattern.test(value));
     expect(offenders.map(([key]) => key)).toEqual([]);

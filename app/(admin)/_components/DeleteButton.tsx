@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation';
 import Button from '@mui/material/Button';
 
+import { runAction } from '@/lib/client-action';
+
 import { ghostSx } from '../../_components/styles';
 
 export default function DeleteButton({
@@ -26,7 +28,7 @@ export default function DeleteButton({
       sx={{ ...ghostSx, color: 'error.main', borderColor: 'error.main' }}
       onClick={async () => {
         if (!window.confirm(confirmLabel)) return;
-        await onDelete();
+        await runAction(onDelete);
         router.push(redirectTo);
         router.refresh();
       }}

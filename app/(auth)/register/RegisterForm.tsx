@@ -8,6 +8,7 @@ import Link from '@mui/material/Link';
 import Checkbox from '@mui/material/Checkbox';
 
 import { registerAction } from '@/lib/auth/actions';
+import { runAction } from '@/lib/client-action';
 import { PASSWORD_MIN_LENGTH } from '@/lib/auth/schemas';
 
 import { Field, PasswordField, PasswordStrength, OrDivider } from '../_components/fields';
@@ -58,11 +59,13 @@ export default function RegisterForm({ googleEnabled }: { googleEnabled: boolean
 
     setLoading(true);
     setBanner('');
-    const result = await registerAction({
-      name: `${firstName.trim()} ${lastName.trim()}`,
-      email: email.trim(),
-      password,
-    });
+    const result = await runAction(() =>
+      registerAction({
+        name: `${firstName.trim()} ${lastName.trim()}`,
+        email: email.trim(),
+        password,
+      }),
+    );
 
     if (result.ok) {
       router.push('/dashboard');

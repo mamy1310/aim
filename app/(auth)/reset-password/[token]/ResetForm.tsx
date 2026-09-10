@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 
 import { resetPasswordAction } from '@/lib/auth/actions';
+import { runAction } from '@/lib/client-action';
 import { PASSWORD_MIN_LENGTH } from '@/lib/auth/schemas';
 
 import { PasswordField, PasswordStrength } from '../../_components/fields';
@@ -45,7 +46,7 @@ export default function ResetForm({ token }: { token: string }) {
 
     setLoading(true);
     setBanner('');
-    const result = await resetPasswordAction({ token, password });
+    const result = await runAction(() => resetPasswordAction({ token, password }));
 
     if (!result.ok) {
       setLoading(false);

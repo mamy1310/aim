@@ -1,6 +1,5 @@
 import { prisma } from '@/lib/db';
 
-// Export RGPD : toutes les donnees rattachees au compte, dans un seul objet JSON.
 export async function exportUserData(userId: string) {
   const user = await prisma.user.findUnique({
     where: { id: userId },

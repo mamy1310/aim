@@ -10,6 +10,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import TextField from '@mui/material/TextField';
 
 import { saveCourseAction } from '@/lib/admin/actions';
+import { runAction } from '@/lib/client-action';
 
 export type CourseValues = {
   slug: string;
@@ -48,7 +49,9 @@ export default function CourseForm({
         event.preventDefault();
         setPending(true);
         setMessage('');
-        const result = await saveCourseAction(courseId, values);
+        const result = await runAction(() =>
+          saveCourseAction(courseId, values).then((r) => r ?? { ok: true as const }),
+        );
         setPending(false);
         if (result && !result.ok) {
           setError(true);

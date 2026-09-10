@@ -10,6 +10,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import TextField from '@mui/material/TextField';
 
 import { saveLessonAction } from '@/lib/admin/actions';
+import { runAction } from '@/lib/client-action';
 
 import LessonBody from '../../(marketing)/cours/[slug]/lecons/[lessonId]/LessonBody';
 import { mono } from '../../_components/styles';
@@ -51,7 +52,7 @@ export default function LessonEditor({
         event.preventDefault();
         setPending(true);
         setMessage('');
-        const result = await saveLessonAction(courseId, lessonId, values);
+        const result = await runAction(() => saveLessonAction(courseId, lessonId, values));
         setPending(false);
         if (!result.ok) {
           setError(true);

@@ -8,9 +8,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       include: ['lib/**/*.ts'],
-      // Exclus du calcul : le client Prisma genere, et les modules qui ne sont
-      // exercables que dans un contexte de requete Next ou contre une API tierce.
-      // Ces chemins sont couverts par la suite Playwright.
+      // Request-scoped and third-party modules; Playwright covers them.
       exclude: [
         'lib/generated/**',
         'lib/**/*actions.ts',
