@@ -24,6 +24,10 @@ pnpm db:seed
 pnpm dev
 ```
 
+Les tests d'integration utilisent une base jetable separee, demarree par `pnpm test:integration`.
+Les tests de bout en bout ont besoin de `stripe-mock` pour le parcours de paiement ; sans lui, ce
+scenario est ignore et les autres tournent normalement.
+
 L'application demarre sur http://localhost:3000 sans aucune cle d'API reelle : les valeurs de
 `.env` sont factices et tous les services tiers sont simules (stripe-mock, mocks Resend et
 DeepSeek dans les tests). Les generations IA sont coupees par `AI_SUMMARIZATION_ENABLED=false`.

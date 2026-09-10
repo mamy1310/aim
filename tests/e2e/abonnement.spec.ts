@@ -69,6 +69,45 @@ test.describe('parcours abonnement', () => {
     await prisma.user.deleteMany({ where: { email } });
   });
 
+  test('la session de paiement est creee et le client Stripe rattache au compte', async ({
+    page,
+  }) => {
+    test.skip(!process.env.STRIPE_API_BASE, 'stripe-mock n est pas configure');
+
+    const email = uniqueEmail('checkout');
+    const user = await createVerifiedUser(email);
+
+    await signIn(page, email);
+    const response = await page.request.post('/api/stripe/checkout');
+    expect(response.ok()).toBeTruthy();
+    expect((await response.json()).url).toContain('http');
+
+    const updated = await prisma.user.findUniqueOrThrow({ where: { id: user.id } });
+    expect(updated.stripeCustomerId).toMatch(/^cus_/);
+
+    await prisma.user.deleteMany({ where: { email } });
+  });
+
+  test('le checkout exige une adresse confirmee', async ({ page }) => {
+    const email = uniqueEmail('nonverifie');
+    const user = await createVerifiedUser(email);
+    await prisma.user.update({ where: { id: user.id }, data: { emailVerified: null } });
+
+    await page.goto('/login');
+    await page.locator('input[type="email"]').fill(email);
+    await page.locator('input[type="password"]').first().fill('motdepasse1');
+    await page
+      .getByRole('button', { name: /se connecter/i })
+      .first()
+      .click();
+    await page.waitForURL('**/dashboard');
+
+    const response = await page.request.post('/api/stripe/checkout');
+    expect(response.status()).toBe(403);
+
+    await prisma.user.deleteMany({ where: { email } });
+  });
+
   test('une signature invalide est rejetee', async ({ request }) => {
     const response = await request.post('/api/stripe/webhook', {
       headers: { 'stripe-signature': 't=1,v1=faux', 'content-type': 'application/json' },
